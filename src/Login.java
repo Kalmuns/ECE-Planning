@@ -2,6 +2,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Login extends JPanel{
 // Va servir de page d'accueuil.
@@ -9,10 +11,12 @@ public class Login extends JPanel{
 		JTextField username,mdp ;
 		JLabel userJLabel,mdpJLabel;
 		JButton login=new JButton("Login");
-		
-	
-	
-		public Login() {
+	private Wall wa;
+
+
+
+	public Login(Wall a,int[] log) {
+			wa=a;
 			username=new  JTextField(20);
 			mdp=new JTextField(20);
 			userJLabel= new JLabel("Username :  ");
@@ -22,14 +26,22 @@ public class Login extends JPanel{
 			add(mdpJLabel);
 			add(mdp);
 			add(login);
-			
-			
-			
-			
-			
-			
+			login.addActionListener(new LoginButton());
+
+
+
 			this.setVisible(true);
+
+		}
 			
 			// TODO Auto-generated constructor stub
-		}
+			private class LoginButton implements ActionListener
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					wa.rset();
+					wa.act(1);
+				}
+			}
+
 }
