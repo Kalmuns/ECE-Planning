@@ -9,8 +9,8 @@ public class Menu extends JPanel  {
 
 	private JButton accueil;
 	private JButton etd;
-	protected Wall wall;
-	public Menu(Wall wa)
+	protected WallCalendrier wallCalendrier;
+	public Menu(WallCalendrier wa)
 	{
 		accueil=new JButton ("Accueil");
 		etd=new JButton ("ETD");
@@ -18,7 +18,7 @@ public class Menu extends JPanel  {
 		etd.addActionListener(new edtListener());
 		add(accueil);
 		add (etd);
-		wall= wa  ;
+		wallCalendrier = wa  ;
 		setVisible(false);
 		setEnabled(false);
 		this.validate();
@@ -38,9 +38,10 @@ public class Menu extends JPanel  {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			wall.add(new SemainePanel(), BorderLayout.NORTH);
-			wall.add(new CoursPanel(),BorderLayout.CENTER);
-			wall.add(new HeuresPanel(),BorderLayout.WEST);
+			wallCalendrier.add(new Calendrier(),BorderLayout.CENTER);
+    		wallCalendrier.add(new HeureDisplay(), BorderLayout.WEST);
+			wallCalendrier.add(new SemaineDisplay(), BorderLayout.NORTH);
+
 		}
 
 	}

@@ -4,35 +4,35 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SemainePanel extends JPanel
+public class HeureDisplay extends JPanel
 {
-    private Wall wall;
+    private WallCalendrier wallCalendrier;
 //    ArrayList<JLabel> info;
 //    ArrayList<JButton> rdvlink;
     //private MeetingCase de;
 
     private int iD;
-    List<JPanel> semaineList = new ArrayList<JPanel>();
+    List<JPanel> heuresList = new ArrayList<>();
 
-    public SemainePanel() {
-        System.out.println("page SemainePanel");
+    public HeureDisplay() {
+        System.out.println("page heures panel");
         //iD = id;
         int i;
         //wall = wa;
 //        info=new ArrayList<>();
 //        rdvlink=new ArrayList<>();
 
-        for(i=0;i<50;i++)
+        for(i=0;i<6;i++)
         {
-            semaineList.add(new numSemaine(60));// 60  doit être id de la semaine
+            heuresList.add(new heuresJour(60));// 60  doit être id du rendez vous
 //            rdvlink.add(new JButton("Link"));
 //            info.add(new JLabel(("Info doc")));
         }
 
-        setLayout(new GridLayout(1,50 ,0,0));
-        for(i=0;i<50;i++)
+        setLayout(new GridLayout(6,1 ,0,0));
+        for(i=0;i<6;i++)
         {
-            add(semaineList.get(i));
+            add(heuresList.get(i));
 //         add(info.get(i));
 //         add(rdvlink.get(i));
         }
@@ -40,6 +40,6 @@ public class SemainePanel extends JPanel
         setVisible(true);
         setEnabled(true);
         this.validate();
-        System.out.println("Semaine Panel constructor");
+        System.out.println("Heures Panel constructor");
     }
 }

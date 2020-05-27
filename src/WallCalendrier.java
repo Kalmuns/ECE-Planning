@@ -1,30 +1,26 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Wall extends JPanel
+public class WallCalendrier extends JPanel
 {
     private int[] idpersonne;
-    public Wall()
+    public WallCalendrier()
     {
         this.setLayout(new BorderLayout());
         // Appeler la page Login
 
-//        idpersonne = new int [1];
-//        idpersonne[0]=2;
-//        this.setLayout(new BorderLayout());
 //        JPanel buffer= new Login(this,idpersonne);
 //        add(buffer,BorderLayout.CENTER);
 //        buffer=new Menu(this);
 //        add(buffer,BorderLayout.NORTH);
-
-        add(new SemainePanel(),BorderLayout.NORTH);
-        add(new CoursPanel(),BorderLayout.CENTER);
-        add(new HeuresPanel(),BorderLayout.WEST);
+//
+        add(new SemaineDisplay(),BorderLayout.NORTH);
+        add(new Calendrier(),BorderLayout.CENTER);
+        add(new HeureDisplay(),BorderLayout.WEST);
 
         this.validate();
         setVisible(true);
     }
-
     public void rset()
     {
         int i;
@@ -40,15 +36,17 @@ public class Wall extends JPanel
         this.getComponent(i).setVisible(true);
         this.getComponent(i).setEnabled(true);
     }
+
     public void setmenu()
     {
         rset();
         act(1);
     }
+
     public void actual(JPanel s)
     {
         setmenu();
-        this.remove(0);
+        //this.remove(0);
         System.out.println("add ok");
 
         add(s,BorderLayout.CENTER, 0);
@@ -57,4 +55,6 @@ public class Wall extends JPanel
 
         this.revalidate();
     }
+
+
 }

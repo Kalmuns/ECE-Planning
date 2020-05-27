@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 
-import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 
 /**
@@ -23,12 +22,13 @@ public class CoursInfo extends JPanel
     {
         //  this.setLayout(new BorderLayout());
         idrdv=iD;
-        cours = new JLabel("cours");// recup info via idrdv
+        cours = new JLabel("cours" + "\n");// recup info via idrdv
         groupe = new JLabel("groupe");
         salle = new JLabel("salle");
         add(cours);
         add(groupe);
         add(salle);
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
         //add(doc,BorderLayout.WEST);
         //add(lieux,BorderLayout.CENTER);
         //add(date,BorderLayout.EAST);

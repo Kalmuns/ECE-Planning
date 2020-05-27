@@ -3,19 +3,18 @@ import java.awt.*;
 
 public class heuresJour extends JPanel
 {
-    private Wall wall;
-    private int idrdv;
+    private WallCalendrier wallCalendrier;
+    private int heureD;
     //private ArrayList<Doctor> doc  // utilisation des classes quand on mettra sql
-    public heuresJour(int id)
+    public heuresJour(int heure)
     {
         System.out.println("page heuresJour");
-        idrdv=id;
+        heureD=heure;
         this.setVisible(true);
         this.setLayout(new BorderLayout());
-        //add(new MeetingCaseInfo(idrdv),BorderLayout.CENTER);
         // ajouter condition d'affichage pour l'admin
-//        add(new heureInfo(idrdv),BorderLayout.WEST);
-        add(new heureInfo(idrdv));
+//        add(new heureInfo(heureD),BorderLayout.WEST);
+        add(new heureInfo(heureD));
 
         validate();
     }

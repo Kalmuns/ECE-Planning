@@ -1,22 +1,28 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class numSemaine extends JPanel
 {
-    private Wall wall;
-    private int idrdv;
-    //private ArrayList<Doctor> doc  // utilisation des classes quand on mettra sql
-    public numSemaine(int id)
-    {
-        System.out.println("page numSemaine");
-        //wall=wa;
-        idrdv=id;
-        this.setVisible(true);
-        this.setLayout(new BorderLayout());
-        // ajouter condition d'affichage pour l'admin
-      add(new numSemaineButton(idrdv),BorderLayout.NORTH);
-//        add(new numSemaineButton(idrdv));
 
+    protected JButton selectSemaine;
+    protected int idSemaine;
+    protected WallCalendrier wallCalendrier;
+
+    public numSemaine(int idSemaine, int i)
+    {
+        selectSemaine =new JButton(i+1 +""  );
+//        add(selectSemaine,BorderLayout.CENTER);
+        add(selectSemaine);
         validate();
+
+    }
+    private class selectSemaine implements ActionListener
+    {
+        // A changer !!!!!!
+        public void actionPerformed(ActionEvent e)
+        {
+        }
     }
 }

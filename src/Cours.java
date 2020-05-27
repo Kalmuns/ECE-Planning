@@ -5,9 +5,6 @@
  */
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.*;
 
 
@@ -15,20 +12,19 @@ import javax.swing.*;
  *
  * @author Kalmuns
  */
-public class CoursCase extends JPanel
+public class Cours extends JPanel
 {
-    private Wall wall;
-    private int idrdv;
-    //private ArrayList<Doctor> doc  // utilisation des classes quand on mettra sql
-    public CoursCase(int id)
+    private WallCalendrier wallCalendrier;
+    private int idCours;
+    public Cours(int id)
     {
         System.out.println("page CoursCase");
         //wall=wa;
-        idrdv=id;
+        idCours=id;
         this.setVisible(true);
         this.setLayout(new BorderLayout());
-//        add(new CoursInfo(idrdv),BorderLayout.CENTER);
-        add(new CoursInfo(idrdv));
+//        add(new CoursInfo(idCours),BorderLayout.CENTER);
+        add(new CoursInfo(idCours));
         // ajouter condition d'affichage pour l'admin
         validate();
     }

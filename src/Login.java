@@ -2,6 +2,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,11 +12,11 @@ public class Login extends JPanel{
 		JTextField username,mdp ;
 		JLabel userJLabel,mdpJLabel;
 		JButton login=new JButton("Login");
-	private Wall wa;
+	    private WallCalendrier wa;
 
 
 
-	public Login(Wall a,int[] log) {
+	public Login(WallCalendrier a, int[] log) {
 			wa=a;
 			username=new  JTextField(20);
 			mdp=new JTextField(20);
@@ -39,8 +40,8 @@ public class Login extends JPanel{
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					wa.rset();
-					wa.act(1);
+//					wa.rset();
+//					wa.act(1);
 				}
 			}
 
