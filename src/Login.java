@@ -1,7 +1,4 @@
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,21 +9,33 @@ public class Login extends JPanel{
 		JTextField username,mdp ;
 		JLabel userJLabel,mdpJLabel;
 		JButton login=new JButton("Login");
-	    private WallCalendrier wa;
+//		private user p = new user();
+//		private retrieveMySQL sql = new retrieveMySQL();
+	    private Wall wa;
 
 
+	// p=sql.retrievePerson(user.getText());
+	// p.getID()
+	//if(p.getmdp()==pass.getText())
+	//{
+	//    //connexion...
+	//}
 
-	public Login(WallCalendrier a, int[] log) {
-			wa=a;
-			username=new  JTextField(20);
-			mdp=new JTextField(20);
-			userJLabel= new JLabel("Username :  ");
-			mdpJLabel=new JLabel("Login :  ");
+
+	public Login(Wall a, int[] log) {
+			wa = a;
+			username = new  JTextField(20);
+			mdp = new JPasswordField(20);
+			userJLabel = new JLabel("Username :  ");
+			mdpJLabel = new JLabel("Login :  ");
 			add(userJLabel);
 			add(username);
 			add(mdpJLabel);
 			add(mdp);
 			add(login);
+			String usertest = username.getText();
+			String mdptest = mdp.getText();
+
 			login.addActionListener(new LoginButton());
 
 
@@ -40,8 +49,10 @@ public class Login extends JPanel{
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-//					wa.rset();
-//					wa.act(1);
+					// p=sql.retrievePerson(user.getText());// q tester sur pc bdd;
+					//  bufferlogin[0]=   p.getID();
+					wa.rset();
+					wa.act(1);
 				}
 			}
 

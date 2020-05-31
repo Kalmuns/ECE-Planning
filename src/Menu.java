@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,16 +8,20 @@ public class Menu extends JPanel  {
 
 	private JButton accueil;
 	private JButton etd;
-	protected WallCalendrier wallCalendrier;
-	public Menu(WallCalendrier wa)
+	private JButton etudiants;
+	protected Wall wall;
+	public Menu(Wall wa)
 	{
-		accueil=new JButton ("Accueil");
-		etd=new JButton ("ETD");
+		accueil = new JButton ("Accueil");
+		etd = new JButton ("ETD");
+		etudiants = new JButton("Etudiantts");
 		accueil.addActionListener(new AccueilListener());
 		etd.addActionListener(new edtListener());
+		etudiants.addActionListener(new etudiantListener());
 		add(accueil);
 		add (etd);
-		wallCalendrier = wa  ;
+		add(etudiants);
+		wall = wa;
 		setVisible(false);
 		setEnabled(false);
 		this.validate();
@@ -38,12 +41,17 @@ public class Menu extends JPanel  {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			wallCalendrier.add(new Calendrier(),BorderLayout.CENTER);
-    		wallCalendrier.add(new HeureDisplay(), BorderLayout.WEST);
-			wallCalendrier.add(new SemaineDisplay(), BorderLayout.NORTH);
-
+			wall.actual(new WallCalendrier());
 		}
 
+	}
+
+	private class etudiantListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			wall.actual(new RechercheEtudiant(wall));
+		}
 	}
 
 }
