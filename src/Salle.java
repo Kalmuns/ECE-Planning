@@ -1,7 +1,27 @@
 
 public class Salle {
-	int id,capacité,idsite;
-	public Salle() {
-	// TODO Auto-generated constructor stub
-					}
+	int id,capacite,idsite;
+	String nom;
+	public Salle(int i , int site, int cap,String no) {
+	id=i;
+	capacite=cap;
+	idsite=site;
+	nom=no;
+	}
+	public int getid()
+	{
+		return id;
+	}
+	public String getnom()
+	{
+		return nom;
+	}
+	public int getcapacite()
+	{
+		return capacite;
+	}
+	public int getsiteid()
+	{
+		return idsite;
+	}
 }

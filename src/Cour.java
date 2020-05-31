@@ -1,8 +1,8 @@
 
-public class TypeCour {
+public class Cour {
 	private int id;
 	private String nom;
-	public TypeCour(int i, String no)
+	public Cour(int i, String no)
 	{
 		id=i;
 		nom=no;
@@ -19,7 +19,7 @@ public class TypeCour {
 	{
 		return id;
 	}
-	public String getsitenom()
+	public String getnom()
 	{
 		return nom;
 	}

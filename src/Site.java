@@ -1,8 +1,8 @@
 
-public class TypeCour {
+public class Site {
 	private int id;
 	private String nom;
-	public TypeCour(int i, String no)
+	public Site(int i, String no)
 	{
 		id=i;
 		nom=no;
