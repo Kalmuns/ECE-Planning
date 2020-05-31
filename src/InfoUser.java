@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class InfoEtudiant extends JPanel
+public class InfoUser extends JPanel
 {
     private Wall wall;
     private ArrayList<Integer> utilisateur_ID;
@@ -11,7 +11,7 @@ public class InfoEtudiant extends JPanel
 
 //    private ArrayList<Doc> baba = new ArrayList<>(100);
 //    private retrieveMySQL tutu = new retrieveMySQL();
-    public InfoEtudiant(Wall wa, String search)
+    public InfoUser(Wall wa, String search)
     {
         wall=wa;
         int i=0;
@@ -19,5 +19,8 @@ public class InfoEtudiant extends JPanel
         utilisateur_Email=new ArrayList<>();
         utilisateur_Nom=new ArrayList<>();
         utilisateur_Prenom=new ArrayList<>();
+
+        //baba=tutu.rechercheDoc(search);
+
     }
 }

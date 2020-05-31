@@ -8,19 +8,19 @@ public class Menu extends JPanel  {
 
 	private JButton accueil;
 	private JButton etd;
-	private JButton etudiants;
+	private JButton user;
 	protected Wall wall;
 	public Menu(Wall wa)
 	{
 		accueil = new JButton ("Accueil");
 		etd = new JButton ("ETD");
-		etudiants = new JButton("Etudiantts");
+		user = new JButton("Utilisateurs");
 		accueil.addActionListener(new AccueilListener());
 		etd.addActionListener(new edtListener());
-		etudiants.addActionListener(new etudiantListener());
-		add(accueil);
+		user.addActionListener(new userListener());
+		//add(accueil);
 		add (etd);
-		add(etudiants);
+		add(user);
 		wall = wa;
 		setVisible(false);
 		setEnabled(false);
@@ -46,11 +46,11 @@ public class Menu extends JPanel  {
 
 	}
 
-	private class etudiantListener implements ActionListener
+	private class userListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			wall.actual(new RechercheEtudiant(wall));
+			wall.actual(new RechercheUser(wall));
 		}
 	}
 

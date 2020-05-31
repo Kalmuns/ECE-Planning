@@ -12,11 +12,11 @@ import javax.swing.*;
  *
  * @author Kalmuns
  */
-public class Cours extends JPanel
+public class CoursDisplay extends JPanel
 {
     private WallCalendrier wallCalendrier;
     private int idCours;
-    public Cours(int id)
+    public CoursDisplay(int id)
     {
         System.out.println("page CoursCase");
         //wall=wa;

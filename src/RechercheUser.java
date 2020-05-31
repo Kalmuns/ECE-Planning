@@ -3,13 +3,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RechercheEtudiant extends JPanel
+public class RechercheUser extends JPanel
 {
 
     private JTextField searchfield;
     private JButton search;
     private Wall wall;
-    public RechercheEtudiant(Wall wa)
+    public RechercheUser(Wall wa)
     {
 
         wall=wa;
@@ -29,7 +29,7 @@ public class RechercheEtudiant extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
-            //add(new DoctorGrid(wall,searchfield.getText()),BorderLayout.CENTER);
+            add(new InfoUser(wall,searchfield.getText()),BorderLayout.CENTER);
             revalidate();
         }
 

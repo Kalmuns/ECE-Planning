@@ -33,7 +33,7 @@ public class Calendrier extends JPanel
         System.out.println("CoursDisplay constructor");
         for(i=0;i<36;i++)
         {
-            coursList.add(new Cours(60));// 60  doit être id du cours
+            coursList.add(new CoursDisplay(60));// 60  doit être id du cours
 //            rdvlink.add(new JButton("Link"));
 //            info.add(new JLabel(("Info doc")));
         }
