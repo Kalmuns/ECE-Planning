@@ -36,7 +36,7 @@ public class DAO {
 			    ResultSet result= conn.createStatement().executeQuery(query);
 				  while(result.next())
 				  {
-					  user = new Utilisateur(result.getInt("utilisateur_ID"), result.getString("utilisateur_Email"), result.getString("utilisateur_Password"), result.getString("utilisateur_Nom"), result.getString("utilisateur_Prenom"), result.getString("utilisateur_Droit"));
+					  user = new Utilisateur(result.getInt("utilisateur_ID"), result.getString("utilisateur_Email"), result.getString("utilisateur_Password"), result.getString("utilisateur_Nom"), result.getString("utilisateur_Prenom"), result.getInt("utilisateur_Droit"));
 					
 				  }
 			} catch (SQLException e) {
@@ -58,7 +58,7 @@ public class DAO {
 		//	ResultSet result = conn.createStatement().executeQuery("SELECT * FROM etudiant");
 				  while(result.next())
 				  {
-					  toreturn.add(new Utilisateur(result.getInt("utilisateur_ID"), result.getString("utilisateur_Email"), result.getString("utilisateur_Password"), result.getString("utilisateur_Nom"), result.getString("utilisateur_Prenom"), result.getString("utilisateur_Droit")));
+					  toreturn.add(new Utilisateur(result.getInt("utilisateur_ID"), result.getString("utilisateur_Email"), result.getString("utilisateur_Password"), result.getString("utilisateur_Nom"), result.getString("utilisateur_Prenom"), result.getInt("utilisateur_Droit")));
 					  System.out.println(result.getInt("etudiant_ID"));
 				  }
 			} catch (SQLException e) {
@@ -85,8 +85,6 @@ public class DAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-		
 		return cour;
 	}
 	

@@ -1,24 +1,17 @@
 
-public class Enseignant {
+public class Enseignant extends Utilisateur{
 	
-	private int id;
+
 	private int courid;
-	public Enseignant(int i, int no)
+	public Enseignant(int id, String em,String pa,String no,String pre,int dr, int courid)
 	{
-		id=i;
-		courid=no;
+		super(courid, em, pa, no, pre, dr);
+		this.courid=courid;
 	}
-	public void setID(int i)
-	{
-		id=i;
-	}
+
 	public void setcourid(int no)
 	{
 		courid=no;
-	}
-	public int getID()
-	{
-		return id;
 	}
 	public int getgetcourid()
 	{

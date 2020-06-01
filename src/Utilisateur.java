@@ -1,20 +1,19 @@
 
 public class Utilisateur {
 
-		String email,password,nom,prenom,droit;
-		int idUtilisateur;
+		String email,password,nom,prenom;
+		int idUtilisateur,droit;
 		public Utilisateur() {
 			email=null;
 			password=null;
 			nom=null;
 			prenom=null;
-			droit=null;
 			
 			// TODO Auto-generated constructor stub
 		}
 	
 		
-		public Utilisateur(int id, String em,String pa,String no,String pre,String dr) {
+		public Utilisateur(int id, String em,String pa,String no,String pre,int dr) {
 			idUtilisateur=id;
 			email=em;
 			password=pa;
@@ -23,6 +22,28 @@ public class Utilisateur {
 			droit=dr;
 		}
 		
-		
-	
+		public String getemail()
+		{
+			return email;
+		}
+		public String getpassword()
+		{
+			return password;
+		}
+		public String getnom()
+		{
+			return nom;
+		}
+		public String getprenom()
+		{
+			return prenom;
+		}
+		public int getdroit()
+		{
+			return droit;
+		}
+		public int getID()
+		{
+			return idUtilisateur;
+		}
 }
