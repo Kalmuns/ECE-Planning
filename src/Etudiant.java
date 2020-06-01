@@ -1,19 +1,16 @@
 
-public class Etudiant {
+public class Etudiant extends Utilisateur {
 
-	private int etudiant_ID,numero,etudiant_Groupe_ID;
-	public Etudiant(int eid, int num, int etu) {
-		etudiant_ID=eid;
-		numero=num;
+	private int numero_etudiant,etudiant_Groupe_ID;
+	public Etudiant(int id, String em,String pa,String no,String pre,int dr, int num, int etu) {
+		super(id, em, pa, no, pre, dr);
+		numero_etudiant=num;
 		etudiant_Groupe_ID=etu;
 	}
-	public int getID()
+
+	public int getnumero_etudiant()
 	{
-		return etudiant_ID;
-	}
-	public int getnumero()
-	{
-		return numero;
+		return numero_etudiant;
 	}
 	public int getgroupeID()
 	{
