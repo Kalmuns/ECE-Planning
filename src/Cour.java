@@ -2,10 +2,10 @@
 public class Cour {
 	private int id;
 	private String nom;
-	public Cour(int i, String no)
+	public Cour(int id, String nom)
 	{
-		id=i;
-		nom=no;
+		this.id=id;
+		this.nom=nom;
 	}
 	public void setID(int i)
 	{
