@@ -1,5 +1,7 @@
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Calendrier extends JPanel {
@@ -8,7 +10,13 @@ public class Calendrier extends JPanel {
 	
 	
 	public Calendrier() {
-		this.setLayout(new GridLayout(7,1));
+		this.setLayout(new GridLayout(7,7));
+		for(int i=0;i<7*7;i++)
+		{
+			this.add(new Cell());
+		}
+		this.setVisible(true);
+		this.validate();
 		
 		
 		// TODO Auto-generated constructor stub
