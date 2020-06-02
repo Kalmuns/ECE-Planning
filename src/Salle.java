@@ -2,7 +2,7 @@
 public class Salle {
 	int id,capacite,idsite;
 	String nom;
-	public Salle(int i , int site, int cap,String no) {
+	public Salle(int i ,String no , int cap ,int site) {
 	id=i;
 	capacite=cap;
 	idsite=site;

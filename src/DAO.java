@@ -89,7 +89,8 @@ public class DAO {
 	}
 	
 	
-	// ne renvoie pas le group???? 
+	// ne renvoie pas le group????
+	//Renvoies les utilisateurs du groupe.
 	public ArrayList<Utilisateur> getUtilisateurByGroupID(int idgroup)
 	{
 		  String query="SELECT * FROM utilisateur WHERE utilisateur_ID IN (SELECT etudiant_ID FROM etudiant WHERE etudiant_Groupe= " ;
@@ -111,6 +112,7 @@ public class DAO {
 		 return toreturn;
 	}
 	
+	// retourne le cour
 	public Cour getCourbyID(int courID)
 	{
 		Cour cour=null;
@@ -129,19 +131,174 @@ public class DAO {
 		return cour;
 	}
 	
-	public Groupe getGroupebyID()
+	//retourne le groupe 
+	public Groupe getGroupebyID(int groupeID)
 	{
 		Groupe groupe=null;
-		
+		String query="SELECT DISTINCT * FROM groupe WHERE groupe_ID = ";
+		query+= Integer.toString(groupeID);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  groupe = new Groupe(result.getInt("groupe_ID"),result.getString("groupe_Nom"),result.getInt("groupe_PromotionID"));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		return groupe;
 	}
 	
+	//Retourne la salle
+	public Salle getSallebyID(int salleID)
+	{
+		Salle salle=null;
+		String query="SELECT DISTINCT * FROM salle WHERE salle_ID = ";
+		query+= Integer.toString(salleID);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  salle = new Salle(result.getInt("salle_ID"),result.getString("salle_Nom"),result.getInt("salle_Capacite"),result.getInt("salle_SiteID"));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return salle;
+	}
+	
+	// Return le site 
+	public Site getSitebyID(int SiteID)
+	{
+		Site site=null;
+		String query="SELECT DISTINCT * FROM site WHERE site_ID = ";
+		query+= Integer.toString(SiteID);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  site = new Site(result.getInt("site_ID"),result.getString("site_Nom"));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return site;
+	}
+	
+	//retourne le cour
+	public TypeCour getTypeCourbyID(int courid) {
+		TypeCour typeCour=null;
+		String query="SELECT DISTINCT * FROM typecours WHERE typeCours_ID = ";
+		query+= Integer.toString(courid);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  typeCour = new TypeCour(result.getInt("typeCours_ID"),result.getString("typeCours_Nom"));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return typeCour;
+		
+	}
 	
 	
 	
-	
-	
-	
-	
+	// On remplit la seance 
+	public Seance getSeancebyID(int seanceID)
+	{
+		DAO dao=new DAO();
+		int i;
+		Seance seance=null;
+		ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
+		ArrayList<Groupe> groupes=new ArrayList<Groupe>();
+		ArrayList<Salle> salles=new ArrayList<Salle>();
+		ArrayList<Integer> tableaux = new ArrayList<Integer>();
+		
+		//   -- ENSEIGNANTS 
+		// On remplit d'abord eseignants 
+		String query="SELECT DISTINCT * FROM seanceenseignants WHERE seanceEnseignats_SeanceID = ";
+		query+= Integer.toString(seanceID);
+			try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					tableaux.add(result.getInt("seanceEnseignants_EnseignantsID"));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 	//Ajoute les enseignants.
+		 	for( i=0;i<tableaux.size();i++)
+		 	{
+		 		enseignants.add((Enseignant) dao.getUtilisateurbyID(tableaux.get(i).intValue()));
+		 	}
+		 	
+		 	// --GROUPES
+		 	
+		 // Ajouts des groupes.
+		 tableaux = new ArrayList<Integer>();
+		 query="SELECT DISTINCT * FROM seancegroupes WHERE 	seanceGroupes_SeanceID = ";
+		 query+= Integer.toString(seanceID);
+			try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					tableaux.add(result.getInt("seanceGroupes_GroupeID"));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 	for( i=0;i<tableaux.size();i++)
+		 	{
+		 		groupes.add((Groupe) dao.getGroupebyID(tableaux.get(i).intValue()));
+		 	}
+		 
+		 	
+		 	  //--SALLE
+		 // Ajouts des Salles
+		 	 tableaux = new ArrayList<Integer>();
+			 query="SELECT DISTINCT * FROM seancesalles WHERE 	seanceSalles_SeanceIDID = ";
+			 query+= Integer.toString(seanceID);
+				try {
+				    ResultSet result= conn.createStatement().executeQuery(query);
+					  while(result.next())
+					  {
+						tableaux.add(result.getInt("seanceSalles_SalleID"));
+					  }
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 	for( i=0;i<tableaux.size();i++)
+			 	{
+			 		salles.add((Salle) dao.getSallebyID(tableaux.get(i).intValue()));
+			 	}
+		 // Recuperation du reste de la seance
+			 
+			 query=	"SELECT * FROM seance WHERE seance_ID =";
+			 query+=Integer.toString(seanceID);
+			 try {
+				    ResultSet result= conn.createStatement().executeQuery(query);
+					  while(result.next())
+					  {
+						seance= new Seance(groupes, enseignants, salles, result.getInt("seance_ID"), result.getInt("seance_Date"), result.getInt("seance_HeureDebut"), result.getInt("seance_HeureFin"), result.getInt("seance_Etat"), result.getInt("seance_Semaine"), dao.getCourbyID(result.getInt("seance_CoursID")), dao.getTypeCourbyID(result.getInt("seance_TypeCoursID")));
+					  }
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 	
+		return seance;
+	}
 }

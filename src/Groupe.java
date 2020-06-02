@@ -2,7 +2,7 @@
 public class Groupe {
 	private int id,promotionid;
 	private String nom;
-	public Groupe(int i,int pro, String no) {
+	public Groupe(int i, String no,int pro) {
 		id=i;
 		promotionid=pro;
 		nom=no;
