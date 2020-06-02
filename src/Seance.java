@@ -23,4 +23,44 @@ public class Seance {
 		heure_debut=hd;
 		this.duree=duree;
 	}
+	public ArrayList<Groupe> getgroupes()
+	{
+		return groupe;
+	}
+	public String getnomseance()
+	{
+		return nomseance;
+	}
+	public ArrayList<Enseignant> getEnseignants()
+	{
+		return enseignant;
+	}
+	public ArrayList<Salle> getsalle()
+	{
+		return salle;
+	}
+	public int getidseance()
+	{
+		return idseance;
+	}
+	public int getsemaine()
+	{
+		return semaine;
+	}
+	public int getdate()
+	{
+		return date;
+	}
+	public int getetat()
+	{
+		return etat;
+	}
+	public int getheure_debut()
+	{
+		return heure_debut;
+	}
+	public int getduree()
+	{
+		return duree;
+	}
 }
