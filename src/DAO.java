@@ -292,7 +292,7 @@ public class DAO {
 				    ResultSet result= conn.createStatement().executeQuery(query);
 					  while(result.next())
 					  {
-						seance= new Seance(groupes, enseignants, salles, result.getInt("seance_ID"), result.getInt("seance_Date"), result.getInt("seance_HeureDebut"), result.getInt("seance_HeureFin"), result.getInt("seance_Etat"), result.getInt("seance_Semaine"), dao.getCourbyID(result.getInt("seance_CoursID")), dao.getTypeCourbyID(result.getInt("seance_TypeCoursID")));
+						seance= new Seance(groupes, enseignants, salles, result.getInt("seance_ID"), result.getDate("seance_Date"), result.getInt("seance_HeureDebut"), result.getInt("seance_HeureFin"), result.getInt("seance_Etat"), result.getInt("seance_Semaine"), dao.getCourbyID(result.getInt("seance_CoursID")), dao.getTypeCourbyID(result.getInt("seance_TypeCoursID")));
 					  }
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

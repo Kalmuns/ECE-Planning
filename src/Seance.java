@@ -1,3 +1,4 @@
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Seance {
@@ -7,11 +8,11 @@ public class Seance {
 	TypeCour typeCour=null;
 	ArrayList<Enseignant> enseignant= new ArrayList<Enseignant>();
 	ArrayList<Salle> salle= new ArrayList<Salle>();
-	int idseance,semaine,date,crenau,duree,etat,heure_debut;  /// Heure début /fin ? pas sur 
+	int idseance,semaine,crenau,duree,etat,heure_debut;  /// Heure début /fin ? pas sur 
+	Date date = null;
 	
 	
-	
-	public Seance(ArrayList<Groupe> groupes,ArrayList<Enseignant> enseignants,ArrayList<Salle> salles, int id, int dates, int hd, int duree, int etats, int semaine, Cour cour,TypeCour typeCour )
+	public Seance(ArrayList<Groupe> groupes,ArrayList<Enseignant> enseignants,ArrayList<Salle> salles, int id, Date dates, int hd, int duree, int etats, int semaine, Cour cour,TypeCour typeCour )
 	{
 		groupe=groupes;
 		enseignant=enseignants;
@@ -58,7 +59,7 @@ public class Seance {
 	{
 		return semaine;
 	}
-	public int getdate()
+	public Date getdate()
 	{
 		return date;
 	}
