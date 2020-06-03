@@ -225,7 +225,7 @@ public class DAO {
 		
 		//   -- ENSEIGNANTS 
 		// On remplit d'abord eseignants 
-		String query="SELECT DISTINCT * FROM seanceenseignants WHERE seanceEnseignats_SeanceID = ";
+		String query="SELECT DISTINCT * FROM seanceenseignants WHERE seanceEnseignants_SeanceID = ";
 		query+= Integer.toString(seanceID);
 			try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
