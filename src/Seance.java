@@ -17,7 +17,6 @@ public class Seance {
 		groupe=groupes;
 		enseignant=enseignants;
 		this.salle=salles;
-	
 		idseance=id;
 		this.semaine=semaine;
 		date=dates;

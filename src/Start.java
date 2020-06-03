@@ -1,4 +1,7 @@
 import java.sql.*;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
 
 public class Start {
 	public static void main(String args[]) throws ClassNotFoundException
@@ -26,8 +29,9 @@ public class Start {
 //					// TODO Auto-generated catch block
 //					e.printStackTrace();
 //				}
+				
 				DAO dao=new DAO();
-				  System.out.println(dao.getUtilisateurbyID(1).getprenom());
+				  System.out.println(dao.getSeancebyID(1).getsemaine());
 				/* tes*/
 			}
 	

@@ -116,7 +116,7 @@ public class DAO {
 	public Cour getCourbyID(int courID)
 	{
 		Cour cour=null;
-		String query="SELECT DISTINCT * FROM cour WHERE coursid = ";
+		String query="SELECT DISTINCT * FROM cours WHERE cours_ID = ";
 		query+= Integer.toString(courID);
 		 try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
