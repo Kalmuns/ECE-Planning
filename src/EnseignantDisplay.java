@@ -15,7 +15,7 @@ public class EnseignantDisplay extends JPanel {
 		this.setLayout(new GridLayout(1,gr.size()));
 		for(i=0;i<gr.size();i++)
 		{
-			boutton.add(new JButton(new String("gr"+gr.get(i).getnom())));
+			boutton.add(new JButton(new String(""+gr.get(i).getnom())));
 			
 			boutton.get(i).setBorderPainted(false);
 			boutton.get(i).setBackground(Color.GRAY);
