@@ -11,10 +11,13 @@ public class Calendrier extends JPanel {
 	
 	public Calendrier() {
 		//this.setLayout(new GridLayout(7,7));
+		DAO dao = new DAO();
+		Seance seances=dao.getSeancebyID(1);
 		this.setLayout(new GridLayout(7,7,10,10));
 		for(int i=0;i<7*7;i++)
 		{
-			this.add(new Cell());
+			 
+			this.add(new Cell(seances));
 		}
 		this.setVisible(true);
 		this.validate();

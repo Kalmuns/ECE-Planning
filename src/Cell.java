@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -9,28 +10,46 @@ import javax.swing.JPanel;
 public class Cell extends JPanel{
 
 	
-	public Cell() {
+	public Cell( Seance cell_seance) {
 		this.setLayout(new GridLayout(0,1));
-		JButton Nom = new JButton("Nom et Type de Cours");
+		
+		
+		//On récupère le nom du cours
+		Cour cours = cell_seance.getCour();
+		String cours_Nom = cours.getnom();
+		
+		//On récupère le Type de cours
+		TypeCour type = cell_seance.gettypeCour();
+		String type_Nom = type.getsitenom();
+		
+		
+		JButton Nom = new JButton(cours_Nom + type_Nom);
 		Nom.setBorderPainted(false);
 		Nom.setBackground(Color.GRAY);
 		add(Nom,BorderLayout.NORTH);
 		
-		JButton Prof = new JButton("Enseignant");
-		Prof.setBorderPainted(false);
-		Prof.setBackground(Color.GRAY);
-		add(Prof,BorderLayout.CENTER);
 		
-		JButton Td = new JButton("TD et Groupe");
-		Td.setBorderPainted(false);
-		Td.setBackground(Color.GRAY);
-		add(Td,BorderLayout.SOUTH);
+		ArrayList<Enseignant> enseignant = cell_seance.getEnseignants();
+		add(new EnseignantDisplay(enseignant));
 		
 		
-		JButton Salle = new JButton("Salle et Batiment");
-		Salle.setBorderPainted(false);
-		Salle.setBackground(Color.GRAY);
-		add(Salle,BorderLayout.SOUTH);
+		//JButton Prof = new JButton("Enseignant");
+		//Prof.setBorderPainted(false);
+		//Prof.setBackground(Color.GRAY);
+		//add(Prof,BorderLayout.CENTER);
+		
+		
+		ArrayList<Groupe> groupe = cell_seance.getgroupes();
+		add(new GroupeDisplayer(groupe));
+		
+		
+		
+		//On récupère le numéro de salle et du batiment
+		ArrayList<Salle> salles = cell_seance.getsalle();
+		add(new SalleDisplay(salles));
+		
+		
+		//add(Salle,BorderLayout.SOUTH);
 		
 		
 		
