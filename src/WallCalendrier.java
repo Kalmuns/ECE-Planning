@@ -15,7 +15,7 @@ public class WallCalendrier extends JPanel
 //        add(buffer,BorderLayout.NORTH);
 //
         add(new SemaineDisplay(),BorderLayout.NORTH);
-        add(new Calendrier(),BorderLayout.CENTER);
+        add(new Calendrier(1),BorderLayout.CENTER);
         add(new HeureDisplay(),BorderLayout.WEST);
 
     }
