@@ -212,16 +212,53 @@ public class DAO {
 		
 	}
 	
+	ArrayList<Salle> getallsalle()
+	{
+		ArrayList<Salle> salles= new ArrayList<Salle>();
+		String query ="SELECT * FROM salle ";
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					salles.add(new Salle(result.getInt("salle_ID"), result.getString("salle_Nom"), result.getInt("salle_Capacite"), result.getInt("salle_SiteID"))); 
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return salles;
+	}
+	
 	ArrayList<Cour> getallcour()
 	{
 		ArrayList<Cour> cours= new ArrayList<Cour>();
-		
+		String query ="SELECT * FROM cours ";
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					cours.add(new Cour(result.getInt("cours_ID"), result.getString("cours_Nom")));  
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return cours;
 	}
 	ArrayList<TypeCour> getalltypecour()
 	{
 		ArrayList<TypeCour> typeCours=new ArrayList<TypeCour>();
-		
+		String query ="SELECT * FROM typecours ";
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					typeCours.add(new TypeCour(result.getInt("typesCours_ID"), result.getString("typeCours_Nom")));  
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return typeCours;
 	}
 

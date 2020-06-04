@@ -2,10 +2,10 @@
 public class Salle {
 	int id,capacite,idsite;
 	String nom;
-	public Salle(int i ,String no , int cap ,int site) {
+	public Salle(int i ,String no , int cap ,int siteid) {
 	id=i;
 	capacite=cap;
-	idsite=site;
+	idsite=siteid;
 	nom=no;
 	}
 	public int getid()
