@@ -1,12 +1,13 @@
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Outil {
-	public int semaine;
+	//public int semaine;
 	public  Outil()
 	{
-}
+	}
 	
 	public int convertirSemaine(java.sql.Date dates)
 	{
@@ -43,6 +44,7 @@ public class Outil {
 	    }
 	}
 
+
 	public int convertirJourInt(java.sql.Date dates) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(dates);
@@ -51,5 +53,13 @@ public class Outil {
 
 		}
 	    
+
+	
+	public ArrayList<Seance> rechercheseance(String recherche)
+	{
+		ArrayList<Seance> seances= new ArrayList<Seance>();
+		
+		return seances;
 	}
+}
 
