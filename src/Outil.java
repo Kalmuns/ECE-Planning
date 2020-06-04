@@ -39,8 +39,6 @@ public class Outil {
 	    		
 	    default: return "Invalid";
 	    		
-	    
-	    
 	    }
 	  
 	    
