@@ -13,7 +13,7 @@ public class Calendrier extends JPanel {
 		//this.setLayout(new GridLayout(7,7));
 		DAO dao = new DAO();
 		Seance seances=dao.getSeancebyID(1);
-		System.out.println("Semaine :" +semaine );
+		System.out.println("Semaine: " +semaine );
 		this.setLayout(new GridLayout(7,7,10,10));
 		for(int i=0;i<7*7;i++)
 		{
