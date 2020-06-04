@@ -40,9 +40,18 @@ public class Outil {
 	    default: return "Invalid";
 	    		
 	    }
-	  
-	    
 	}
+
+
+	public int convertirJourInt(java.sql.Date dates) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dates);
+
+		return cal.get(Calendar.DAY_OF_WEEK)-1;
+
+		}
+	    
+
 	
 	public ArrayList<Seance> rechercheseance(String recherche)
 	{

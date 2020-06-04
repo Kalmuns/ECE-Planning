@@ -15,7 +15,22 @@ public class WallCalendrier extends JPanel
 //        add(buffer,BorderLayout.NORTH);
 //
         add(new SemaineDisplay(),BorderLayout.NORTH);
-        add(new Calendrier(1),BorderLayout.CENTER);
+        add(new Calendrier(2),BorderLayout.CENTER);
+        add(new HeureDisplay(),BorderLayout.WEST);
+
+    }
+    public WallCalendrier(int i)
+    {
+        this.setLayout(new BorderLayout());
+        // Appeler la page Login
+
+//        JPanel buffer= new Login(this,idpersonne);
+//        add(buffer,BorderLayout.CENTER);
+//        buffer=new Menu(this);
+//        add(buffer,BorderLayout.NORTH);
+			System.out.println( "Bla");
+        add(new SemaineDisplay(),BorderLayout.NORTH);
+        add(new Calendrier(i),BorderLayout.CENTER);
         add(new HeureDisplay(),BorderLayout.WEST);
 
     }
