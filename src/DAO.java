@@ -302,24 +302,69 @@ public class DAO {
 			 	
 		return seance;
 	}
+	
 	public ArrayList<Seance> getSeancesByWeek(int userid,int semaine) {
 		ArrayList<Seance> seances=new ArrayList<Seance>();
-		String query="SELECT DISTINCT * FROM seance WHERE seance_ID = ";
-		query+= Integer.toString(userid);
-		query+= "AND seance_Semaine=";
-		query+= Integer.toString(semaine);
 		DAO dao=new DAO();
+		String query="SELECT * FROM enseignant WHERE enseignant_ID=";
+		query+=Integer.toString(userid);
+		
 		 try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
-				  while(result.next())
-				  {
-					  seances.add(dao.getSeancebyID(result.getInt("seance_ID")));
-				  }
+			 // SI ID ENSEIGNANT
+			    if(result.next()){
+			    	query="SELECT DISTINCT * FROM seance INNER JOIN seanceenseignants ON seance_ID=seanceEnseignants_SeanceID WHERE seance.seance_Semaine= ";
+					query+= Integer.toString(semaine);
+					query+= "    AND seanceEnseignants_EnseignantsID=";
+					query+= Integer.toString(userid);
+					 try {
+						     result= conn.createStatement().executeQuery(query);
+							  while(result.next())
+							  {
+								  seances.add(dao.getSeancebyID(result.getInt("seance_ID")));
+							  }
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+			    	}
+			    // SI ID Etudiant
+			    	else{
+			    		int buffergroupe;
+						 query=	"SELECT * FROM etudiant WHERE etudiant_ID =";
+						 query+=Integer.toString(userid);
+						 buffergroupe=0;
+						 try {
+							     result= conn.createStatement().executeQuery(query);
+								  while(result.next())
+								  {
+									  buffergroupe=result.getInt("etudiant_Groupe");
+								  }
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						 query="SELECT DISTINCT * FROM seance INNER JOIN seancegroupes ON seance_ID=seanceGroupes_GroupeID WHERE seance.seance_Semaine= ";
+						 query+= Integer.toString(semaine);
+						 query+= "    AND seanceGroupes_GroupeID=";
+						 query+= Integer.toString(buffergroupe);
+						 try {
+						     result= conn.createStatement().executeQuery(query);
+							  while(result.next())
+							  {
+								  seances.add(dao.getSeancebyID(result.getInt("seance_ID")));
+							  }
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			    	}
+
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
 		return seances;
 		
 	}
