@@ -27,6 +27,7 @@ public class InsertBDD {
 	public void insertSeance(Date date,int heuredebut,int duree,int etat,int courid,int typecourid)
 	{
 		 Outil outil=new Outil();
+		 
 		
 		String semaineString=Integer.toString(outil.convertirSemaine(date));
 		

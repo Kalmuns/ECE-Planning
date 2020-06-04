@@ -31,7 +31,12 @@ public class Start {
 //				}
 				
 				DAO dao=new DAO();
-				  System.out.println(dao.getSeancebyID(1).getsemaine());
+				Seance seance= dao.getSeancebyID(1);
+				seance.getCour().getnom();
+				ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
+				
+				
+				  
 				/* tes*/
 			}
 	

@@ -212,6 +212,18 @@ public class DAO {
 		
 	}
 	
+	ArrayList<Cour> getallcour()
+	{
+		ArrayList<Cour> cours= new ArrayList<Cour>();
+		
+		return cours;
+	}
+	ArrayList<TypeCour> getalltypecour()
+	{
+		ArrayList<TypeCour> typeCours=new ArrayList<TypeCour>();
+		
+		return typeCours;
+	}
 
 	
 	// On remplit la seance 
