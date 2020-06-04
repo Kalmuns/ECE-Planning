@@ -210,8 +210,7 @@ public class DAO {
 		
 	}
 	
-	
-	
+
 	
 	// On remplit la seance 
 	public Seance getSeancebyID(int seanceID)
@@ -327,7 +326,6 @@ public class DAO {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-
 			    	}
 			    // SI ID Etudiant
 			    	else{
@@ -360,12 +358,10 @@ public class DAO {
 							e.printStackTrace();
 						}
 			    	}
-
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		return seances;
-		
 	}
 }
