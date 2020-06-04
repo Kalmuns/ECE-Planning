@@ -36,7 +36,15 @@ public class numSemaine extends JPanel
 		public void mouseClicked(MouseEvent e) {
 			
 			i = Integer.parseInt(name);
-			Calendrier c = new Calendrier(i);
+			WallCalendrier c = new WallCalendrier(i);
+			if(e.getSource().getClass()== selectSemaine.class)
+			{
+				
+				selectSemaine boutonsButton = (selectSemaine) e.getSource();
+				
+				//System.out.println( "Bla" +boutonsButton.getName());
+				
+			}
 		}
 
 		@Override

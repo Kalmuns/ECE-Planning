@@ -41,8 +41,15 @@ public class Outil {
 	    
 	    
 	    }
-	  
-	    
 	}
+
+	public int convertirJourInt(java.sql.Date dates) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dates);
+
+		return cal.get(Calendar.DAY_OF_WEEK)-1;
+
+		}
+	    
 	}
 
