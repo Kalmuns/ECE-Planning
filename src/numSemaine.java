@@ -12,23 +12,31 @@ public class numSemaine extends JPanel
     protected int idSemaine;
     protected WallCalendrier wallCalendrier;
 
-    public numSemaine(int idSemaine, int i)
+    public numSemaine(int idSemaine, int i, WallCalendrier c)
     {
-    	selectSemaine selectSemaines =new selectSemaine(i+1 +""  );
+    	selectSemaine selectSemaines =new selectSemaine(i+1 +"" , c );
+    	idSemaine = i+1;
 //        add(selectSemaine,BorderLayout.CENTER);
     	selectSemaines.setBackground(Color.white);
         add(selectSemaines);
         validate();
 
     }
+    protected void actualliser (int i)
+    {
+    	
+    	
+    }
     private class selectSemaine extends JButton implements MouseListener
     {
     	private String name;
+    	WallCalendrier calendrier;
     	int i;
         // A changer !!!!!!
-    	public selectSemaine(String str){
+    	public selectSemaine(String str, WallCalendrier c){
     	    super(str);
     	    this.name = str;
+    	    this.calendrier =c;
     	    this.addMouseListener(this);
     	}
 
@@ -36,7 +44,8 @@ public class numSemaine extends JPanel
 		public void mouseClicked(MouseEvent e) {
 			
 			i = Integer.parseInt(name);
-			WallCalendrier c = new WallCalendrier(i);
+			
+			calendrier.actualCalendrier(i);
 			if(e.getSource().getClass()== selectSemaine.class)
 			{
 				

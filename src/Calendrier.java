@@ -5,6 +5,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -113,9 +114,8 @@ public class Calendrier extends JPanel {
 		}
 		gbc.gridx = 0;
 		
-		
 		java.sql.Date dates = new java.sql.Date(2008,9,21);
-		
+		this.update(this.getGraphics());
 		test.convertirJour(dates);
 		System.out.println("Semaine: " +test.convertirJour(dates));
 		this.setVisible(true);

@@ -17,7 +17,7 @@ public class WallCalendrier extends JPanel
 //        buffer=new Menu(this);
 //        add(buffer,BorderLayout.NORTH);
 //
-        add(new SemaineDisplay(),BorderLayout.NORTH);
+        add(new SemaineDisplay(this),BorderLayout.NORTH);
         add(new Calendrier(2),BorderLayout.CENTER);
         add(new HeureDisplay(),BorderLayout.WEST);
         
@@ -33,25 +33,25 @@ public class WallCalendrier extends JPanel
 //        buffer=new Menu(this);
 //        add(buffer,BorderLayout.NORTH);
 			System.out.println( "Bla");
-        add(new SemaineDisplay(),BorderLayout.NORTH);
+        add(new SemaineDisplay(this),BorderLayout.NORTH);
         add(new Calendrier(i),BorderLayout.CENTER);
         add(new HeureDisplay(),BorderLayout.WEST);
 
     }
     protected void actualCalendrier(int y)
     {
-//    	int i;
-//    	for (i=0;i<this.getComponentCount();i++)
-//        {
-//            this.remove(i);
-//        }
-//        this.update(this.getGraphics());
-//        this.revalidate();
-        add(new SemaineDisplay(),BorderLayout.NORTH);
+    	int i;
+    	for (i=0;i<this.getComponentCount();i++)
+       {
+            this.remove(i);
+        }
+        this.update(this.getGraphics());
+        this.revalidate();
+        add(new SemaineDisplay(this),BorderLayout.NORTH);
         add(new Calendrier(y),BorderLayout.CENTER);
         add(new HeureDisplay(),BorderLayout.WEST);
-//      this.update(this.getGraphics());
-//      this.revalidate();
+      this.update(this.getGraphics());
+      this.revalidate();
 
     }
 }
