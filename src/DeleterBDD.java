@@ -24,21 +24,59 @@ public class DeleterBDD {
 		}
 	}
 	
-	public void suppUtilisateur()
+	public void suppUtilisateurbyID(int id)
 	{
-		
+		String query="DELETE  FROM utilisateur WHERE utilisateur_ID = ";
+		query+= Integer.toString(id);
+			try {
+			     conn.createStatement().executeQuery(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		query="DELETE  FROM etudiant WHERE etudiant_ID = ";
+		query+= Integer.toString(id);
+				try {
+				     conn.createStatement().executeQuery(query);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		query="DELETE  FROM enseignant WHERE enseignant_ID = ";
+		query+= Integer.toString(id);
+						try {
+						     conn.createStatement().executeQuery(query);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+		query="DELETE  FROM seanceEnseignants_SeanceID WHERE seanceEnseignants_EnseignantsID = ";
+		query+= Integer.toString(id);
+						try {
+							conn.createStatement().executeQuery(query);
+						} catch (SQLException e) {
+											// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 	}
-	public void suppCours()
+	public void suppCoursbyID(int id)
 	{
-		
-	}
-	public void suppEnseignant()
-	{
-		
-	}
-	public void suppEtudiant()
-	{
-		
+		String query="DELETE  FROM cours WHERE cours_ID = ";
+		query+= Integer.toString(id);
+			try {
+			     conn.createStatement().executeQuery(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 query="DELETE  FROM seance WHERE seance_CoursID = ";
+			query+= Integer.toString(id);
+				try {
+				     conn.createStatement().executeQuery(query);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace()	;
+				}
 	}
 	public void suppGroupe()
 	{
@@ -52,9 +90,24 @@ public class DeleterBDD {
 	{
 		
 	}
-	public void suppSeance()
+	public void suppSeance(int id)
 	{
-		
+		String query="DELETE  FROM seance WHERE seance_ID = ";
+		query+= Integer.toString(id);
+			try {
+			     conn.createStatement().executeQuery(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			query="DELETE  FROM u WHERE etudiant_ID = ";
+			query+= Integer.toString(id);
+					try {
+					     conn.createStatement().executeQuery(query);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	}
 	public void suppSite()
 	{

@@ -212,6 +212,7 @@ public class DAO {
 	
 	
 	
+	
 	// On remplit la seance 
 	public Seance getSeancebyID(int seanceID)
 	{
@@ -300,5 +301,26 @@ public class DAO {
 				}
 			 	
 		return seance;
+	}
+	public ArrayList<Seance> getSeancesByWeek(int userid,int semaine) {
+		ArrayList<Seance> seances=new ArrayList<Seance>();
+		String query="SELECT DISTINCT * FROM seance WHERE seance_ID = ";
+		query+= Integer.toString(userid);
+		query+= "AND seance_Semaine=";
+		query+= Integer.toString(semaine);
+		DAO dao=new DAO();
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  seances.add(dao.getSeancebyID(result.getInt("seance_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return seances;
+		
 	}
 }
