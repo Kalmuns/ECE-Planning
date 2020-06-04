@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 
 
+
+
 public class DAO {
 		
 	private Connection conn=null;
@@ -365,5 +367,78 @@ public class DAO {
 		return seances;
 	}
 	
+	public ArrayList<Groupe> getGroupesbyPromo(int promoID)
+	{
+		ArrayList<Groupe> groupes=new ArrayList<Groupe>();
+		DAO dao=new DAO();
+		String query="SELECT * FROM groupe WHERE groupe_PromotionID=";
+		query+=Integer.toString(promoID);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					groupes.add(dao.getGroupebyID(result.getInt("groupe_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return groupes;
+	}
+	
+	public ArrayList<Seance> getSeanceByGroupWeek(int groupID,int semaine)
+	{
+		ArrayList<Seance> seances=new ArrayList<Seance>();
+		DAO dao=new DAO();
+		String query="SELECT DISTINCT * FROM seance INNER JOIN seancegroupes ON seance_ID= seanceGroupes_SeanceID WHERE seanceGroupes_GroupeID=";
+		query+=Integer.toString(groupID);
+		query+= " AND seance_Semaine=";
+		query+=Integer.toString(semaine);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					seances.add(dao.getSeancebyID(result.getInt("seances_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return seances;
+	}
+	
+	public ArrayList<Seance> getSeancebyPromoWeek(int promoID,int semaine)
+	{
+		ArrayList<Seance> seances=new ArrayList<Seance>();
+		DAO dao=new DAO();
+		ArrayList<Groupe> groupes =new ArrayList<Groupe>();
+		groupes=dao.getGroupesbyPromo(promoID);
+		int i=0;
+		for(i=0;i<groupes.size();i++)
+		{
+			seances.addAll(dao.getSeanceByGroupWeek(groupes.get(i).getid(),semaine));
+		}
+		return seances;
+	}
+	public ArrayList<Seance> getSeancebySalleWeek(int salleID,int semaine)
+	{
+		ArrayList<Seance> seances=new ArrayList<Seance>();
+		DAO dao=new DAO();
+		String query="SELECT DISTINCT * FROM seance INNER JOIN seancesalles ON seance_ID= seanceSalles_SeanceIDID WHERE seanceSalles_SeanceIDID=";
+		query+=Integer.toString(salleID);
+		query+= " AND seance_Semaine=";
+		query+=Integer.toString(semaine);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					seances.add(dao.getSeancebyID(result.getInt("seances_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return seances;
+	}
 	
 }
