@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.Calendar;
 
 public class Outil {
-	public int semaine;
+	//public int semaine;
 	public  Outil()
 	{
 }
