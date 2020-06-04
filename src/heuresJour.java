@@ -8,7 +8,7 @@ public class heuresJour extends JPanel
     //private ArrayList<Doctor> doc  // utilisation des classes quand on mettra sql
     public heuresJour(int heure)
     {
-        System.out.println("page heuresJour");
+       
         heureD=heure;
         this.setVisible(true);
         this.setLayout(new BorderLayout());
