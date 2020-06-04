@@ -52,8 +52,9 @@ public class Cell extends JPanel{
 		//add(Salle,BorderLayout.SOUTH);
 		
 		
-		
+		this.update(this.getGraphics());
 		this.validate();
+		
 		// TODO Auto-generated constructor stub
 		// Case du tableaux n'est qu'un display les info passe par le constructeur. 
 	}

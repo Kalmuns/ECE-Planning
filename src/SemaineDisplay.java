@@ -13,7 +13,7 @@ public class SemaineDisplay extends JPanel
     private int iD;
     List<JPanel> semaineList = new ArrayList<>();
 
-    public SemaineDisplay() {
+    public SemaineDisplay(WallCalendrier c) {
 
         //iD = id;
         int i;
@@ -23,7 +23,7 @@ public class SemaineDisplay extends JPanel
 
         for(i=0;i<52;i++)
         {
-            semaineList.add(new numSemaine(1, i));// 1  doit être id de la semaine
+            semaineList.add(new numSemaine(1, i, c));// 1  doit être id de la semaine
 //            rdvlink.add(new JButton("Link"));
 //            info.add(new JLabel(("Info doc")));
         }
