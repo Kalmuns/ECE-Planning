@@ -20,6 +20,10 @@ public class Calendrier extends JPanel {
 			 
 			this.add(new Cell(seances));
 		}
+		java.sql.Date dates = new java.sql.Date(2008,9,21);
+		Outil test = new Outil();
+		test.convertirJour(dates);
+		System.out.println("Semaine: " +test.convertirJour(dates));
 		this.setVisible(true);
 		this.validate();
 		
