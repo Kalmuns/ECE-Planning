@@ -54,6 +54,8 @@ public class Cell extends JPanel{
 		
 		this.update(this.getGraphics());
 		this.validate();
+		paint(this.getGraphics());
+		this.grabFocus();
 		
 		// TODO Auto-generated constructor stub
 		// Case du tableaux n'est qu'un display les info passe par le constructeur. 

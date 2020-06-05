@@ -40,17 +40,22 @@ public class WallCalendrier extends JPanel
     }
     protected void actualCalendrier(int y)
     {
-//    	int i;
-//    	for (i=0;i<this.getComponentCount();i++)
-//        {
-//            this.remove(i);
-//        }
-//        this.update(this.getGraphics());
-//        this.revalidate();
+    	int i;
+    	for (i=0;i<this.getComponentCount();i++)
+        {
+            this.remove(i);
+       }
+    this.removeAll();
+       this.update(this.getGraphics());
+        this.revalidate();
+        paint(this.getGraphics());
         add(new SemaineDisplay(this),BorderLayout.NORTH);
         add(new Calendrier(y),BorderLayout.CENTER);
-        add(new HeureDisplay(),BorderLayout.WEST);
-//      this.update(this.getGraphics());
-//      this.revalidate();
+       add(new HeureDisplay(),BorderLayout.WEST);
+       
+       
+     this.update(this.getGraphics());
+      this.revalidate();
+      
     }
 }

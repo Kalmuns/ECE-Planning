@@ -25,6 +25,9 @@ public class Calendrier extends JPanel {
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		ArrayList<Seance> seances= new ArrayList<Seance>();
+		int seancesAff[];
+		
+		
 		seances =dao.getSeancesByWeek(1, semaine);
 		System.out.println(seances.size() );
 		this.setLayout(new GridBagLayout());
@@ -86,22 +89,9 @@ public class Calendrier extends JPanel {
 		
 		
 		
-		for(int i=0;i<7;i++)
-		{
-			for (int j = 0; j < 7; j++) {
-				
-			
-			gbc.gridy = 1+i;
-			gbc.gridx = 1+j;
-			gbc.insets = inset;
-			gbc.ipadx = 0;
-			
-			JPanel cell1 = new JPanel();
-		    cell1.setBackground(Color.LIGHT_GRAY);
-		    cell1.setPreferredSize(new Dimension(120, 70));
-			this.add(cell1,gbc);
-			}
-		}
+		
+		
+		
 		for(int i=0;i<seances.size();i++)
 		{
 			
@@ -109,15 +99,38 @@ public class Calendrier extends JPanel {
 			gbc.insets = inset;
 			gbc.gridy =seances.get(i).heure_debut;
 			gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
+			
 			this.add(new Cell(seances.get(0)),gbc);
 			
+		}
+		for(int i=0;i<7;i++)
+		{
+			for (int j = 0; j < 7; j++) {
+				
+					
+					gbc.gridy = 1+i;
+					gbc.gridx = 1+j;
+					gbc.insets = inset;
+					gbc.ipadx = 0;
+					
+					if (this.getWidth()==0) {
+						JPanel cell1 = new JPanel();
+					    cell1.setBackground(Color.LIGHT_GRAY);
+					    cell1.setPreferredSize(new Dimension(120, 70));
+						this.add(cell1,gbc);
+					}
+					
+				
+			
+			
+			}
 		}
 		gbc.gridx = 0;
 		
 		java.sql.Date dates = new java.sql.Date(2008,9,21);
 		this.update(this.getGraphics());
 		test.convertirJour(dates);
-		System.out.println("Semaine: " +test.convertirJour(dates));
+		
 		this.setVisible(true);
 		this.validate();
 		
