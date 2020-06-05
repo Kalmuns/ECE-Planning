@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.text.DateFormatter;
 import javax.swing.text.DefaultFormatterFactory;
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,18 +10,23 @@ import java.text.DateFormat;
 import java.text.FieldPosition;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class SearchSeanceDisplay extends JPanel
 {
-    private JLabel semaineL;
+    private JLabel jour;
+    private JLabel mois;
+    private JLabel annee;
     private JLabel dateL;
     private JLabel heureDL;
     private JLabel heureFL;
+    private JComboBox<Integer> j;
+    private JComboBox<Integer> m;
+    private JComboBox<Integer> a;
     private JComboBox <Integer> semaine;
-    private JComboBox date;
     private JComboBox <Integer> heureD;
     private JComboBox heureF;
     private JComboBox combo;
@@ -28,37 +35,56 @@ public class SearchSeanceDisplay extends JPanel
 
     public SearchSeanceDisplay(WallSeancegrid wall)
     {
-        semaineL = new JLabel("jour :");
-        dateL = new JLabel("date :");
-        heureDL = new JLabel("heure de début :");
-        heureFL = new JLabel("durée du cours:");
-        semaine = new JComboBox<>();
-        heureD = new JComboBox();
-        valider = new JButton("Valider");
+        jour = new JLabel("  jour :");
+        mois = new JLabel("  mois :");
+        annee = new JLabel("  annee :");
+        j=new JComboBox<Integer>();
+        m=new JComboBox<Integer>();
+        a= new JComboBox<Integer>();
+        
+        heureDL = new JLabel("  heure de début :");
+        heureFL = new JLabel("  durée du cours:");
+        heureD = new JComboBox<Integer>();
+        heureF=new JComboBox<Integer>();
+        valider = new JButton("  Cherchez");
         valider.addActionListener(new validerListener());
         this.wallSeancegrid=wall;
-        for (int s = 1 ; s < 16 ; s++)
-        {
-            semaine.addItem(s);
-        }
         heureD = new JComboBox();
-        for(int d = 8 ; d < 21 ; d+=2)
+        for(int d = 0 ; d < 21 ; d++)
         {
             heureD.addItem(d);
         }
         heureF = new JComboBox();
-        for(int f = 8 ; f < 21 ; f+=2)
+        for(int f = 0 ; f < 21 ; f++)
         {
             heureF.addItem(f);
         }
-
-
-        add(semaineL);
-        add(semaine);
+        for (int i = 1 ; i < 30 ; i++)
+        {
+            j.addItem(i);
+        }
+        for (int i = 1 ; i < 12; i++)
+        {
+            m.addItem(i);
+        }
+        for (int i = 2019 ; i < 2021 ; i++)
+        {
+            a.addItem(i);
+        }
+   
+        add(jour);
+        add(j);
+        add(mois);
+        add(m);
+        add(annee);
+        add(a);
         add(heureDL);
         add(heureD);
         add(heureFL);
         add(heureF);
+        
+        
+        
         add(valider);
 
         this.setVisible(true);
@@ -69,9 +95,24 @@ public class SearchSeanceDisplay extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
-        	
-            String seamaineRes = semaine.getSelectedItem().toString();
-            System.out.println(seamaineRes);
+        	DAO dao=new DAO();
+        	Outil outil=new Outil();
+        	ArrayList<Seance> seances=new ArrayList<Seance>();
+        	Integer an= (Integer) a.getSelectedItem();
+        	Integer mo=(Integer) m.getSelectedItem();
+        	Integer joInteger =(Integer) j.getSelectedItem();
+        	Integer hDInteger =(Integer) heureD.getSelectedItem();
+        	Integer hFInteger= (Integer) heureF.getSelectedItem();
+        	@SuppressWarnings("deprecation")
+        
+			java.sql.Date date= new java.sql.Date(an.intValue(),mo.intValue()-1,joInteger.intValue());
+        	for(int i=0;i<hFInteger.intValue();i++)
+        	{
+        		seances.addAll(outil.searchSeancebyDateHoure(date, hDInteger.intValue()+i));
+        	}
+        	seances.add(dao.getSeancebyID(1));
+        	System.out.print("salle trouver :"+seances.size());
+        	wallSeancegrid.displaygrid(seances);
         }
     }
 }

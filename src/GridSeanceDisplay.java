@@ -17,6 +17,10 @@ public class GridSeanceDisplay extends JPanel{
 				}
 				
 			}
+			this.setVisible(true);
+			this.validate();
+			this.getParent().getParent().revalidate();
+			this.getParent().getParent().paint(this.getParent().getParent().getGraphics());
 		}
 	
 }

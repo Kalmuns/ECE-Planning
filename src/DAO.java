@@ -135,7 +135,7 @@ public class DAO {
 	{
 		DAO dao=new DAO();
 		ArrayList<Seance> seances= new ArrayList<Seance>();
-		String query ="SELECT * FROM seances WHERE seance_Date= ";
+		String query ="SELECT * FROM seance WHERE seance_Date= ";
 		query+=date.toString();
 		 try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
