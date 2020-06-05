@@ -100,6 +100,30 @@ public class DeleterBDD {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			 query="DELETE  FROM seancesalles WHERE seanceSalles_SeanceIDID = ";
+			query+= Integer.toString(id);
+				try {
+				     conn.createStatement().executeUpdate(query);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			     query="DELETE  FROM seanceenseignants WHERE seanceEnseignants_SeanceID = ";
+				query+= Integer.toString(id);
+					try {
+					     conn.createStatement().executeUpdate(query);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					 query="DELETE  FROM seancegroupes WHERE seanceGroupes_SeanceID = ";
+					query+= Integer.toString(id);
+						try {
+						     conn.createStatement().executeUpdate(query);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 			
 	// SEANCE SALLE/ENSEIGNANT/GROUPE TO SUPP 
 	}

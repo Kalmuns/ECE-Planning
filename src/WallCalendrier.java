@@ -14,6 +14,7 @@ public class WallCalendrier extends JPanel
         this.setLayout(new BorderLayout());
         DAO dao= new DAO();
         user= dao.getUtilisateurbyID(1);
+        System.out.println(" rr"+ dao.getUtilisateurbyID(1));
 //        JPanel buffer= new Login(this,idpersonne);
 //        add(buffer,BorderLayout.CENTER);
 //        buffer=new Menu(this);
