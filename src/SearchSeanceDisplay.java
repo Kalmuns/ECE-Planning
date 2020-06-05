@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class AffecterSeanceDisplay extends JPanel
+public class SearchSeanceDisplay extends JPanel
 {
     private JLabel semaineL;
     private JLabel dateL;
@@ -24,20 +24,11 @@ public class AffecterSeanceDisplay extends JPanel
     private JComboBox heureF;
     private JComboBox combo;
     protected  JButton valider;
+    WallSeancegrid wallSeancegrid=null;
 
-
-    /*
-    private Calendar cal;
-    DefaultComboBoxModel j = new DefaultComboBoxModel();
-    JComboBox jour = new JComboBox(j);
-    DefaultComboBoxModel m = new DefaultComboBoxModel();
-    JComboBox mois = new JComboBox(m);
-*/
-
-
-    public AffecterSeanceDisplay()
+    public SearchSeanceDisplay(WallSeancegrid wall)
     {
-        semaineL = new JLabel("semaine :");
+        semaineL = new JLabel("jour :");
         dateL = new JLabel("date :");
         heureDL = new JLabel("heure de début :");
         heureFL = new JLabel("durée du cours:");
@@ -45,7 +36,7 @@ public class AffecterSeanceDisplay extends JPanel
         heureD = new JComboBox();
         valider = new JButton("Valider");
         valider.addActionListener(new validerListener());
-
+        this.wallSeancegrid=wall;
         for (int s = 1 ; s < 16 ; s++)
         {
             semaine.addItem(s);
@@ -62,33 +53,14 @@ public class AffecterSeanceDisplay extends JPanel
         }
 
 
-    /*
-        Calendar cal = Calendar.getInstance();
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-        cal.set(Calendar.MONTH, month);
-        int maxDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-        for (int v = 1; v <= maxDay; v++) {
-            j.addElement(Integer.valueOf(v));
-        }
-        j.setSelectedItem(Integer.valueOf(day));
-
-        for(int i = 0 ; i < 15 ; i++)
-        {
-            semaine.addItem(i);
-        }*/
-
         add(semaineL);
         add(semaine);
-//        add(dateL);
-//        add(date);
         add(heureDL);
         add(heureD);
         add(heureFL);
         add(heureF);
         add(valider);
-        /* this.add(combo, BorderLayout.NORTH);
-         * */
+
         this.setVisible(true);
         this.validate();
     }
@@ -97,6 +69,7 @@ public class AffecterSeanceDisplay extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
+        	
             String seamaineRes = semaine.getSelectedItem().toString();
             System.out.println(seamaineRes);
         }

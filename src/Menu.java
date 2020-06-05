@@ -73,7 +73,7 @@ private class AccueilListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            wall.actual(new AffecterSeanceDisplay());
+            wall.actual(new WallSeancegrid(wall));
 
         }
     }
