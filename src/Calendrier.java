@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.omg.PortableInterceptor.USER_EXCEPTION;
+
 
 public class Calendrier extends JPanel {
 	
@@ -100,7 +100,7 @@ public class Calendrier extends JPanel {
 			
 			
 			gbc.insets = inset;
-			gbc.gridy =seances.get(i).heure_debut;
+			gbc.gridy =seances.get(i).getheure_debut();
 			gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
 			
 			this.add(new Cell(seances.get(i),user),gbc);
