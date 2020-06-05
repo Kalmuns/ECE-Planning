@@ -6,7 +6,7 @@ public class WallCalendrier extends JPanel
     private int[] idpersonne;
     private Calendrier calendrier;
     private SemaineDisplay semaineDisplay;
-    private HeureDisplay heureDisplay;
+    
     Utilisateur user;
     public WallCalendrier()
     {
@@ -14,7 +14,6 @@ public class WallCalendrier extends JPanel
         this.setLayout(new BorderLayout());
         DAO dao= new DAO();
         user= dao.getUtilisateurbyID(1);
-        System.out.println(" rr"+ dao.getUtilisateurbyID(1));
 //        JPanel buffer= new Login(this,idpersonne);
 //        add(buffer,BorderLayout.CENTER);
 //        buffer=new Menu(this);
@@ -23,7 +22,7 @@ public class WallCalendrier extends JPanel
         add(new SemaineDisplay(this),BorderLayout.NORTH);
         add(new Calendrier(2,user),BorderLayout.CENTER);
         //add(new AffichageSalleLibre(1), BorderLayout.CENTER);
-        add(new HeureDisplay(),BorderLayout.WEST);
+        
         
         
     }
@@ -41,7 +40,7 @@ public class WallCalendrier extends JPanel
 			System.out.println( "Bla");
         add(new SemaineDisplay(this),BorderLayout.NORTH);
         add(new Calendrier(i,user),BorderLayout.CENTER);
-        add(new HeureDisplay(),BorderLayout.WEST);
+        
 
     }
     
@@ -60,7 +59,7 @@ public class WallCalendrier extends JPanel
         paint(this.getGraphics());
         add(new SemaineDisplay(this),BorderLayout.NORTH);
         add(new Calendrier(y,user),BorderLayout.CENTER);
-       add(new HeureDisplay(),BorderLayout.WEST);
+       
        
        
      this.update(this.getGraphics());
