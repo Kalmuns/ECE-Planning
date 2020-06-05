@@ -42,7 +42,25 @@ public class Outil {
 	    }
 	}
 
-
+	public ArrayList<Salle> salleDisponible(ArrayList<Salle> Allsalles, ArrayList<Seance> seanceParHeure){
+		ArrayList<Salle> salles = new ArrayList<Salle>();
+		for (int i = 0; i < Allsalles.size(); i++) {
+			for (int j = 0; j < seanceParHeure.size(); j++) {
+				salles=seanceParHeure.get(j).getsalle();
+				for (int j2 = 0; j2 < salles.size(); j2++) {
+					if (Allsalles.get(i).getid()==salles.get(j).getid()) {
+						Allsalles.remove(i);
+						i--;
+				}
+				
+				}
+			}
+		}
+		return Allsalles;
+		
+		
+		
+	}
 	public int convertirJourInt(java.sql.Date dates) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(dates);

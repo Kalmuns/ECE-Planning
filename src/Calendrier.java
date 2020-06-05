@@ -11,28 +11,31 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.omg.PortableInterceptor.USER_EXCEPTION;
+
 public class Calendrier extends JPanel {
 	
 	// Display les information et contient le panel de cell
 	
-	
-	public Calendrier(int semaine) {
+	private Utilisateur user;
+	public Calendrier(int semaine, Utilisateur users) {
 		//this.setLayout(new GridLayout(7,7));
+		
 		DAO dao = new DAO();
 		Insets inset = new Insets(2, 10, 2, 10);
 		Outil test = new Outil();
-		
+		//user=users;
 		GridBagConstraints gbc = new GridBagConstraints();
 		
 		ArrayList<Seance> seances= new ArrayList<Seance>();
 		int seancesAff[];
-		
-		
+		//ArrayList<Salle> hopArrayList=test.salleDisponible(dao.getallsalle(), dao.getallseancebyweek(2));
+		//System.out.println(hopArrayList.size());
 		seances =dao.getSeancesByWeek(1, semaine);
 		System.out.println(seances.size() );
 		this.setLayout(new GridBagLayout());
 		gbc.gridy = 0;
-		
+		user= dao.getUtilisateurbyID(1);
 		
 		//JOUR DE LA SEMAINE
 		//Lundi
@@ -100,7 +103,7 @@ public class Calendrier extends JPanel {
 			gbc.gridy =seances.get(i).heure_debut;
 			gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
 			
-			this.add(new Cell(seances.get(0)),gbc);
+			this.add(new Cell(seances.get(0),user),gbc);
 			
 		}
 		for(int i=0;i<7;i++)
@@ -116,7 +119,7 @@ public class Calendrier extends JPanel {
 					if (this.getWidth()==0) {
 						JPanel cell1 = new JPanel();
 					    cell1.setBackground(Color.LIGHT_GRAY);
-					    cell1.setPreferredSize(new Dimension(120, 70));
+					    cell1.setPreferredSize(new Dimension(120, 50));
 						this.add(cell1,gbc);
 					}
 					
