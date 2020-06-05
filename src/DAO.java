@@ -2,6 +2,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 
+
 public class DAO {
 		
 	private Connection conn=null;
@@ -24,7 +25,6 @@ public class DAO {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	//return un utilisateur par id 
 	public Utilisateur getUtilisateurbyID(int utilisateurID)
@@ -85,6 +85,7 @@ public class DAO {
 	}
 	
 	
+	
 	// ne renvoie pas le group????
 	//Renvoies les utilisateurs du groupe.
 	public ArrayList<Utilisateur> getUtilisateurByGroupID(int idgroup)
@@ -126,6 +127,29 @@ public class DAO {
 			}
 		return cour;
 	}
+	
+	
+	
+	
+	public ArrayList<Seance> getSeancesbyDate(Date date)
+	{
+		DAO dao=new DAO();
+		ArrayList<Seance> seances= new ArrayList<Seance>();
+		String query ="SELECT * FROM seances WHERE seance_Date= ";
+		query+=date.toString();
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  seances.add(dao.getSeancebyID(result.getInt("seance_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return seances;
+	}
+	
 	
 	//retourne le groupe 
 	public Groupe getGroupebyID(int groupeID)
@@ -258,6 +282,23 @@ public class DAO {
 			}
 		return cours;
 	}
+	ArrayList<Groupe> getallgroupe()
+	{
+		ArrayList<Groupe> groupe= new ArrayList<Groupe>();
+		String query ="SELECT * FROM groupe ";
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					groupe.add(new Groupe(result.getInt("groupe_ID"), result.getString("groupe_Nom"),result.getInt("groupe_PromotionID")));  
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return groupe;
+	}
+	
 	ArrayList<TypeCour> getalltypecour()
 	{
 		ArrayList<TypeCour> typeCours=new ArrayList<TypeCour>();
@@ -273,6 +314,23 @@ public class DAO {
 				e.printStackTrace();
 			}
 		return typeCours;
+	}
+	ArrayList<Enseignant>getallenEnseignants()
+	{
+		DAO dao=new DAO();
+		ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
+		String query ="SELECT * FROM enseignant ";
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  enseignants.add((Enseignant) dao.getUtilisateurbyID(result.getInt("enseignant_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return enseignants;
 	}
 
 	
@@ -329,7 +387,7 @@ public class DAO {
 		 	}
 		 
 		 	
-		 	  //--SALLE
+		 //--SALLE
 		 // Ajouts des Salles
 		 	 tableaux = new ArrayList<Integer>();
 			 query="SELECT DISTINCT * FROM seancesalles WHERE 	seanceSalles_SeanceIDID = ";
@@ -482,6 +540,7 @@ public class DAO {
 		}
 		return seances;
 	}
+	
 	public ArrayList<Seance> getSeancebySalleWeek(int salleID,int semaine)
 	{
 		ArrayList<Seance> seances=new ArrayList<Seance>();
@@ -502,5 +561,4 @@ public class DAO {
 			}
 		return seances;
 	}
-	
 }

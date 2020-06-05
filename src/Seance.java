@@ -8,7 +8,7 @@ public class Seance {
 	TypeCour typeCour=null;
 	ArrayList<Enseignant> enseignant= new ArrayList<Enseignant>();
 	ArrayList<Salle> salle= new ArrayList<Salle>();
-	int idseance,semaine,crenau,duree,etat,heure_debut;  /// Heure début /fin ? pas sur 
+	private int idseance,semaine,crenau,duree,etat,heure_debut;  /// Heure début /fin ? pas sur 
 	Date date = null;
 	
 	
@@ -24,7 +24,7 @@ public class Seance {
 		heure_debut=hd;
 		this.duree=duree;
 		this.cour=cour;
-		this.typeCour=typeCour;
+		this.typeCour=typeCour;	
 	}
 	public ArrayList<Groupe> getgroupes()
 	{
