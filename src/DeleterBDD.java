@@ -29,7 +29,7 @@ public class DeleterBDD {
 		String query="DELETE  FROM utilisateur WHERE utilisateur_ID = ";
 		query+= Integer.toString(id);
 			try {
-			     conn.createStatement().executeQuery(query);
+			     conn.createStatement().executeUpdate(query);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -37,7 +37,7 @@ public class DeleterBDD {
 		query="DELETE  FROM etudiant WHERE etudiant_ID = ";
 		query+= Integer.toString(id);
 				try {
-				     conn.createStatement().executeQuery(query);
+				     conn.createStatement().executeUpdate(query);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class DeleterBDD {
 		query="DELETE  FROM enseignant WHERE enseignant_ID = ";
 		query+= Integer.toString(id);
 						try {
-						     conn.createStatement().executeQuery(query);
+						     conn.createStatement().executeUpdate(query);
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -53,7 +53,7 @@ public class DeleterBDD {
 		query="DELETE  FROM seanceEnseignants_SeanceID WHERE seanceEnseignants_EnseignantsID = ";
 		query+= Integer.toString(id);
 						try {
-							conn.createStatement().executeQuery(query);
+							conn.createStatement().executeUpdate(query);
 						} catch (SQLException e) {
 											// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -64,7 +64,7 @@ public class DeleterBDD {
 		String query="DELETE  FROM cours WHERE cours_ID = ";
 		query+= Integer.toString(id);
 			try {
-			     conn.createStatement().executeQuery(query);
+			     conn.createStatement().executeUpdate(query);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -72,7 +72,7 @@ public class DeleterBDD {
 			 query="DELETE  FROM seance WHERE seance_CoursID = ";
 			query+= Integer.toString(id);
 				try {
-				     conn.createStatement().executeQuery(query);
+				     conn.createStatement().executeUpdate(query);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace()	;
@@ -95,19 +95,13 @@ public class DeleterBDD {
 		String query="DELETE  FROM seance WHERE seance_ID = ";
 		query+= Integer.toString(id);
 			try {
-			     conn.createStatement().executeQuery(query);
+			     conn.createStatement().executeUpdate(query);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			query="DELETE  FROM u WHERE etudiant_ID = ";
-			query+= Integer.toString(id);
-					try {
-					     conn.createStatement().executeQuery(query);
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+			
+	// SEANCE SALLE/ENSEIGNANT/GROUPE TO SUPP 
 	}
 	public void suppSite()
 	{
