@@ -75,7 +75,7 @@ public class Cell extends JPanel{
 		public void actionPerformed(ActionEvent e)
 		{
 			DeleterBDD supprimer = new DeleterBDD();
-			//supprimer.suppSeance(seanceSeance.getidseance());
+			supprimer.suppSeance(seanceSeance.getidseance());
 		}
 	}
 }
