@@ -11,11 +11,12 @@ public class numSemaine extends JPanel
     protected JButton selectSemaine;
     protected int idSemaine;
     protected WallCalendrier wallCalendrier;
-
-    public numSemaine(int idSemaine, int i, WallCalendrier c)
+    protected int salleLibre;
+    public numSemaine(int idSemaine, int i, WallCalendrier c,int j)
     {
     	selectSemaine selectSemaines =new selectSemaine(i+1 +"" , c );
     	idSemaine = i+1;
+    	salleLibre = j;
 //        add(selectSemaine,BorderLayout.CENTER);
     	selectSemaines.setBackground(Color.white);
         add(selectSemaines);
@@ -44,16 +45,14 @@ public class numSemaine extends JPanel
 		public void mouseClicked(MouseEvent e) {
 			
 			i = Integer.parseInt(name);
-			
-			calendrier.actualCalendrier(i);
-			if(e.getSource().getClass()== selectSemaine.class)
-			{
-				
-				selectSemaine boutonsButton = (selectSemaine) e.getSource();
-				
-				//System.out.println( "Bla" +boutonsButton.getName());
-				
+			if (salleLibre==0) {
+				calendrier.actualCalendrier(i);
 			}
+			if (salleLibre ==1) {
+				calendrier.actualCalendrier(i,1);
+			}
+			
+			
 		}
 
 		@Override

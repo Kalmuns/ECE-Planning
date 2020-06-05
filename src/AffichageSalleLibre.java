@@ -22,6 +22,7 @@ public class AffichageSalleLibre  extends JPanel{
 			int jourSemaine;
 			int heure;
 			
+			int x,y;
 			
 			GridBagConstraints gbc = new GridBagConstraints();
 			
@@ -32,7 +33,6 @@ public class AffichageSalleLibre  extends JPanel{
 			//System.out.println(hopArrayList.size());
 			seances =dao.getallseancebyweek(semaine);
 			salles = dao.getallsalle();
-			System.out.println(seances.size() );
 			this.setLayout(new GridBagLayout());
 			gbc.gridy = 0;
 			
@@ -93,7 +93,8 @@ public class AffichageSalleLibre  extends JPanel{
 			
 			
 			
-			
+			x =y = 1;
+			y=0;
 			//On rempli le tableau
 			for(int i=0;i<7*7;i++)
 			{
@@ -103,7 +104,7 @@ public class AffichageSalleLibre  extends JPanel{
 					heure = seances.get(j).getheure_debut();
 					
 					//Si la seance est à l'heure indiqué alors 
-					if ((heure+ jourSemaine*7)==i) {
+					if (((heure-1)+ jourSemaine*7)==i) {
 						
 						//On récupère les salles de cette seance
 						for (int j2 = 0; j2 < seances.get(j).getsalle().size(); j2++) {
@@ -112,6 +113,7 @@ public class AffichageSalleLibre  extends JPanel{
 							for (int k = 0; k < salles.size(); k++) {
 								if (salles.get(k).getid()== seances.get(j).getsalle().get(j2).getid()) {
 									salles.remove(k);
+									
 									
 								}
 							}
@@ -122,12 +124,21 @@ public class AffichageSalleLibre  extends JPanel{
 				
 				}
 				gbc.insets = inset;
+				if (i % 7 ==0 && i!=0) {
+					y=0;
+					x++;
+				}
+				y++;
+				gbc.gridy =y;
+				gbc.gridx =x;
 				//gbc.gridy =seances.get(i).heure_debut;
-				gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
-				
-				this.add(new SalleLibreDisplay(salles));
+				//gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
+				//System.out.println("TAille salle libre: " + seances.size());
+				this.add(new SalleLibreDisplay(salles),gbc);
 				
 				salles = dao.getallsalle();
+				
+				
 				
 			}
 			

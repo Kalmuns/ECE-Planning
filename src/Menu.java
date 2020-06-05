@@ -9,18 +9,22 @@ public class Menu extends JPanel  {
 	private JButton accueil;
 	private JButton etd;
 	private JButton user;
+	private JButton salleLibre;
 	protected Wall wall;
 	public Menu(Wall wa)
 	{
 		accueil = new JButton ("Accueil");
 		etd = new JButton ("ETD");
 		user = new JButton("Utilisateurs");
+		salleLibre = new JButton("Salle Libre");
 		accueil.addActionListener(new AccueilListener());
 		etd.addActionListener(new edtListener());
 		user.addActionListener(new userListener());
+		salleLibre.addActionListener(new salleLibreListener());
 		//add(accueil);
 		add (etd);
 		add(user);
+		add(salleLibre);
 		wall = wa;
 		setVisible(false);
 		setEnabled(false);
@@ -53,6 +57,13 @@ public class Menu extends JPanel  {
 		public void actionPerformed(ActionEvent e)
 		{
 			wall.actual(new RechercheUser(wall));
+		}
+	}
+	private class salleLibreListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			wall.actual(new WallCalendrier(0,0));
 		}
 	}
 
