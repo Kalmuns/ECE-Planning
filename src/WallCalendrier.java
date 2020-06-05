@@ -52,6 +52,5 @@ public class WallCalendrier extends JPanel
         add(new HeureDisplay(),BorderLayout.WEST);
 //      this.update(this.getGraphics());
 //      this.revalidate();
-
     }
 }

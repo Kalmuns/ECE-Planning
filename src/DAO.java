@@ -2,12 +2,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 
-
-
-
-
-
-
 public class DAO {
 		
 	private Connection conn=null;
@@ -210,6 +204,25 @@ public class DAO {
 		
 		return typeCour;
 		
+	}
+	
+	ArrayList<Seance> getallseancebyweek(int semaine)
+	{
+		DAO dao=new DAO();
+		ArrayList<Seance> seances= new ArrayList<Seance>();
+		String query ="SELECT * FROM seances WHERE seance_Semaine= ";
+		query+=Integer.toString(semaine);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  seances.add(dao.getSeancebyID(result.getInt("seance_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return seances;
 	}
 	
 	ArrayList<Salle> getallsalle()
