@@ -122,7 +122,7 @@ public class AffichageSalleLibre  extends JPanel{
 				
 				}
 				gbc.insets = inset;
-				gbc.gridy =seances.get(i).heure_debut;
+				//gbc.gridy =seances.get(i).heure_debut;
 				gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
 				
 				this.add(new SalleLibreDisplay(salles));
