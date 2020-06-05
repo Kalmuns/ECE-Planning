@@ -41,7 +41,9 @@ public class Menu extends JPanel  {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
+			//wall.actual(new WallCalendrier());
 			wall.actual(new WallCalendrier());
+			
 		}
 
 	}

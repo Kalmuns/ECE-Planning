@@ -21,6 +21,7 @@ public class WallCalendrier extends JPanel
         
         add(new SemaineDisplay(this),BorderLayout.NORTH);
         add(new Calendrier(2,user),BorderLayout.CENTER);
+        //add(new AffichageSalleLibre(1), BorderLayout.CENTER);
         add(new HeureDisplay(),BorderLayout.WEST);
         
         
@@ -42,6 +43,7 @@ public class WallCalendrier extends JPanel
         add(new HeureDisplay(),BorderLayout.WEST);
 
     }
+    
     protected void actualCalendrier(int y)
     {
     	DAO dao= new DAO();

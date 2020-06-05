@@ -103,7 +103,7 @@ public class Calendrier extends JPanel {
 			gbc.gridy =seances.get(i).heure_debut;
 			gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
 			
-			this.add(new Cell(seances.get(0),user),gbc);
+			this.add(new Cell(seances.get(i),user),gbc);
 			
 		}
 		for(int i=0;i<7;i++)
