@@ -227,14 +227,13 @@ public class DAO {
 			}
 		
 		return typeCour;
-		
 	}
 	
 	ArrayList<Seance> getallseancebyweek(int semaine)
 	{
 		DAO dao=new DAO();
 		ArrayList<Seance> seances= new ArrayList<Seance>();
-		String query ="SELECT * FROM seances WHERE seance_Semaine= ";
+		String query ="SELECT * FROM seance WHERE seance_Semaine= ";
 		query+=Integer.toString(semaine);
 		 try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
