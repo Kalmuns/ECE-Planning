@@ -17,6 +17,7 @@ public class Outil {
 	    cal.setTime(dates);
 	    return cal.get(Calendar.WEEK_OF_YEAR);
 	}
+	
 	public String convertirJour(java.sql.Date dates)
 	{
 		Calendar cal = Calendar.getInstance();
