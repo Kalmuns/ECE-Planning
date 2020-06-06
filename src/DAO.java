@@ -526,6 +526,27 @@ public class DAO {
 		return seances;
 	}
 	
+	public ArrayList<Seance> getSeanceByCourWeek(int courID,int semaine)
+	{
+		ArrayList<Seance> seances=new ArrayList<Seance>();
+		DAO dao=new DAO();
+		String query="SELECT DISTINCT * FROM seance WHERE seance_CoursID= ";
+		query+=Integer.toString(courID);
+		query+= " AND seance_Semaine=";
+		query+=Integer.toString(semaine);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					seances.add(dao.getSeancebyID(result.getInt("seances_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return seances;
+	}
+	
 	public ArrayList<Seance> getSeancebyPromoWeek(int promoID,int semaine)
 	{
 		ArrayList<Seance> seances=new ArrayList<Seance>();
@@ -560,4 +581,13 @@ public class DAO {
 			}
 		return seances;
 	}
+	
+	public Utilisateur Login(String email,String mdp)
+	{
+		Utilisateur utilisateur=null;
+		
+		
+		return utilisateur;
+	}
+	
 }
