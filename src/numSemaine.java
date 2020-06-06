@@ -12,11 +12,13 @@ public class numSemaine extends JPanel
     protected int idSemaine;
     protected WallCalendrier wallCalendrier;
     protected int salleLibre;
-    public numSemaine(int idSemaine, int i, WallCalendrier c,int j)
+    protected int cont;
+    public numSemaine(int idSemaine, int i, WallCalendrier c,int j,int contenu)
     {
     	selectSemaine selectSemaines =new selectSemaine(i+1 +"" , c );
     	idSemaine = i+1;
     	salleLibre = j;
+    	cont = contenu;
 //        add(selectSemaine,BorderLayout.CENTER);
     	selectSemaines.setBackground(Color.white);
         add(selectSemaines);
@@ -51,7 +53,9 @@ public class numSemaine extends JPanel
 			if (salleLibre ==1) {
 				calendrier.actualCalendrier(i,1);
 			}
-			
+			if (salleLibre ==2) {
+				calendrier.actualCalendrier(i,2,cont);
+			}
 			
 		}
 

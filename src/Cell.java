@@ -14,11 +14,17 @@ public class Cell extends JPanel{
 
 	private Utilisateur user;
 	Seance seanceSeance;
-	public Cell( Seance cell_seance,Utilisateur users) {
+	int semaine;
+	protected WallCalendrier wallCalendrier;
+	public Cell( Seance cell_seance,Utilisateur users, WallCalendrier c,int sem) {
 		this.setLayout(new GridLayout(0,1));
 		user=users;
 		seanceSeance = cell_seance;
-		//On r�cup�re le nom du cours
+
+		wallCalendrier = c;
+		semaine=sem;
+		
+
 		Cour cours = cell_seance.getCour();
 		String cours_Nom = cours.getnom();
 		
@@ -31,13 +37,17 @@ public class Cell extends JPanel{
 		Nom.setBorderPainted(false);
 		Nom.setBackground(Color.GRAY);
 		add(Nom,BorderLayout.NORTH);
+		Nom.addActionListener(new NomBouton());
 		
 		
 		ArrayList<Enseignant> enseignant = cell_seance.getEnseignants();
 		
-	
+
 		
-		add(new EnseignantDisplay(enseignant));
+		
+		add(new EnseignantDisplay(enseignant,wallCalendrier));
+
+
 		
 		
 		//JButton Prof = new JButton("Enseignant");
@@ -47,7 +57,7 @@ public class Cell extends JPanel{
 		
 		
 		ArrayList<Groupe> groupe = cell_seance.getgroupes();
-		add(new GroupeDisplayer(groupe));
+		add(new GroupeDisplayer(groupe,wallCalendrier));
 		
 		
 		
@@ -81,76 +91,15 @@ public class Cell extends JPanel{
 			supprimer.suppSeance(seanceSeance.getidseance());
 		}
 	}
+	private class NomBouton implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			Cour cours = seanceSeance.getCour();
+			int cours_Nom = cours.getID();
+			wallCalendrier.actualCalendrier(semaine, 2, cours_Nom);
+			
+		}
+	}
 }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//

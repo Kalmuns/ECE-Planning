@@ -18,8 +18,8 @@ public class WallCalendrier extends JPanel
 //        add(buffer,BorderLayout.CENTER);
 //        buffer=new Menu(this);
 //        add(buffer,BorderLayout.NORTH);
-        add(new SemaineDisplay(this,0),BorderLayout.NORTH);
-        add(new Calendrier(2,user),BorderLayout.CENTER);
+        add(new SemaineDisplay(this,0,0),BorderLayout.NORTH);
+        add(new Calendrier(2,user,this,0,0),BorderLayout.CENTER);
         //add(new AffichageSalleLibre(1), BorderLayout.CENTER);
         
         
@@ -37,7 +37,7 @@ public class WallCalendrier extends JPanel
 //        buffer=new Menu(this);
 //        add(buffer,BorderLayout.NORTH);
         add(new AffichageSalleLibre(2),BorderLayout.CENTER);
-        add(new SemaineDisplay(this,1),BorderLayout.NORTH);
+        add(new SemaineDisplay(this,1,0),BorderLayout.NORTH);
         //add(new Calendrier(2,user),BorderLayout.CENTER);
         //add(new AffichageSalleLibre(1), BorderLayout.CENTER);
         
@@ -56,8 +56,8 @@ public class WallCalendrier extends JPanel
 //        buffer=new Menu(this);
 //        add(buffer,BorderLayout.NORTH);
 			
-        add(new SemaineDisplay(this,0),BorderLayout.NORTH);
-        add(new Calendrier(i,user),BorderLayout.CENTER);
+        add(new SemaineDisplay(this,0,0),BorderLayout.NORTH);
+        add(new Calendrier(i,user,this,0,0),BorderLayout.CENTER);
         
 
     }
@@ -75,8 +75,8 @@ public class WallCalendrier extends JPanel
        this.update(this.getGraphics());
         this.revalidate();
         paint(this.getGraphics());
-        add(new SemaineDisplay(this,0),BorderLayout.NORTH);
-        add(new Calendrier(y,user),BorderLayout.CENTER);
+        add(new SemaineDisplay(this,0,0),BorderLayout.NORTH);
+        add(new Calendrier(y,user,this,0,0),BorderLayout.CENTER);
        
        
        
@@ -99,8 +99,31 @@ public class WallCalendrier extends JPanel
        this.update(this.getGraphics());
         this.revalidate();
         paint(this.getGraphics());
-        add(new SemaineDisplay(this,1),BorderLayout.NORTH);
+        add(new SemaineDisplay(this,1,0),BorderLayout.NORTH);
         add(new AffichageSalleLibre(y),BorderLayout.CENTER);
+       
+       
+       
+     this.update(this.getGraphics());
+      this.revalidate();
+      
+    }
+    //Actual pour les Nom des seances
+    protected void actualCalendrier(int y,int mode , int contenu)
+    {
+    	DAO dao= new DAO();
+        user= dao.getUtilisateurbyID(1);
+    	int i;
+    	for (i=0;i<this.getComponentCount();i++)
+        {
+            this.remove(i);
+       }
+    this.removeAll();
+       this.update(this.getGraphics());
+        this.revalidate();
+        paint(this.getGraphics());
+        add(new SemaineDisplay(this,mode,contenu),BorderLayout.NORTH);
+        add(new Calendrier(y,user,this,1,contenu),BorderLayout.CENTER);
        
        
        
