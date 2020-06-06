@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import sun.tools.jar.resources.jar;
+
 
 public class SalleDisplay extends JPanel {
 	private ArrayList<Salle> todisplay=null;

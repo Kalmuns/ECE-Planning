@@ -41,7 +41,7 @@ public class InsertBDD {
 			   query+="'"+Integer.toString(courid)+"',";
 			   query+="'"+Integer.toString(typecourid)+"');";
 			   try {
-				     conn.createStatement().executeQuery(query);
+				     conn.createStatement().executeUpdate(query);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -64,7 +64,7 @@ public class InsertBDD {
 			   query+="'"+Integer.toString(courid)+"',";
 			   query+="'"+Integer.toString(typecourid)+"');";
 			   try {
-				     conn.createStatement().executeQuery(query);
+				     conn.createStatement().executeUpdate(query);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -100,7 +100,7 @@ public class InsertBDD {
 	{
 		String query="INSERT INTO `seanceenseignants` (`seanceEnseignants_SeanceID`, `seanceEnseignants_EnseignantsID`) VALUES ('"+idseance+"', '"+idsenseignant+"');" ;
 		 try {
-		     conn.createStatement().executeQuery(query);
+		     conn.createStatement().executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,7 +111,7 @@ public class InsertBDD {
 	{
 		String query="INSERT INTO `seancegroupes` (`seanceGroupes_SeanceID`, `seanceGroupes_GroupeID`) VALUES ('"+idseance+"', '"+idgroupe+"');" ;
 		 try {
-		     conn.createStatement().executeQuery(query);
+		     conn.createStatement().executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -122,7 +122,7 @@ public class InsertBDD {
 	{
 		String query="INSERT INTO `seancesalles` (`seanceSalles_SeanceIDID`, `seanceSalles_SalleID`) VALUES ('"+idseance+"', '"+idsalle+"');" ;
 		 try {
-		     conn.createStatement().executeQuery(query);
+		     conn.createStatement().executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

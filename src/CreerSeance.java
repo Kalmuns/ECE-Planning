@@ -25,8 +25,8 @@ public class CreerSeance extends JPanel{
    // private JSpinner date;
 
     private JComboBox semaine;
-    private JComboBox heureD;
-    private JComboBox duree;
+    private JComboBox<Integer> heureD;
+    private JComboBox<Integer> duree;
     private JComboBox coursNom;
     private JComboBox coursType;
     private JButton valider;
@@ -35,6 +35,8 @@ public class CreerSeance extends JPanel{
     private JComboBox<Integer> m;
     private JComboBox<Integer> a;
     private DAO dao;
+    ArrayList<Cour> cours = new ArrayList<Cour>();
+    ArrayList<TypeCour> type_cours= new ArrayList<TypeCour>();
 
 
 
@@ -47,8 +49,8 @@ public class CreerSeance extends JPanel{
         coursTypeL = new JLabel("type de cours: ");
        // semaineL = new JLabel("numeros de la semaine");
         //semaine = new JComboBox();
-        heureD = new JComboBox();
-        duree = new JComboBox();
+        heureD = new JComboBox<Integer>();
+        duree = new JComboBox<Integer>();
         coursNom = new JComboBox();
         coursType = new JComboBox();
         valider = new JButton("valider");
@@ -62,8 +64,7 @@ public class CreerSeance extends JPanel{
       //  date = new JSpinner();
       
         dao = new DAO();
-        ArrayList<Cour> cours = new ArrayList<Cour>();
-        ArrayList<TypeCour> type_cours= new ArrayList<TypeCour>();
+      
 
 
 
@@ -146,13 +147,13 @@ public class CreerSeance extends JPanel{
         	Integer mo=(Integer) m.getSelectedItem();
         	Integer joInteger =(Integer) j.getSelectedItem();
             Integer resHeureD = (Integer) heureD.getSelectedItem();
-            Integer resHeureF = duree.getSelectedIndex();
+            Integer resHeureF = (Integer) duree.getSelectedItem();
             java.sql.Date date= new java.sql.Date(an.intValue(),mo.intValue()-1,joInteger.intValue());
             int semaine= outil.convertirSemaine(date);
             String resCoursNom = String.valueOf(coursNom.getSelectedIndex());
             int resTypeCours = coursType.getSelectedIndex(); // recuperer l'ordre des types de cours
        //     System.out.println(resDate);
-
+            insertBDD.insertSeance(date, resHeureD.intValue(), resHeureF.intValue(), 0, cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
             //ibdd.insertSeance(); // voir le InsertSeance (manque la semaine) convertir date en string
         }
     }
