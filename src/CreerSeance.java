@@ -138,6 +138,7 @@ public class CreerSeance extends JPanel{
         public void actionPerformed(ActionEvent e)
         {
             Outil outil=new Outil();
+            InsertBDD insertBDD = new InsertBDD();
            // int resSemaine = (int) semaine.getSelectedItem();
       //      String resDate = new SimpleDateFormat("yyyy-MM-dd").format(date.getValue());
             Integer an= (Integer) a.getSelectedItem();

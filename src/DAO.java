@@ -684,7 +684,7 @@ public class DAO {
 			    ResultSet result= conn.createStatement().executeQuery(query);
 				  while(result.next())
 				  {
-					seances.add(dao.getSeancebyID(result.getInt("seances_ID")));
+					seances.add(dao.getSeancebyID(result.getInt("seance_ID")));
 				  }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
