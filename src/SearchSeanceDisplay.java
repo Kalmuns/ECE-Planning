@@ -83,9 +83,6 @@ public class SearchSeanceDisplay extends JPanel
         add(heureD);
         add(heureFL);
         add(heureF);
-        
-        
-        
         add(valider);
 
         this.setVisible(true);
@@ -112,9 +109,9 @@ public class SearchSeanceDisplay extends JPanel
         	{
         		seances.addAll(outil.searchSeancebyDateHoure(date, hDInteger.intValue()+i));
         	}
-        	seances.add(dao.getSeancebyID(1));
-        	seances.add(dao.getSeancebyID(1));
-        	seances.add(dao.getSeancebyID(1));
+//        	seances.add(dao.getSeancebyID(1));
+//        	seances.add(dao.getSeancebyID(1));
+//        	seances.add(dao.getSeancebyID(1));
         	System.out.print("salle trouver :"+seances.size()+ "DATE "+date);
         	wallSeancegrid.displaygrid(seances);
         }

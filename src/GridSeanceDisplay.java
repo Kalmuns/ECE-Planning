@@ -13,7 +13,7 @@ public class GridSeanceDisplay extends JPanel{
 				int i;
 				for(i=0;i<seances.size();i++)
 				{
-					System.out.println("Griseance "+i+"  "+ this.getParent());
+					//System.out.println("Griseance "+i+"  "+ this.getParent());
 					this.add(new RowSeanceGridDisplay(seances.get(i), wall));
 				}
 				

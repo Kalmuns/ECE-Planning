@@ -8,19 +8,17 @@ public class RechercheUser extends JPanel
 
     private JTextField searchfield;
     private JButton search;
-    private Wall wall;
-    public RechercheUser(Wall wa)
+    private WallUtilisateur wall;
+    public RechercheUser(WallUtilisateur wa)
     {
 
         wall=wa;
         searchfield= new JTextField(30);
-        this.setLayout(new BorderLayout());
-        add(searchfield,BorderLayout.NORTH);
         search = new JButton("Search");
         search.addActionListener(new Search());
         //add(search,BorderLayout.EAST);
-        add(new InitSearchField(searchfield,search),BorderLayout.NORTH);
-
+        add(searchfield);
+        add(search);
         this.validate();
         setVisible(true);
 
@@ -29,22 +27,12 @@ public class RechercheUser extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
-            add(new InfoUser(wall,searchfield.getText()),BorderLayout.CENTER);
-            revalidate();
+        	DAO dao= new DAO();
+//            add(new InfoUser(wall,searchfield.getText()),BorderLayout.CENTER);
+//            revalidate();
+        	wall.displaygrid(dao.getEnseignantsByName(searchfield.getText()));
         }
+    }
 
-    }
-    private class InitSearchField extends JPanel
-    {
-        private JTextField searchfield;
-        private JButton search;
-        InitSearchField(JTextField bufferfield, JButton bufferbutton)
-        {
-            search=bufferbutton;
-            searchfield=bufferfield;
-            add(searchfield);
-            add(search);
-        }
-    }
 
 }
