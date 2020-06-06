@@ -111,7 +111,7 @@ public class SearchSeanceDisplay extends JPanel
         		seances.addAll(outil.searchSeancebyDateHoure(date, hDInteger.intValue()+i));
         	}
         	seances.add(dao.getSeancebyID(1));
-        	System.out.print("salle trouver :"+seances.size());
+        	System.out.print("salle trouver :"+seances.size()+ "DATE "+date);
         	wallSeancegrid.displaygrid(seances);
         }
     }

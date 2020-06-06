@@ -39,13 +39,17 @@ public class RowSeanceGridDisplay extends JPanel {
 		button.addActionListener(new ModifierSeanceButton());
 		this.add(button);
 		
+		this.setVisible(true);
+		this.validate();
 	}
 	
 	private class ModifierSeanceButton implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			// Envoyer le panneaux de modification.;
+		
+		
+			// wall.actual( "fonctionromain"(button.getName());
 		}
 	}
 

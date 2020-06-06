@@ -16,7 +16,10 @@ public class WallSeancegrid extends JPanel{
 	
 	public void displaygrid(ArrayList<Seance> seances)
 	{
+		System.out.println(" nb composant wallseancegri"+ this.getComponentCount());
 		this.add(new GridSeanceDisplay(seances, wall),BorderLayout.CENTER);
+		System.out.println(" nb composant wallseancegri"+ this.getComponentCount());
+		this.revalidate();
 	}
 	
 	
