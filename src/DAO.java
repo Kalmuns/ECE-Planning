@@ -467,9 +467,14 @@ public class DAO {
 		 	//Ajoute les enseignants.
 		 	for( i=0;i<tableaux.size();i++)
 		 	{
+		 		//System.out.println("ID tableau : "+tableaux.get(i)+" i: "+i);
 		 		enseignants.add((Enseignant) dao.getUtilisateurbyID(tableaux.get(i).intValue()));
+		 		//System.out.println("enseignant id"+enseignants.get(i).getID());
 		 	}
-		 	
+//			for( i=0;i<tableaux.size();i++)
+//			{
+//				System.out.println("ID tableau : "+tableaux.get(i));
+//			}
 		 	// --GROUPES
 		 	
 		 // Ajouts des groupes.

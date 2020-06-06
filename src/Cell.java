@@ -18,11 +18,11 @@ public class Cell extends JPanel{
 		this.setLayout(new GridLayout(0,1));
 		user=users;
 		seanceSeance = cell_seance;
-		//On récupère le nom du cours
+		//On rï¿½cupï¿½re le nom du cours
 		Cour cours = cell_seance.getCour();
 		String cours_Nom = cours.getnom();
 		
-		//On récupère le Type de cours
+		//On rï¿½cupï¿½re le Type de cours
 		TypeCour type = cell_seance.gettypeCour();
 		String type_Nom = type.getsitenom();
 		
@@ -34,6 +34,9 @@ public class Cell extends JPanel{
 		
 		
 		ArrayList<Enseignant> enseignant = cell_seance.getEnseignants();
+		
+	
+		
 		add(new EnseignantDisplay(enseignant));
 		
 		
@@ -48,7 +51,7 @@ public class Cell extends JPanel{
 		
 		
 		
-		//On récupère le numéro de salle et du batiment
+		//On rï¿½cupï¿½re le numï¿½ro de salle et du batiment
 		ArrayList<Salle> salles = cell_seance.getsalle();
 		add(new SalleDisplay(salles));
 		

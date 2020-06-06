@@ -5,7 +5,7 @@ public class Enseignant extends Utilisateur{
 	private int courid;
 	public Enseignant(int id, String em,String pa,String no,String pre,int dr, int courid)
 	{
-		super(courid, em, pa, no, pre, dr);
+		super(id, em, pa, no, pre, dr);
 		this.courid=courid;
 	}
 

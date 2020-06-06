@@ -31,7 +31,7 @@ public class Calendrier extends JPanel {
 		int seancesAff[];
 		//ArrayList<Salle> hopArrayList=test.salleDisponible(dao.getallsalle(), dao.getallseancebyweek(2));
 		//System.out.println(hopArrayList.size());
-		seances =dao.getSeancesByWeek(1, semaine);
+		seances =dao.getSeancesByWeek(3, semaine);
 		System.out.println(seances.size() );
 		this.setLayout(new GridBagLayout());
 		gbc.gridy = 0;
@@ -43,6 +43,8 @@ public class Calendrier extends JPanel {
 		gbc.gridx = 1;
 		gbc.ipady = 10;
 		gbc.ipadx = 30;
+		
+		
 		
 		JLabel lundi = new JLabel("Lundi");
 		lundi.setBackground(Color.lightGray);
