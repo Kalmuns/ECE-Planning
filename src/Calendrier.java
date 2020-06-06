@@ -18,21 +18,30 @@ public class Calendrier extends JPanel {
 	// Display les information et contient le panel de cell
 	
 	private Utilisateur user;
-	public Calendrier(int semaine, Utilisateur users) {
+	protected WallCalendrier wallCalendrier;
+	
+	public Calendrier(int semaine, Utilisateur users, WallCalendrier c, int mode, int contenu) {
 		//this.setLayout(new GridLayout(7,7));
 		
 		DAO dao = new DAO();
+		wallCalendrier=c;
 		Insets inset = new Insets(2, 10, 2, 10);
 		Outil test = new Outil();
 		//user=users;
-		GridBagConstraints gbc = new GridBagConstraints();
 		
+		GridBagConstraints gbc = new GridBagConstraints();
 		ArrayList<Seance> seances= new ArrayList<Seance>();
 		int seancesAff[];
 		//ArrayList<Salle> hopArrayList=test.salleDisponible(dao.getallsalle(), dao.getallseancebyweek(2));
 		//System.out.println(hopArrayList.size());
-		seances =dao.getSeancesByWeek(1, semaine);
-		System.out.println(seances.size() );
+		if (mode == 0) {
+			seances =dao.getSeancesByWeek(1, semaine);
+		}
+		if (mode == 1) {
+			seances =dao.getSeanceByCourWeek(contenu, semaine);
+		}
+		
+		
 		this.setLayout(new GridBagLayout());
 		gbc.gridy = 0;
 		user= dao.getUtilisateurbyID(1);
@@ -103,7 +112,7 @@ public class Calendrier extends JPanel {
 			gbc.gridy =seances.get(i).getheure_debut();
 			gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
 			
-			this.add(new Cell(seances.get(i),user),gbc);
+			this.add(new Cell(seances.get(i),user,wallCalendrier,semaine),gbc);
 			
 		}
 		for(int i=0;i<7;i++)
