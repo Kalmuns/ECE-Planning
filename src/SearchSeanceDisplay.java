@@ -50,12 +50,12 @@ public class SearchSeanceDisplay extends JPanel
         valider.addActionListener(new validerListener());
         this.wallSeancegrid=wall;
         heureD = new JComboBox();
-        for(int d = 0 ; d < 21 ; d++)
+        for(int d = 1 ; d < 21 ; d++)
         {
             heureD.addItem(d);
         }
         heureF = new JComboBox();
-        for(int f = 0 ; f < 21 ; f++)
+        for(int f = 1 ; f < 21 ; f++)
         {
             heureF.addItem(f);
         }
@@ -71,6 +71,7 @@ public class SearchSeanceDisplay extends JPanel
         {
             a.addItem(i);
         }
+        //a.addItem(0000);
    
         add(jour);
         add(j);
@@ -99,6 +100,7 @@ public class SearchSeanceDisplay extends JPanel
         	Outil outil=new Outil();
         	ArrayList<Seance> seances=new ArrayList<Seance>();
         	Integer an= (Integer) a.getSelectedItem();
+        	an=an.intValue()-1900;
         	Integer mo=(Integer) m.getSelectedItem();
         	Integer joInteger =(Integer) j.getSelectedItem();
         	Integer hDInteger =(Integer) heureD.getSelectedItem();
@@ -110,6 +112,8 @@ public class SearchSeanceDisplay extends JPanel
         	{
         		seances.addAll(outil.searchSeancebyDateHoure(date, hDInteger.intValue()+i));
         	}
+        	seances.add(dao.getSeancebyID(1));
+        	seances.add(dao.getSeancebyID(1));
         	seances.add(dao.getSeancebyID(1));
         	System.out.print("salle trouver :"+seances.size()+ "DATE "+date);
         	wallSeancegrid.displaygrid(seances);

@@ -28,9 +28,10 @@ public class RowSeanceGridDisplay extends JPanel {
 			actualString+= " ";
 		}
 		this.add(new JLabel(actualString));
+		actualString="Gr : ";
 		for(i=0;i<seance.getgroupes().size();i++)
 		{
-			actualString+=seance.getEnseignants().get(i).getnom();
+			actualString+=seance.getgroupes().get(i).getnom();
 			actualString+= " ";
 		}
 		this.add(new JLabel(actualString));

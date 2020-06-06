@@ -45,10 +45,9 @@ public class InsertBDD {
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-		
-				
+				}	
 	}
+	
 	public void insertSeance(Date date,int heuredebut,int duree,int etat,int courid,int typecourid,ArrayList<Enseignant> enseignant, ArrayList<Groupe> groupe,ArrayList<Salle> salle)
 	{
 		 Outil outil=new Outil();
@@ -107,6 +106,7 @@ public class InsertBDD {
 			e.printStackTrace();
 		}
 	}
+	
 	public void insertseancegroupes(int idseance, int idgroupe)
 	{
 		String query="INSERT INTO `seancegroupes` (`seanceGroupes_SeanceID`, `seanceGroupes_GroupeID`) VALUES ('"+idseance+"', '"+idgroupe+"');" ;
@@ -117,6 +117,7 @@ public class InsertBDD {
 			e.printStackTrace();
 		}
 	}
+	
 	public void insertseancesalle(int idseance, int idsalle)
 	{
 		String query="INSERT INTO `seancesalles` (`seanceSalles_SeanceIDID`, `seanceSalles_SalleID`) VALUES ('"+idseance+"', '"+idsalle+"');" ;
@@ -127,9 +128,4 @@ public class InsertBDD {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
 }
