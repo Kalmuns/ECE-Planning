@@ -12,7 +12,7 @@ public class GridUtilisateurSeanceDisplay extends JPanel{
 	{
 		DAO dao=new DAO();
 		groupes=dao.getGroupbyEnseignant(enseignants);
-		if (enseignants!=null)
+		if (enseignants!=null&&groupes!=null)
 		{
 			this.setLayout(new GridLayout(groupes.size(), 1));
 			int i;

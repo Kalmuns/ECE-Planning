@@ -272,6 +272,8 @@ public class DAO {
 	
 	public ArrayList<Groupe> getGroupbyEnseignant(ArrayList<Enseignant> enseignants)
 	{
+		if(enseignants.size()>0)
+		{
 		ArrayList<Groupe> groupes=new ArrayList<>();
 		String query="SELECT DISTINCT * FROM seancegroupes";
 			query+="	INNER JOIN  seanceenseignants  ON seanceGroupes_SeanceID= seanceEnseignants_SeanceID  ";
@@ -304,6 +306,8 @@ public class DAO {
 		
 		
 		return groupes;
+		}
+		return null;
 	}
 	
 	
@@ -640,7 +644,7 @@ public class DAO {
 			    ResultSet result= conn.createStatement().executeQuery(query);
 				  while(result.next())
 				  {
-					seances.add(dao.getSeancebyID(result.getInt("seances_ID")));
+					seances.add(dao.getSeancebyID(result.getInt("seance_ID")));
 				  }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
