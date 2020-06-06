@@ -676,7 +676,7 @@ public class DAO {
 	{
 		ArrayList<Seance> seances=new ArrayList<Seance>();
 		DAO dao=new DAO();
-		String query="SELECT DISTINCT * FROM seance INNER JOIN seancesalles ON seance_ID= seanceSalles_SeanceIDID WHERE seanceSalles_SeanceIDID=";
+		String query="SELECT DISTINCT * FROM seance INNER JOIN seancesalles ON seance_ID= seanceSalles_SeanceIDID WHERE seanceSalles_SalleID=";
 		query+=Integer.toString(salleID);
 		query+= " AND seance_Semaine=";
 		query+=Integer.toString(semaine);
