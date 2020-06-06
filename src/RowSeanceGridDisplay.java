@@ -47,8 +47,6 @@ public class RowSeanceGridDisplay extends JPanel {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-		
-		
 			// wall.actual( "fonctionromain"(button.getName());
 		}
 	}
