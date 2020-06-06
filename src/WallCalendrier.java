@@ -118,12 +118,12 @@ public class WallCalendrier extends JPanel
         {
             this.remove(i);
        }
-    this.removeAll();
+    	this.removeAll();
        this.update(this.getGraphics());
         this.revalidate();
         paint(this.getGraphics());
         add(new SemaineDisplay(this,mode,contenu),BorderLayout.NORTH);
-        add(new Calendrier(y,user,this,1,contenu),BorderLayout.CENTER);
+        add(new Calendrier(y,user,this,mode,contenu),BorderLayout.CENTER);
        
        
        

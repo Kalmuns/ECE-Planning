@@ -41,11 +41,10 @@ public class Cell extends JPanel{
 		
 		
 		ArrayList<Enseignant> enseignant = cell_seance.getEnseignants();
-		
 
 		
 		
-		add(new EnseignantDisplay(enseignant,wallCalendrier));
+		add(new EnseignantDisplay(enseignant,wallCalendrier,sem));
 
 
 		
@@ -57,13 +56,13 @@ public class Cell extends JPanel{
 		
 		
 		ArrayList<Groupe> groupe = cell_seance.getgroupes();
-		add(new GroupeDisplayer(groupe,wallCalendrier));
+		add(new GroupeDisplayer(groupe,wallCalendrier,sem));
 		
 		
 		
 		//On r�cup�re le num�ro de salle et du batiment
 		ArrayList<Salle> salles = cell_seance.getsalle();
-		add(new SalleDisplay(salles));
+		add(new SalleDisplay(salles,wallCalendrier,sem));
 		
 		
 		//add(Salle,BorderLayout.SOUTH);

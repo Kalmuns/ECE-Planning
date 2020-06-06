@@ -38,11 +38,22 @@ public class Calendrier extends JPanel {
 		if (mode == 0) {
 			seances =dao.getSeancesByWeek(1, semaine);
 		}
-		if (mode == 1) {
+		if (mode == 2) {
 			seances =dao.getSeanceByCourWeek(contenu, semaine);
 		}
-		
-		
+		if (mode == 3) {
+			System.out.println(contenu);
+			seances =dao.getSeancesByWeek(contenu, semaine);
+		}
+		if (mode == 4) {
+			System.out.println(contenu);
+			seances =dao.getSeanceByGroupWeek(contenu, semaine);
+		}
+		if (mode == 5) {
+			System.out.println(contenu);
+			seances =dao.getSeancebySalleWeek(contenu, semaine);
+			System.out.println("Taille: "+seances.size());
+		}
 		this.setLayout(new GridBagLayout());
 		gbc.gridy = 0;
 		user= dao.getUtilisateurbyID(1);

@@ -1,49 +1,92 @@
-import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
+
+	import java.awt.Color;
+	import java.awt.GridLayout;
+	import java.awt.event.ActionEvent;
+	import java.awt.event.ActionListener;
+	import java.awt.event.MouseEvent;
+	import java.awt.event.MouseListener;
+	import java.util.ArrayList;
+
+	import javax.swing.JButton;
+	import javax.swing.JPanel;
+
+	import sun.tools.jar.resources.jar;
 
 
 public class GroupeDisplayer extends JPanel {
 	private ArrayList<Groupe> todisplay=null;
-	private ArrayList<JButton> boutton = new ArrayList<JButton>();
+	private ArrayList<NomBouton> boutton = new ArrayList<NomBouton>();
 	private WallCalendrier wallCalendrier;
 	int j;
-	public GroupeDisplayer(ArrayList<Groupe> gr, WallCalendrier c)
+	int teString;
+	int semaine;
+	
+	public GroupeDisplayer(ArrayList<Groupe> gr, WallCalendrier c,int s)
 	{
 		int i=0;
 		j=i;
 		wallCalendrier=c;
 		todisplay=gr;
+		semaine=s;
 		this.setLayout(new GridLayout(1,gr.size()));
 		for(i=0;i<gr.size();i++)
 		{
-		
-			boutton.add(new JButton(new String("gr"+gr.get(i).getnom())));
+			int val=gr.get(i).getid();
+			boutton.add(new NomBouton(new String("gr"+gr.get(i).getnom()),c,val));
 			
 			boutton.get(i).setBorderPainted(false);
 			boutton.get(i).setBackground(Color.GRAY);
 			
 			this.add(boutton.get(i));
-			boutton.get(i).addActionListener(new NomBouton());
 			
 		}
 		this.setVisible(true);
 		this.validate();
 	}
-	private class NomBouton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			Groupe groupe = todisplay.get(1);
-			int group_Nom = groupe.getid();
-			System.out.println(group_Nom);
-			wallCalendrier.actualCalendrier(1, 0, 0);
+	private class NomBouton extends JButton implements MouseListener
+    {
+    	private String name;
+    	WallCalendrier calendrier;
+    	int i;
+        // A changer !!!!!!
+    	public NomBouton(String str, WallCalendrier c,int val){
+    	    super(str);
+    	    i=val;
+    	    this.name = str;
+    	    this.calendrier =c;
+    	    this.addMouseListener(this);
+    	}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			
+//			int prof_Nom = prof.getID();
+			System.out.println("Nom: "+i);
+			wallCalendrier.actualCalendrier(semaine, 4, i);
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			
 			
 		}
-	}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			
+		}
+    }
 }

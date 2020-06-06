@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -11,37 +13,82 @@ import sun.tools.jar.resources.jar;
 
 public class EnseignantDisplay extends JPanel {
 	private ArrayList<Enseignant> todisplay=null;
-	private ArrayList<JButton> boutton = new ArrayList<JButton>();
+	private ArrayList<NomBouton> boutton = new ArrayList<NomBouton>();
 	private WallCalendrier wallCalendrier;
 	private int j;
-	public EnseignantDisplay(ArrayList<Enseignant> ens, WallCalendrier c)
+	int teString;
+	int semaine;
+	public EnseignantDisplay(ArrayList<Enseignant> ens, WallCalendrier c,int s)
 	{
 		int i=0;
 		todisplay=ens;
 		wallCalendrier =c;
+		semaine=s;
 		this.setLayout(new GridLayout(1,ens.size()));
 		for(i=0;i<ens.size();i++)
 		{
-			boutton.add(new JButton(new String("Enseignant: "+ens.get(i).getnom())));
+			int val=ens.get(i).getID();
+			boutton.add(new NomBouton(new String("Enseignant: "+ens.get(i).getnom()),c,val));
 			
+			teString=ens.get(i).getID();
 			boutton.get(i).setBorderPainted(false);
 			boutton.get(i).setBackground(Color.GRAY);
-			j=i;
+			String tString = new String();
+			tString =Integer.toString(i);
+			
+			boutton.get(i).setName(tString);
 			this.add(boutton.get(i));
-			boutton.get(i).addActionListener(new NomBouton());
+			System.out.println(boutton.get(i).getName());
+			
 		}
 		this.setVisible(true);
 		this.validate();
 	}
-	private class NomBouton implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
+	private class NomBouton extends JButton implements MouseListener
+    {
+    	private String name;
+    	WallCalendrier calendrier;
+    	int i;
+        // A changer !!!!!!
+    	public NomBouton(String str, WallCalendrier c,int val){
+    	    super(str);
+    	    i=val;
+    	    this.name = str;
+    	    this.calendrier =c;
+    	    this.addMouseListener(this);
+    	}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
 			Enseignant prof = todisplay.get(1);
-			int prof_Nom = prof.getID();
-			System.out.println(prof_Nom);
-			wallCalendrier.actualCalendrier(1, 0, 0);
+//			int prof_Nom = prof.getID();
+			System.out.println("Nom: "+i);
+			wallCalendrier.actualCalendrier(semaine, 3, i);
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			
 			
 		}
-	}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			
+		}
+    }
+	/////
+	
 }

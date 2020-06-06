@@ -56,7 +56,15 @@ public class numSemaine extends JPanel
 			if (salleLibre ==2) {
 				calendrier.actualCalendrier(i,2,cont);
 			}
-			
+			if (salleLibre ==3) {
+				calendrier.actualCalendrier(i,3,cont);
+			}
+			if (salleLibre ==4) {
+				calendrier.actualCalendrier(i,4,cont);
+			}
+			if (salleLibre ==5) {
+				calendrier.actualCalendrier(i,5,cont);
+			}
 		}
 
 		@Override
