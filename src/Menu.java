@@ -73,7 +73,7 @@ private class AccueilListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            wall.actual(new RechercheUser(wall));
+            wall.actual(new WallUtilisateur(wall));
         }
     }
     private class AffectationListener implements ActionListener

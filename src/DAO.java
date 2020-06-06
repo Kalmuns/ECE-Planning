@@ -70,7 +70,6 @@ public class DAO {
 								  	return etudiant;
 								  }	
 							  }
-							  
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -212,6 +211,7 @@ public class DAO {
 		
 		return site;
 	}
+
 	
 	//retourne le cour
 	public TypeCour getTypeCourbyID(int courid) {
@@ -230,6 +230,105 @@ public class DAO {
 			}
 		
 		return typeCour;
+	}
+	
+	public ArrayList<Seance> getSeancebyGroupEnseignant(ArrayList<Enseignant> enseignants, Groupe groupe)
+	{
+		ArrayList<Seance> seances=new ArrayList<>();
+		String query="SELECT DISTINCT * FROM seance";
+			query+="	INNER JOIN  seanceenseignants  ON seance.seance_ID= seanceEnseignants_SeanceID  ";
+			query+="  RIGHT JOIN seancegroupes ON seance.seance_ID= seanceGroupes_SeanceID"	;
+			query+= " WHERE seanceGroupes_GroupeID = ";
+			query+= groupe.getid();
+			query+= " AND seanceEnseignants_SeanceID IN (";
+			int i;
+			i=enseignants.size();
+			for(i=0;i<enseignants.size();i++)
+			{
+				query+=enseignants.get(i).getID();
+				if(i!=enseignants.size()-1)
+				{
+					query+=",";
+				}
+			}
+			query+= ") ";
+			query+= "ORDER BY seance.seance_Date ASC";
+			DAO dao=new DAO();
+			System.out.println(query);
+			 try {
+				    ResultSet result= conn.createStatement().executeQuery(query);
+					  while(result.next())
+					  {
+						  seances.add(dao.getSeancebyID(result.getInt("seance_Id")));
+					  }
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+		
+		return seances;
+	}
+	
+	public ArrayList<Groupe> getGroupbyEnseignant(ArrayList<Enseignant> enseignants)
+	{
+		ArrayList<Groupe> groupes=new ArrayList<>();
+		String query="SELECT DISTINCT * FROM seancegroupes";
+			query+="	INNER JOIN  seanceenseignants  ON seanceGroupes_SeanceID= seanceEnseignants_SeanceID  ";
+		
+		
+			query+= " WHERE  seanceEnseignants_SeanceID IN (";
+			int i;
+			i=enseignants.size();
+			for(i=0;i<enseignants.size();i++)
+			{
+				query+=enseignants.get(i).getID();
+				if(i!=enseignants.size()-1)
+				{
+					query+=",";
+				}
+			}
+			query+= ") ";
+			DAO dao=new DAO();
+			System.out.println(query);
+			 try {
+				    ResultSet result= conn.createStatement().executeQuery(query);
+					  while(result.next())
+					  {
+						  groupes.add(dao.getGroupebyID(result.getInt("seanceGroupes_GroupeID")));
+					  }
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+		
+		return groupes;
+	}
+	
+	
+	ArrayList<Enseignant> getEnseignantsByName(String recherche)
+	{
+		ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
+		DAO dao=new DAO();
+		String query="SELECT * FROM `utilisateur` INNER JOIN enseignant ON utilisateur_ID=enseignant_ID	";
+		query+="WHERE utilisateur_Nom LIKE '%";
+		query+=recherche;
+		query+="%' OR utilisateur_Prenom LIKE '%";
+		query+=recherche;
+		query+="%'";
+		System.out.println(query);
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					 enseignants.add((Enseignant) dao.getUtilisateurbyID(result.getInt("utilisateur_ID")));
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return enseignants;
 	}
 	
 	ArrayList<Seance> getallseancebyweek(int semaine)

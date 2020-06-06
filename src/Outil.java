@@ -199,6 +199,18 @@ public class Outil {
 		 return enseignants;
 	}
 	
+	public int nbseance(ArrayList<Seance> seances)
+	{
+		int nb=0,i;
+		for(i=0;i<seances.size();i++)
+		{
+			nb+=seances.get(i).getduree();
+		}
+		return nb;
+	}
+	
+
+	
 	public ArrayList<Enseignant> searchEnseignantsbyDateHoure(Date date, int heure)
 	{
 		 DAO dao=new DAO();

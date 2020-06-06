@@ -34,9 +34,9 @@ public class Start {
                 Seance seance= dao.getSeancebyID(1);
                 seance.getCour().getnom();
                 ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
-                Enseignant prof = (Enseignant) dao.getUtilisateurbyID(1);
-                Etudiant etudiant = (Etudiant) dao.getUtilisateurbyID(2);
-                System.out.println(etudiant.getID());
+                enseignants=dao.getEnseignantsByName("pik");
+                
+                System.out.println(enseignants.size());
 
                 /* tes*/
             }
