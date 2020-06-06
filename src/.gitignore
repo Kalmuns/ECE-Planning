@@ -75,3 +75,6 @@
 /GridUtilisateurSeanceDisplay.class
 /WallUtilisateur.class
 /SalleDisplay$NomBouton.class
+/CreerSeance$ValiderListener.class
+/CreerSeance.class
+/Menu$CreerSeanceListener.class
