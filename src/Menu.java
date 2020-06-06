@@ -11,6 +11,7 @@ public class Menu extends JPanel  {
     private JButton affectation;
     private JButton seance;
     private JButton salleLibre;
+    private JButton creerseanceButton;
     protected Wall wall;
     
     public Menu(Wall wa)
@@ -27,18 +28,20 @@ public class Menu extends JPanel  {
         user.addActionListener(new userListener());
         affectation.addActionListener(new AffectationListener());
         seance.addActionListener(new SeanceListener());
-        
+        creerseanceButton=new JButton("Creer Seance");
+        creerseanceButton.addActionListener(new CreerSeanceListener());
         //add(accueil);
         add (edt);
         add(user);
         add(affectation);
         add(seance);
         add(salleLibre);
+        add(creerseanceButton);
         wall = wa;
         setVisible(false);
         setEnabled(false);
         this.validate();
-
+        
 
 
     }
@@ -89,7 +92,13 @@ private class AccueilListener implements ActionListener
         public void actionPerformed(ActionEvent e)
         {
             wall.actual(new WallSeancegrid(wall));
-
+        }
+    }
+    private class CreerSeanceListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            wall.actual(new CreerSeance());
         }
     }
 
