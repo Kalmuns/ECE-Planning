@@ -81,8 +81,6 @@ public class DAO {
 		return user;
 	}
 	
-	
-	
 	// ne renvoie pas le group????
 	//Renvoies les utilisateurs du groupe.
 	public ArrayList<Utilisateur> getUtilisateurByGroupID(int idgroup)
@@ -125,9 +123,6 @@ public class DAO {
 		return cour;
 	}
 	
-	
-	
-	
 	public ArrayList<Seance> getSeancesbyDate(Date date)
 	{
 		DAO dao=new DAO();
@@ -149,7 +144,6 @@ public class DAO {
 			}
 		return seances;
 	}
-	
 	
 	//retourne le groupe 
 	public Groupe getGroupebyID(int groupeID)
@@ -233,11 +227,15 @@ public class DAO {
 	public int login(String mail,String mdp)
 	{
 		int retour=0;
-		String query="SELECT * FROM utilisateu WHERE utilisateur_Email = ";
+		String query="SELECT * FROM utilisateur WHERE utilisateur_Email = ";
+		query+="'";
 		query+=mail;
+		query+="'";
 		query+=" AND utilisateur_Password = ";
+		query+="'";
 		query+=mdp;
-		
+		query+="'";
+		//System.out.println(query);
 		 try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
 				  while(result.next())

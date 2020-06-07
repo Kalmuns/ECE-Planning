@@ -59,6 +59,7 @@ public class DeleterBDD {
 							e.printStackTrace();
 						}
 	}
+	
 	public void suppCoursbyID(int id)
 	{
 		String query="DELETE  FROM cours WHERE cours_ID = ";
@@ -160,8 +161,6 @@ public class DeleterBDD {
 					e.printStackTrace();
 				}
 	}
-	
-	
 	
 	public void suppSite()
 	{
