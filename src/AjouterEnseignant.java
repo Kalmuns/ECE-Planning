@@ -7,7 +7,12 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
-
+/**
+ * Affiche une fenetre premettant d'ajouter un enseignant
+ * Et sur succes actualise wall seance grid
+ *  
+ *
+ */
 
 
 public class AjouterEnseignant extends JFrame{

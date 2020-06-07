@@ -2,6 +2,12 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
+/**
+ * Contient RowSeanceGridDisplay
+ * 
+ *  
+ *
+ */
 
 public class GridSeanceDisplay extends JPanel{
 

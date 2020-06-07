@@ -1,5 +1,11 @@
 import java.sql.*;
 import java.util.ArrayList;
+/**
+ * Rentre des informations dans la BDD
+ * 
+ *  
+ *
+ */
 
 public class InsertBDD {
 

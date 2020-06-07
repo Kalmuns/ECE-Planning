@@ -1,4 +1,9 @@
-
+/**
+ * Classe Etudiant issue de la BDD
+ * 
+ *  
+ *
+ */
 public class Etudiant extends Utilisateur {
 
 	private int numero_etudiant,etudiant_Groupe_ID;

@@ -1,5 +1,10 @@
 import javax.swing.JFrame;
-
+/**
+ * Crée la fenetre pour afficher en dehors de la console
+ * 
+ *  
+ *
+ */
 public class Fenetre extends JFrame
 {
 	private WallCalendrier wallCalendrier;

@@ -8,7 +8,13 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+/**
+ * Affiche des boutons dans un JPanel seance 
+ * Se construit en largeur
+ * 
+ *  
+ *
+ */
 
 public class EnseignantDisplay extends JPanel {
 	private ArrayList<Enseignant> todisplay=null;

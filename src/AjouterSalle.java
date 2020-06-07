@@ -6,7 +6,12 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-
+/**
+ * Affiche une fenetre premettant d'ajouter une Salle
+ * Et sur succes actualise wall seance grid
+ *  
+ *
+ */
 public class AjouterSalle extends JFrame{
 
 	private JButton valideButton=new JButton("Valide");

@@ -91,15 +91,6 @@ public class Menu extends JPanel  {
         		wall.actual(new WallUtilisateur(wall));
         }
     }
-    private class AffectationListener implements ActionListener
-    {
-        public void actionPerformed(ActionEvent e)
-        {
-        	
-            wall.actual(new AffecterProfDisplay());
-        }
-    }
-
     private class SeanceListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)

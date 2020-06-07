@@ -8,7 +8,13 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-
+/**
+ * Est le constructeur d'un seance
+ * Se place sur Calendrier en fonction de la semaine
+ * Contient une fonction qui dépend du droit pour supprimer
+ *  
+ *
+ */
 
 public class Cell extends JPanel{
 

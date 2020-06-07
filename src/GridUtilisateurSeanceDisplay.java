@@ -1,8 +1,13 @@
 import java.awt.GridLayout;
-import java.awt.desktop.SystemEventListener;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
+/**
+ * Contient info user
+ * Appelé dans Wall utilisateur
+ *  
+ *
+ */
 
 public class GridUtilisateurSeanceDisplay extends JPanel{
 	

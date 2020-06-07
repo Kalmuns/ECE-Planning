@@ -1,3 +1,9 @@
+/**
+ * La classe Groupe Issue de la BDD
+ * 
+ *  
+ *
+ */
 
 public class Groupe {
 	private int id,promotionid;

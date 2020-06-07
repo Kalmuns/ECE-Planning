@@ -12,10 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Ceci est un commentaire Javadoc. 
- * Il commence par un slash suivis de deux étoiles. 
- * Chaque ligne doit ensuite commencer par une étoile. 
- * Enfin, il fini par une étoile suivie d'un slash.
+ * Permet d'afficher les seances  
+ * Est composé d'un GridBagLayout qui contient les différentes seances
+ * Eest relié a Cell qui crée les seances
+ *
  */
 
 public class Calendrier extends JPanel {
