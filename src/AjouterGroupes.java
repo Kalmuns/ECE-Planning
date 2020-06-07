@@ -15,14 +15,15 @@ public class AjouterGroupes extends JFrame{
 	private int idseance;
 	private JComboBox<String> enseiBox;
 	private ArrayList<Groupe> groupes=new ArrayList<Groupe>();
+	private ArrayList<Groupe> available =new ArrayList<Groupe>();
 	
-	public AjouterGroupes(int idseanc)
+	public AjouterGroupes(int idseanc, ArrayList<Groupe> gr)
 	{
 		enseiBox=new JComboBox<String>();
 		DAO dao=new DAO();
 		groupes=dao.getallgroupe();
 		this.idseance=idseanc;
-		
+		available=gr;
 		for(int i=0;i<groupes.size();i++)
 		{
 			enseiBox.addItem(groupes.get(i).getnom());
@@ -44,9 +45,24 @@ public class AjouterGroupes extends JFrame{
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			InsertBDD insertBDD=new InsertBDD();
-			insertBDD.insertseancegroupes(idseance, groupes.get(enseiBox.getSelectedIndex()).getid());
-			dis();
+			int test=0;
+			for(int i=0;i<available.size();i++)
+			{
+				if(groupes.get(enseiBox.getSelectedIndex()).getid()==available.get(i).getid())
+				{
+					test=1;
+					new Error();
+					dis();
+				}
+			}
+			if(test==0)
+			{
+				InsertBDD insertBDD=new InsertBDD();
+				insertBDD.insertseancegroupes(idseance, groupes.get(enseiBox.getSelectedIndex()).getid());
+				dis();
+				new Succes();
+			}
+			
 		}
 	}
 	

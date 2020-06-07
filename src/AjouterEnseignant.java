@@ -16,14 +16,15 @@ public class AjouterEnseignant extends JFrame{
 	private int idseance;
 	private JComboBox<String> enseiBox;
 	private ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
+	private ArrayList<Enseignant> available =new ArrayList<Enseignant>();
 	
-	public AjouterEnseignant(int idseanc)
+	public AjouterEnseignant(int idseanc, ArrayList<Enseignant> ens)
 	{
 		enseiBox=new JComboBox<String>();
 		DAO dao=new DAO();
 		enseignants=dao.getallenEnseignants();
 		this.idseance=idseanc;
-		
+		available=ens;
 		for(int i=0;i<enseignants.size();i++)
 		{
 			enseiBox.addItem(enseignants.get(i).getnom());
@@ -45,9 +46,23 @@ public class AjouterEnseignant extends JFrame{
 	{
 		public void actionPerformed(ActionEvent e)
 		{
+			int test=0;
+			for(int i=0;i<available.size();i++)
+			{
+				if(enseignants.get(enseiBox.getSelectedIndex()).getID()==available.get(i).getID())
+				{
+					test=1;
+					new Error();
+					dis();
+				}
+			}
+			if(test==0)
+			{
 			InsertBDD insertBDD=new InsertBDD();
 			insertBDD.insertseanceenseignant(idseance, enseignants.get(enseiBox.getSelectedIndex()).getID());
 			dis();
+			new Succes();
+			}
 		}
 	}
 	

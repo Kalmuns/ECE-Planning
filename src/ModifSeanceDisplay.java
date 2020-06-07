@@ -241,6 +241,7 @@ public class ModifSeanceDisplay extends JPanel
         @SuppressWarnings("deprecation")
 		public void actionPerformed(ActionEvent e)
         {
+        	
         		InsertBDD insertBDD= new InsertBDD();
         		Integer hd = (Integer) heureD.getSelectedItem();
         		Integer du =  (Integer)   duree.getSelectedItem();
@@ -257,26 +258,48 @@ public class ModifSeanceDisplay extends JPanel
 		public void actionPerformed(ActionEvent e)
         {
         	DeleterBDD deleterBDD=new DeleterBDD();
-        	deleterBDD.suppSeanceSalle(seance.getsalle().get(salleCB.getSelectedIndex()).getid());
+        	if (salleCB.getComponentCount()<=0)
+        	{
+        		new Error();
+        	}
+        	else {
+        		deleterBDD.suppSeanceSalle(seance.getsalle().get(salleCB.getSelectedIndex()).getid());
+        		new Succes();
+			}
         }
     }
+    
     private class supEnseignantListener implements ActionListener
     {
         @SuppressWarnings("deprecation")
 		public void actionPerformed(ActionEvent e)
         {
         	DeleterBDD deleterBDD=new DeleterBDD();
-        	deleterBDD.suppSeanceEnseignant(seance.getEnseignants().get(enseignantCB.getSelectedIndex()).getID());
+        	if(enseignantCB.getComponentCount()<=0)
+        	{
+        	 new Error();
+        	}
+        	else {
+        		deleterBDD.suppSeanceEnseignant(seance.getEnseignants().get(enseignantCB.getSelectedIndex()).getID());
+        		new Succes();
+			}
         }
     }
+    
     private class supGroupeListener implements ActionListener
     {
         @SuppressWarnings("deprecation")
 		public void actionPerformed(ActionEvent e)
         {
         	DeleterBDD deleterBDD=new DeleterBDD();
-        	deleterBDD.suppSeanceGroupe(seance.getgroupes().get(groupeCB.getSelectedIndex()).getid());
-        }
+        	if (groupeCB.getComponentCount()<=0) {
+				new Error();
+			}
+        	else
+        	{
+        		deleterBDD.suppSeanceGroupe(seance.getgroupes().get(groupeCB.getSelectedIndex()).getid());
+        	}
+         }
     }
     
     private class ajouterGroupesListener implements ActionListener
@@ -284,28 +307,49 @@ public class ModifSeanceDisplay extends JPanel
         @SuppressWarnings("deprecation")
 		public void actionPerformed(ActionEvent e)
         {
-        	new AjouterGroupes(seance.getidseance());
+        	Integer hd = (Integer) heureD.getSelectedItem();
+    		Integer du =  (Integer)   duree.getSelectedItem();
+    		java.util.Date da= (java.util.Date) date.getValue();
+        	ArrayList<Groupe> availableGroupes=new ArrayList<Groupe>();
+        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue()-1;i++ )
+        	{
+              	availableGroupes.addAll(outil.avalaibleGroupe(new Date(da.getYear(), da.getMonth(), da.getDay()),i));
+        	}
+          	new AjouterGroupes(seance.getidseance(),availableGroupes);
         }
     }
+    
     private class ajouterEnseignantsListener implements ActionListener
     {
         @SuppressWarnings("deprecation")
 		public void actionPerformed(ActionEvent e)
         {
-        	new AjouterEnseignant(seance.getidseance());
+        	Integer hd = (Integer) heureD.getSelectedItem();
+    		Integer du =  (Integer)   duree.getSelectedItem();
+    		java.util.Date da= (java.util.Date) date.getValue();
+        	ArrayList<Enseignant> availableEnseignant=new ArrayList<Enseignant>();
+        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue()-1;i++ )
+        	{
+              	availableEnseignant.addAll(outil.avalaibleEnseignants(new Date(da.getYear(), da.getMonth(), da.getDay()),i));
+        	}
+        	new AjouterEnseignant(seance.getidseance(),availableEnseignant);
         }
     }
+    
     private class ajouterSallesListener implements ActionListener
     {
         @SuppressWarnings("deprecation")
 		public void actionPerformed(ActionEvent e)
         {
-        	new AjouterSalle(seance.getidseance());
+        	Integer hd = (Integer) heureD.getSelectedItem();
+    		Integer du =  (Integer)   duree.getSelectedItem();
+    		java.util.Date da= (java.util.Date) date.getValue();
+        	ArrayList<Salle> availableSalles=new ArrayList<Salle>();
+        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue()-1;i++ )
+        	{
+              	availableSalles.addAll(outil.avalaibleSalle(new Date(da.getYear(), da.getMonth(), da.getDay()),i));
+        	}
+        	new AjouterSalle(seance.getidseance(),availableSalles);
         }
     }
-    
-    
-    
-    
-    
 }
