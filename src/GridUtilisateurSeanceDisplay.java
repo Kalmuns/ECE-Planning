@@ -30,6 +30,4 @@ public class GridUtilisateurSeanceDisplay extends JPanel{
 		this.setVisible(true);
 		this.validate();
 	}
-	
-	
 }
