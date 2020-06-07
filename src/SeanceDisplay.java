@@ -40,10 +40,10 @@ public class SeanceDisplay extends JPanel
         public void actionPerformed(ActionEvent e)
         {
             //get id doc
-            ModifSeanceDisplay  mds = new ModifSeanceDisplay();
+         //   ModifSeanceDisplay  mds = new ModifSeanceDisplay();
 
             // constructeur fiche doc(id)
-            w.actual(mds);
+         //   w.actual(mds);
 
         }
 

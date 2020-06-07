@@ -127,6 +127,42 @@ public class DeleterBDD {
 			
 	// SEANCE SALLE/ENSEIGNANT/GROUPE TO SUPP 
 	}
+	public void suppSeanceSalle(int idsalle)
+	{
+		String query="DELETE  FROM seancesalles WHERE seanceSalles_SalleID = ";
+			query+= Integer.toString(idsalle);
+				try {
+				     conn.createStatement().executeUpdate(query);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	}
+	public void suppSeanceEnseignant(int idenseignant)
+	{
+		 String  query="DELETE  FROM seanceenseignants WHERE seanceEnseignants_EnseignantsID = ";
+			query+= Integer.toString(idenseignant);
+				try {
+				     conn.createStatement().executeUpdate(query);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	}
+	public void suppSeanceGroupe(int idgroupe)
+	{
+		String query="DELETE  FROM seancegroupes WHERE seanceGroupes_GroupeID = ";
+			query+= Integer.toString(idgroupe);
+				try {
+				     conn.createStatement().executeUpdate(query);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	}
+	
+	
+	
 	public void suppSite()
 	{
 		

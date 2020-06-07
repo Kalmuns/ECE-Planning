@@ -29,15 +29,14 @@ public class Login extends JPanel{
 			wa = a;
 			username = new  JTextField(20);
 			mdp = new JPasswordField(20);
-			userJLabel = new JLabel("Username :  ");
+			userJLabel = new JLabel("Mail :  ");
 			mdpJLabel = new JLabel("Login :  ");
 			add(userJLabel);
 			add(username);
 			add(mdpJLabel);
 			add(mdp);
 			add(login);
-			String usertest = username.getText();
-			String mdptest = mdp.getText();
+			
 
 			login.addActionListener(new LoginButton());
 			
@@ -53,10 +52,15 @@ public class Login extends JPanel{
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					// p=sql.retrievePerson(user.getText());// q tester sur pc bdd;
-					//  bufferlogin[0]=   p.getID();
+					int test=0;
+					DAO dao=new DAO();
+					test=dao.login(username.getText(), mdp.getText());
+					if(test!=0)
+					{
+						// FAUDRA ENVOYER LID DE TEST
 					wa.rset();
 					wa.act(1);
+					}
 				}
 			}
 

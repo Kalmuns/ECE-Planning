@@ -1,8 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
 
-
-
 public class DAO {
 		
 	private Connection conn=null;
@@ -230,6 +228,47 @@ public class DAO {
 			}
 		
 		return typeCour;
+	}
+	
+	public int login(String mail,String mdp)
+	{
+		int retour=0;
+		String query="SELECT * FROM utilisateu WHERE utilisateur_Email = ";
+		query+=mail;
+		query+=" AND utilisateur_Password = ";
+		query+=mdp;
+		
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  retour=result.getInt("utilisateur_ID");
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return retour;
+	}
+	
+	public int getCapaciteSalle(int idsalle)
+	{
+		int capacite=0;
+		String query="SELECT * FROM salle WHERE salle_SiteID = ";
+		query+=idsalle;
+		 try {
+			    ResultSet result= conn.createStatement().executeQuery(query);
+				  while(result.next())
+				  {
+					  capacite=result.getInt("salle_Capacite");
+				  }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return capacite;
 	}
 	
 	public ArrayList<Seance> getSeancebyGroupEnseignant(ArrayList<Enseignant> enseignants, Groupe groupe)
@@ -693,12 +732,5 @@ public class DAO {
 		return seances;
 	}
 	
-	public Utilisateur Login(String email,String mdp)
-	{
-		Utilisateur utilisateur=null;
-		
-		
-		return utilisateur;
-	}
 	
 }

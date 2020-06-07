@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -97,6 +97,7 @@ public class CreerSeance extends JPanel{
 
         cours = dao.getallcour();
         type_cours = dao.getalltypecour();
+        
         for(int i = 0 ; i < cours.size() ; i++)
         {
             coursNom.addItem(cours.get(i).getnom());

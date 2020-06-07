@@ -32,11 +32,11 @@ public class Start {
 
                 DAO dao=new DAO();
                 Seance seance= dao.getSeancebyID(1);
-                seance.getCour().getnom();
+              
                 ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
                 enseignants=dao.getEnseignantsByName("pik");
                 
-                System.out.println(enseignants.size());
+                System.out.println( " teststart "+ seance.getEnseignants().get(1).getnom());
 
                 /* tes*/
             }

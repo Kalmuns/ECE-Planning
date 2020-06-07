@@ -58,11 +58,9 @@ public class Outil {
 				}
 			}
 		}
-		return Allsalles;
-		
-		
-		
+		return Allsalles;	
 	}
+	
 	public int convertirJourInt(java.sql.Date dates) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(dates);
