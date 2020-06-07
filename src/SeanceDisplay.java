@@ -13,7 +13,7 @@ public class SeanceDisplay extends JPanel
 
     public SeanceDisplay(String search)
     {
-        System.out.println("seance display");
+        //System.out.println("seance display");
         seances = new ArrayList<>();
         dao = new DAO();
         seances = dao.getSeancesByWeek(1, Integer.parseInt(search));

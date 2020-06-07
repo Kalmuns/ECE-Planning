@@ -12,22 +12,26 @@ public class Menu extends JPanel  {
     private JButton seance;
     private JButton salleLibre;
     private JButton creerseanceButton;
+    private JButton jfree;
     protected Wall wall;
-    
+    private int id;
     public Menu(Wall wa)
     {
+    	
         accueil = new JButton ("Accueil");
         edt = new JButton ("EDT");
         user = new JButton("Utilisateurs");
         affectation = new JButton("Affectation"); // faire un dropdown pour les diff'rentes affectations
         seance = new JButton("Seance");
         salleLibre = new JButton("Salle Libre");
+        jfree = new JButton("Graphe");
         salleLibre.addActionListener(new salleLibreListener());
         accueil.addActionListener(new AccueilListener());
         edt.addActionListener(new edtListener());
         user.addActionListener(new userListener());
         affectation.addActionListener(new AffectationListener());
         seance.addActionListener(new SeanceListener());
+        jfree.addActionListener(new Jfree());
         creerseanceButton=new JButton("Creer Seance");
         creerseanceButton.addActionListener(new CreerSeanceListener());
         //add(accueil);
@@ -37,6 +41,7 @@ public class Menu extends JPanel  {
         add(seance);
         add(salleLibre);
         add(creerseanceButton);
+        add(jfree);
         wall = wa;
         setVisible(false);
         setEnabled(false);
@@ -49,7 +54,7 @@ public class Menu extends JPanel  {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			wall.actual(new WallCalendrier(0,0));
+			wall.actual(new WallCalendrier(0,""));
 		}
 	}
 
@@ -67,7 +72,8 @@ private class AccueilListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            wall.actual(new WallCalendrier());
+        	id=wall.getID();
+            wall.actual(new WallCalendrier(wall.getID()));
         }
 
     }
@@ -101,5 +107,11 @@ private class AccueilListener implements ActionListener
             wall.actual(new CreerSeance());
         }
     }
-
+    private class Jfree implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            wall.actual(new JFreeChartTest());
+        }
+    }
 }

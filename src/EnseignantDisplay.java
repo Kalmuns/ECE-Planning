@@ -37,7 +37,7 @@ public class EnseignantDisplay extends JPanel {
 			
 			boutton.get(i).setName(tString);
 			this.add(boutton.get(i));
-			System.out.println(boutton.get(i).getName());
+			//System.out.println(boutton.get(i).getName());
 			
 		}
 		this.setVisible(true);
@@ -62,8 +62,8 @@ public class EnseignantDisplay extends JPanel {
 			
 			Enseignant prof = todisplay.get(1);
 //			int prof_Nom = prof.getID();
-			System.out.println("Nom: "+i);
-			wallCalendrier.actualCalendrier(semaine, 3, i);
+			//System.out.println("Nom: "+i);
+			wallCalendrier.actualCalendrier(semaine, 3, i,wallCalendrier.getID());
 		}
 
 		@Override

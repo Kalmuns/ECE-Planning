@@ -18,7 +18,7 @@ public class CoursDisplay extends JPanel
     private int idCours;
     public CoursDisplay(int id)
     {
-        System.out.println("page CoursCase");
+        
         //wall=wa;
         idCours=id;
         this.setVisible(true);

@@ -95,7 +95,7 @@ public class DAO {
 				  while(result.next())
 				  {
 					  toreturn.add(new Utilisateur(result.getInt("utilisateur_ID"), result.getString("utilisateur_Email"), result.getString("utilisateur_Password"), result.getString("utilisateur_Nom"), result.getString("utilisateur_Prenom"), result.getInt("utilisateur_Droit")));
-					  System.out.println(result.getInt("etudiant_ID"));
+					  //System.out.println(result.getInt("etudiant_ID"));
 				  }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -131,7 +131,7 @@ public class DAO {
 		query+= "'";
 		query+=date.toString();
 		query+="'";
-		System.out.println(query);
+		//System.out.println(query);
 		 try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
 				  while(result.next())
@@ -253,13 +253,13 @@ public class DAO {
 	public int getCapaciteSalle(int idsalle)
 	{
 		int capacite=0;
-		String query="SELECT * FROM salle WHERE salle_SiteID = ";
+		String query="SELECT SUM(salle_Capacite) as Somme FROM salle WHERE salle_SiteID = ";
 		query+=idsalle;
 		 try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
 				  while(result.next())
 				  {
-					  capacite=result.getInt("salle_Capacite");
+					  capacite=result.getInt("Somme");
 				  }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -291,7 +291,7 @@ public class DAO {
 			query+= ") ";
 			query+= "ORDER BY seance.seance_Date ASC";
 			DAO dao=new DAO();
-			System.out.println(query);
+			//System.out.println(query);
 			 try {
 				    ResultSet result= conn.createStatement().executeQuery(query);
 					  while(result.next())
@@ -329,7 +329,7 @@ public class DAO {
 			}
 			query+= ") ";
 			DAO dao=new DAO();
-			System.out.println(query);
+			//System.out.println(query);
 			 try {
 				    ResultSet result= conn.createStatement().executeQuery(query);
 					  while(result.next())
@@ -358,7 +358,7 @@ public class DAO {
 		query+="%' OR utilisateur_Prenom LIKE '%";
 		query+=recherche;
 		query+="%'";
-		System.out.println(query);
+		//System.out.println(query);
 		 try {
 			    ResultSet result= conn.createStatement().executeQuery(query);
 				  while(result.next())

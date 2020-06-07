@@ -86,12 +86,12 @@ public class Outil {
 	{
 		
 		DAO dao=new DAO();
-		System.out.println(" heure:"+heure+" date "+date.toString());
+		//System.out.println(" heure:"+heure+" date "+date.toString());
 		ArrayList<Seance> seances= new ArrayList<Seance>();
 		ArrayList<Seance> seanceperday= new ArrayList<Seance>();
 		seanceperday=dao.getSeancesbyDate(date);
 		
-		System.out.println(" nb seance dans le jour"+seanceperday.size());
+		//System.out.println(" nb seance dans le jour"+seanceperday.size());
 		int i;
 		for(i=0;i<seanceperday.size();i++)
 		{

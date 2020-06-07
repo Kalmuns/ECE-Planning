@@ -132,7 +132,7 @@ public class InsertBDD {
 	public void updateSeance(int id,Date date,int heuredebut,int duree,int courid,int typecourid )
 	{	
 		String query="UPDATE Seance Set seance_Date= '"+date.toString()+"' ,seance_HeureDebut= "+heuredebut+",seance_HeureFin= "+duree+",seance_CoursID= "+courid+", seance_TypeCoursID="+typecourid+" WHERE seance_ID="+id;
-		System.out.println(query); 
+		//System.out.println(query); 
 		try {
 		     conn.createStatement().executeUpdate(query);
 		} catch (SQLException e) {

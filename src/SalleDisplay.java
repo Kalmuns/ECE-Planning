@@ -57,8 +57,7 @@ public class SalleDisplay extends JPanel {
 			
 			
 //			int prof_Nom = prof.getID();
-			System.out.println("Nom: "+i);
-			wallCalendrier.actualCalendrier(semaine, 5, i);
+			wallCalendrier.actualCalendrier(semaine, 5, i,wallCalendrier.getID());
 		}
 
 		@Override

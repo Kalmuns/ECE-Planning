@@ -16,6 +16,7 @@ public class numSemaine extends JPanel
     public numSemaine(int idSemaine, int i, WallCalendrier c,int j,int contenu)
     {
     	selectSemaine selectSemaines =new selectSemaine(i+1 +"" , c );
+    	wallCalendrier=c;
     	idSemaine = i+1;
     	salleLibre = j;
     	cont = contenu;
@@ -45,25 +46,29 @@ public class numSemaine extends JPanel
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			
 			i = Integer.parseInt(name);
 			if (salleLibre==0) {
-				calendrier.actualCalendrier(i);
+				int id=wallCalendrier.getID();
+				calendrier.actualCalendrier(i,id);
 			}
 			if (salleLibre ==1) {
-				calendrier.actualCalendrier(i,1);
+				calendrier.actualCalendrier(i);
 			}
 			if (salleLibre ==2) {
-				calendrier.actualCalendrier(i,2,cont);
+				int id=wallCalendrier.getID();
+				calendrier.actualCalendrier(i,2,cont,id);
 			}
 			if (salleLibre ==3) {
-				calendrier.actualCalendrier(i,3,cont);
+				int id=wallCalendrier.getID();
+				calendrier.actualCalendrier(i,3,cont,id);
 			}
 			if (salleLibre ==4) {
-				calendrier.actualCalendrier(i,4,cont);
+				int id=wallCalendrier.getID();
+				calendrier.actualCalendrier(i,4,cont,id);
 			}
 			if (salleLibre ==5) {
-				calendrier.actualCalendrier(i,5,cont);
+				int id=wallCalendrier.getID();
+				calendrier.actualCalendrier(i,5,cont,id);
 			}
 		}
 

@@ -51,7 +51,7 @@ public class ModifSeanceDisplay extends JPanel
     public ModifSeanceDisplay(String seanceID)   {
         dao = new DAO();
         seance=dao.getSeancebyID(Integer.parseInt(seanceID));
-        System.out.println( " teststart "+ seance.getEnseignants().get(1).getnom());
+        //System.out.println( " teststart "+ seance.getEnseignants().get(1).getnom());
         
 
 
@@ -138,8 +138,8 @@ public class ModifSeanceDisplay extends JPanel
         }
         for(int i=0;i<seance.getEnseignants().size();i++)
         {
-        	  System.out.println(enseignantCB);
-        	System.out.println(seance+"  n"+seance.getEnseignants().get(i).getnom()+" i"+i);
+        	  //System.out.println(enseignantCB);
+        	//System.out.println(seance+"  n"+seance.getEnseignants().get(i).getnom()+" i"+i);
         	enseignantCB.addItem(seance.getEnseignants().get(i).getnom());
         }
         for(int i=0;i<seance.getsalle().size();i++)
@@ -245,8 +245,8 @@ public class ModifSeanceDisplay extends JPanel
         		Integer hd = (Integer) heureD.getSelectedItem();
         		Integer du =  (Integer)   duree.getSelectedItem();
         		java.util.Date da= (java.util.Date) date.getValue();
-        		System.out.println(seance);
-        		System.out.println("seance "+seance.getidseance()+"cour"+ cours.get(coursNom.getSelectedIndex()).getID()+"typecour "+type_cours.get(coursType.getSelectedIndex()).getID()+" date "+new Date(da.getYear(), da.getMonth(), da.getDay())+hd.intValue() +du.intValue());
+        		//System.out.println(seance);
+        		//System.out.println("seance "+seance.getidseance()+"cour"+ cours.get(coursNom.getSelectedIndex()).getID()+"typecour "+type_cours.get(coursType.getSelectedIndex()).getID()+" date "+new Date(da.getYear(), da.getMonth(), da.getDay())+hd.intValue() +du.intValue());
         		insertBDD.updateSeance(seance.getidseance(), new Date(da.getYear(), da.getMonth(), da.getDay()), hd.intValue() ,du.intValue(), cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
         }
     }

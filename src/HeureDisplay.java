@@ -15,7 +15,7 @@ public class HeureDisplay extends JPanel
     List<JPanel> heuresList = new ArrayList<>();
 
     public HeureDisplay() {
-        System.out.println("page heures panel");
+        
         //iD = id;
         int i;
         //wall = wa;
@@ -40,6 +40,6 @@ public class HeureDisplay extends JPanel
         setVisible(true);
         setEnabled(true);
         this.validate();
-        System.out.println("Heures Panel constructor");
+        
     }
 }

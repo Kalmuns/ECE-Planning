@@ -82,3 +82,17 @@
 /HistogramEx.class
 /test.class
 /JFreeChartTest.class
+/AjouterEnseignant$ValideListener.class
+/AjouterEnseignant.class
+/AjouterGroupes$ValideListener.class
+/AjouterGroupes.class
+/AjouterSalle$ValideListener.class
+/AjouterSalle.class
+/ModifSeanceDisplay$ValiderListener.class
+/ModifSeanceDisplay$ajouterEnseignantsListener.class
+/ModifSeanceDisplay$ajouterGroupesListener.class
+/ModifSeanceDisplay$ajouterSallesListener.class
+/ModifSeanceDisplay$supEnseignantListener.class
+/ModifSeanceDisplay$supGroupeListener.class
+/ModifSeanceDisplay$supSalleListener.class
+/Menu$Jfree.class

@@ -4,7 +4,7 @@ import java.awt.*;
 public class Wall extends JPanel
 {
     private int[] idpersonne;
-
+    private int IDutilisateur;
     public Wall() {
 
 
@@ -14,9 +14,7 @@ public class Wall extends JPanel
         add(buffer,BorderLayout.CENTER);
         buffer=new Menu(this);
         add(buffer,BorderLayout.NORTH);
-        //JFreeChartTest test = new JFreeChartTest();
-        //add(test,BorderLayout.SOUTH);
-        
+
 
         this.validate();
         setVisible(true);
@@ -46,12 +44,21 @@ public class Wall extends JPanel
     {
         setmenu();
         this.remove(0);
-        System.out.println("add ok");
+//        System.out.println("add ok");
 
         add(s,BorderLayout.CENTER, 0);
-        System.out.println(this.getComponentCount()+" count in actual");
+        //System.out.println(this.getComponentCount()+" count in actual");
         act(0);
 
         this.revalidate();
     }
+    public void setID(int id) {
+    	IDutilisateur=id;
+	}
+    public int getID() {
+		return IDutilisateur;
+	}
+    public void jFree() {
+    	
+	}
 }
