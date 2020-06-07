@@ -52,15 +52,15 @@ public class Login extends JPanel{
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					int test=0;
-					DAO dao=new DAO();
-					test=dao.login(username.getText(), mdp.getText());
-					if(test!=0)
-					{
+//					int test=0;
+//					DAO dao=new DAO();
+//					test=dao.login(username.getText(), mdp.getText());
+//					if(test!=0)
+//					{
 						// FAUDRA ENVOYER LID DE TEST
 					wa.rset();
 					wa.act(1);
-					}
+					//}
 				}
 			}
 
