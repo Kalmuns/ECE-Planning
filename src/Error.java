@@ -6,7 +6,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-
+/**
+ * Message d'erreur
+ * 
+ *  
+ *
+ */ 
 
 public class Error extends JFrame{
 	private JButton okButton;

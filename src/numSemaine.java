@@ -4,6 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+/**
+ * Correspond au bouton situé dans le choix de semaine
+ * Ils renvoient des informations importante au Semaine display
+ * 
+ *  
+ *
+ */
 
 public class numSemaine extends JPanel
 {

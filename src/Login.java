@@ -5,6 +5,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+/**
+ * Est le JPanel responsable de l'enregistrement et se charge de transmettre les infos au Wall
+ * 
+ *  
+ *
+ */
 
 public class Login extends JPanel{
 // Va servir de page d'accueuil.

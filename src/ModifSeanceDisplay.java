@@ -7,6 +7,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.util.ArrayList;
+/**
+ * Interface possedant tout les listener necessaire a la modification d'une seance
+ * Ils appellent au besoin INsertBDD ou DeleteBDD
+ * 
+ *  
+ *
+ */
 
 public class ModifSeanceDisplay extends JPanel
 {

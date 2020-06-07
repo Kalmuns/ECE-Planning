@@ -12,6 +12,12 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 
+/**
+ * Affiche un graphe du nombre total de capacité d'un site
+ * 
+ *  
+ *
+ */
 
 public class JFreeChartTest extends JPanel {
 	

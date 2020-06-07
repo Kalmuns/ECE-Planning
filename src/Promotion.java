@@ -1,3 +1,9 @@
+/**
+ * Correspond a la promotion comme la BDD
+ * 
+ *  
+ *
+ */
 
 
 public class Promotion {

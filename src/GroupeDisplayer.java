@@ -11,6 +11,13 @@
 	import javax.swing.JButton;
 	import javax.swing.JPanel;
 
+	/**
+	 * Affiche des boutons dans un JPanel seance 
+	 * Se construit en largeur
+	 * 
+	 *  
+	 *
+	 */
 
 
 public class GroupeDisplayer extends JPanel {

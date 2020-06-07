@@ -1,7 +1,12 @@
 import java.sql.*;
 import java.util.ArrayList;
 
-
+/**
+ * Supprime les informations de la BDD
+ * 
+ *   
+ *
+ */ 
 public class DeleterBDD {
 	private Connection conn=null;
 	public DeleterBDD()

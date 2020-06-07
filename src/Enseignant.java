@@ -1,4 +1,9 @@
-
+/**
+ * Classe Enseignant issue de la BDD
+ * 
+ *    
+ *
+ */
 public class Enseignant extends Utilisateur{
 	
 

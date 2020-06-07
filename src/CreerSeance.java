@@ -8,7 +8,12 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+/**
+ * Interface permettant de recuperer les informations pour créer un seance
+ * Le Listener appelera ensuite insert BDD pour le rempplir
+ *  
+ *
+ */
 public class CreerSeance extends JPanel{
 	
 	

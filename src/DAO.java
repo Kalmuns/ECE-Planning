@@ -1,6 +1,11 @@
 import java.sql.*;
 import java.util.ArrayList;
-
+/**
+ * Récupère les informations de la BDD
+ * 
+ *  
+ *
+ */
 public class DAO {
 		
 	private Connection conn=null;

@@ -1,4 +1,9 @@
-
+/**
+ * Classe Cours issue de la BDD
+ * 
+ *  
+ *
+ */
 public class Cour {
 	private int id;
 	private String nom;

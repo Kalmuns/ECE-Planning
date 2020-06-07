@@ -10,6 +10,14 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+/**
+ * Cette Classe affiche les salles libres 
+ * Elle prend seulement une semaine en parametre et n'a pas besoin d'autorisation 
+ * Est re 
+ * Enfin, il fini par une étoile suivie d'un slash.
+ */
+
 public class AffichageSalleLibre  extends JPanel{
 	// Display les information et contient le panel de cell
 	
