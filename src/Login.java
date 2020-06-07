@@ -60,7 +60,7 @@ public class Login extends JPanel{
 					
 					wa.setID(id);
 					wa.rset();
-					wa.act(1);
+					wa.addMenu();;
 					}
 				}
 			}

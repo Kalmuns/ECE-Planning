@@ -42,8 +42,8 @@ public class SearchSeanceDisplay extends JPanel
         m=new JComboBox<Integer>();
         a= new JComboBox<Integer>();
         
-        heureDL = new JLabel("  heure de début :");
-        heureFL = new JLabel("  durée du cours:");
+        heureDL = new JLabel("  entre  :");
+        heureFL = new JLabel("  et :");
         heureD = new JComboBox<Integer>();
         heureF=new JComboBox<Integer>();
         valider = new JButton("  Cherchez");
@@ -67,7 +67,7 @@ public class SearchSeanceDisplay extends JPanel
         {
             m.addItem(i);
         }
-        for (int i = 2019 ; i < 2021 ; i++)
+        for (int i = 2020 ; i < 2022 ; i++)
         {
             a.addItem(i);
         }

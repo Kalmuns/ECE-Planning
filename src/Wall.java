@@ -12,8 +12,7 @@ public class Wall extends JPanel
         // Appeler la page Login
         JPanel buffer= new Login(this,idpersonne);
         add(buffer,BorderLayout.CENTER);
-        buffer=new Menu(this);
-        add(buffer,BorderLayout.NORTH);
+        
 
 
         this.validate();
@@ -28,6 +27,13 @@ public class Wall extends JPanel
             getComponent(i).setEnabled(false);
         }
     }
+    public void addMenu()
+    {
+    	JPanel buffer;
+    	buffer=new Menu(this);
+        add(buffer,BorderLayout.NORTH);
+    }
+    
     public void act(int i)
     {
         this.getComponent(i).setVisible(true);

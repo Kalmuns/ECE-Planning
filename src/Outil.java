@@ -1,4 +1,5 @@
 
+import java.awt.desktop.SystemEventListener;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -188,12 +189,14 @@ public class Outil {
 	
 	public ArrayList<Enseignant> avalaibleEnseignants(Date date,int heure)
 	{
+		System.out.println("Date av"+date + "h"+heure);
 		 Outil outil=new Outil();
 		 DAO dao=new DAO();
 		 ArrayList<Enseignant> enseignants= new  ArrayList<Enseignant>();
 		 ArrayList<Enseignant> enseignatoccupe= new  ArrayList<Enseignant>();
 		 enseignants=dao.getallenEnseignants();
 		 enseignatoccupe=outil.searchEnseignantsbyDateHoure(date, heure);
+		 System.out.println(enseignatoccupe.size() +" fr ");
 		 int i,y;
 		 for(i=0;i<enseignatoccupe.size();i++)
 		 {
@@ -227,6 +230,7 @@ public class Outil {
 		 ArrayList<Enseignant> enseignants= new  ArrayList<Enseignant>();
 		 ArrayList<Seance> seanceperday= new ArrayList<Seance>();
 		 seanceperday=searchSeancebyDateHoure(date, heure);
+		 System.out.println("date"+date + "h"+heure+ "seancetrouver"+seanceperday.size());
 		 int i,y;
 		 for (i=0;i<seanceperday.size();i++)
 		 {

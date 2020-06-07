@@ -13,12 +13,15 @@ public class AjouterSalle extends JFrame{
 	private int idseance;
 	private JComboBox<String> enseiBox;
 	private ArrayList<Salle> salles=new ArrayList<Salle>();
+	private ArrayList<Salle> available= new ArrayList<Salle>();
 	
-	public AjouterSalle(int idseanc)
+	
+	public AjouterSalle(int idseanc, ArrayList<Salle> sal)
 	{
 		enseiBox=new JComboBox<String>();
 		DAO dao=new DAO();
 		salles=dao.getallsalle();
+		available=sal;
 		this.idseance=idseanc;
 		for(int i=0;i<salles.size();i++)
 		{
@@ -40,8 +43,24 @@ public class AjouterSalle extends JFrame{
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			InsertBDD insertBDD=new InsertBDD();
-			insertBDD.insertseancesalle(idseance, salles.get(enseiBox.getSelectedIndex()).getid());
+			int test=0;
+			for(int i=0;i<available.size();i++)
+			{
+				if(salles.get(enseiBox.getSelectedIndex()).getid()==available.get(i).getid())
+				{
+					InsertBDD insertBDD=new InsertBDD();
+					insertBDD.insertseancesalle(idseance, salles.get(enseiBox.getSelectedIndex()).getid());
+					new Succes();
+					dis();
+					test=1;
+					
+					
+				}
+			}
+			if(test==0)
+			{
+				new Error();
+			}
 			dis();
 		}
 	}

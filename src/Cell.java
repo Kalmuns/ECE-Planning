@@ -67,7 +67,7 @@ public class Cell extends JPanel{
 		
 		
 		//add(Salle,BorderLayout.SOUTH);
-		if (users.getdroit() == 0) {
+		if (users.getdroit() == 1) {
 			JButton supprButton = new JButton("Supprimer");
 			supprButton.setBorderPainted(false);
 			supprButton.setBackground(Color.RED);

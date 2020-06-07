@@ -80,7 +80,7 @@ public class CreerSeance extends JPanel{
         {
             m.addItem(i);
         }
-        for (int i = 2019 ; i < 2021 ; i++)
+        for (int i = 2020 ; i < 2022 ; i++)
         {
             a.addItem(i);
         }
@@ -154,9 +154,20 @@ public class CreerSeance extends JPanel{
             String resCoursNom = String.valueOf(coursNom.getSelectedIndex());
             int resTypeCours = coursType.getSelectedIndex(); // recuperer l'ordre des types de cours
        //     System.out.println(resDate);
-            insertBDD.insertSeance(date, resHeureD.intValue(), resHeureF.intValue(), 0, cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
-            //ibdd.insertSeance(); // voir le InsertSeance (manque la semaine) convertir date en string
-        }
+            
+            
+            if(resHeureD.intValue()+resHeureF.intValue()>=8&&outil.convertirJour(date).equalsIgnoreCase("Dimanche"))
+            {
+            	new Error();
+            	//ibdd.insertSeance(); // voir le InsertSeance (manque la semaine) convertir date en string
+            }
+            
+            else {
+            	insertBDD.insertSeance(date, resHeureD.intValue(), resHeureF.intValue(), 0, cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
+            	new Succes();
+            	
+			}
+      }
     }
     
 }
