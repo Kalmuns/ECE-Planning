@@ -17,15 +17,17 @@ public class JFreeChartTest extends JPanel {
 	
 	public JFreeChartTest() {
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
-		for (Integer leint : new Integer[] {1,2,3,4,5,6,7,8,9,10}) {
+		Outil toolOutil = new Outil();
+		DAO dao= new DAO();
+		int test =dao.getCapaciteSalle(3);
+		for (Integer leint : new Integer[] {dao.getCapaciteSalle(1),dao.getCapaciteSalle(2),test}) {
 			dataset.setValue(leint, "int", leint.toString());
         }
 		
 		JFreeChart chart = ChartFactory.createBarChart(
-	    		"title",
+	    		"Titre",
 	            "",
-	            "yLabel",
+	            "Total des Capacité des salles",
 	            dataset,
 	            PlotOrientation.HORIZONTAL,
 	            false, true, false);

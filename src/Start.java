@@ -36,7 +36,7 @@ public class Start {
                 ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
                 enseignants=dao.getEnseignantsByName("pik");
                 
-                System.out.println( " teststart "+ seance.getEnseignants().get(1).getnom());
+                //System.out.println( " teststart "+ seance.getEnseignants().get(1).getnom());
 
                 /* tes*/
             }

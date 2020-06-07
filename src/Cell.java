@@ -18,6 +18,7 @@ public class Cell extends JPanel{
 	protected WallCalendrier wallCalendrier;
 	public Cell( Seance cell_seance,Utilisateur users, WallCalendrier c,int sem) {
 		this.setLayout(new GridLayout(0,1));
+		DAO dao = new DAO();
 		user=users;
 		seanceSeance = cell_seance;
 
@@ -96,7 +97,7 @@ public class Cell extends JPanel{
 		{
 			Cour cours = seanceSeance.getCour();
 			int cours_Nom = cours.getID();
-			wallCalendrier.actualCalendrier(semaine, 2, cours_Nom);
+			wallCalendrier.actualCalendrier(semaine, 2, cours_Nom,user.getID());
 			
 		}
 	}

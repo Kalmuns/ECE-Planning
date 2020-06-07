@@ -12,9 +12,10 @@ public class SalleLibreDisplay extends JPanel {
 	private ArrayList<JLabel> panneau = new ArrayList<JLabel>();
 	public SalleLibreDisplay(ArrayList<Salle> gr)
 	{
+		
 		int i=0;
 		todisplay=gr;
-		this.setLayout(new GridLayout(1,gr.size()));
+		this.setLayout(new GridLayout(3,(gr.size())/3));
 		for(i=0;i<gr.size();i++)
 		{
 			panneau.add(new JLabel(new String(""+gr.get(i).getnom())));

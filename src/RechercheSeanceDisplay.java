@@ -27,7 +27,7 @@ public class RechercheSeanceDisplay extends JPanel
         public void actionPerformed(ActionEvent e)
         {
             String res = rechercheTA.getText().trim();
-            System.out.println(res);
+            //System.out.println(res);
 
         }
     }

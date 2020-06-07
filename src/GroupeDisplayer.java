@@ -62,8 +62,8 @@ public class GroupeDisplayer extends JPanel {
 			
 			
 //			int prof_Nom = prof.getID();
-			System.out.println("Nom: "+i);
-			wallCalendrier.actualCalendrier(semaine, 4, i);
+			//System.out.println("Nom: "+i);
+			wallCalendrier.actualCalendrier(semaine, 4, i,wallCalendrier.getID());
 		}
 
 		@Override

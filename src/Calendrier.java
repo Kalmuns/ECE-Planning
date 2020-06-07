@@ -24,9 +24,11 @@ public class Calendrier extends JPanel {
 		//this.setLayout(new GridLayout(7,7));
 		
 		DAO dao = new DAO();
+		
 		wallCalendrier=c;
 		Insets inset = new Insets(2, 10, 2, 10);
 		Outil test = new Outil();
+		int usersID=users.getID();
 		//user=users;
 		
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -36,27 +38,27 @@ public class Calendrier extends JPanel {
 		//System.out.println(hopArrayList.size());
 
 		if (mode == 0) {
-			seances =dao.getSeancesByWeek(1, semaine);
+			seances =dao.getSeancesByWeek(usersID, semaine);
 		}
 		if (mode == 2) {
 			seances =dao.getSeanceByCourWeek(contenu, semaine);
 		}
 		if (mode == 3) {
-			System.out.println(contenu);
+			
 			seances =dao.getSeancesByWeek(contenu, semaine);
 		}
 		if (mode == 4) {
-			System.out.println(contenu);
+			
 			seances =dao.getSeanceByGroupWeek(contenu, semaine);
 		}
 		if (mode == 5) {
-			System.out.println(contenu);
+			
 			seances =dao.getSeancebySalleWeek(contenu, semaine);
-			System.out.println("Taille: "+seances.size());
+			//System.out.println("Taille: "+seances.size());
 		}
 		this.setLayout(new GridBagLayout());
 		gbc.gridy = 0;
-		user= dao.getUtilisateurbyID(1);
+		user= dao.getUtilisateurbyID(usersID);
 		
 		//JOUR DE LA SEMAINE
 		//Lundi

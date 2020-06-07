@@ -76,7 +76,7 @@ public class TableauSeanceDisplay extends JPanel
 //            searchfield=bufferfield;
 //            add(searchfield);
 //            add(search);
-            System.out.println("testtestetst");
+            //System.out.println("testtestetst");
         }
     }
 }

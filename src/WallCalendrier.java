@@ -8,12 +8,12 @@ public class WallCalendrier extends JPanel
     private SemaineDisplay semaineDisplay;
     
     Utilisateur user;
-    public WallCalendrier()
+    public WallCalendrier(int users)
     {
     	
         this.setLayout(new BorderLayout());
         DAO dao= new DAO();
-        user= dao.getUtilisateurbyID(1);
+        user= dao.getUtilisateurbyID(users);
 //        JPanel buffer= new Login(this,idpersonne);
 //        add(buffer,BorderLayout.CENTER);
 //        buffer=new Menu(this);
@@ -26,7 +26,7 @@ public class WallCalendrier extends JPanel
         
     }
     //Le createur des Salles Libres
-    public WallCalendrier(int i, int j)
+    public WallCalendrier(int i, String buffer)
     {
     	
         this.setLayout(new BorderLayout());
@@ -44,10 +44,10 @@ public class WallCalendrier extends JPanel
         
         
     }
-    public WallCalendrier(int i)
+    public WallCalendrier(int semaine,int users)
     {
     	DAO dao= new DAO();
-        user= dao.getUtilisateurbyID(1);
+        user= dao.getUtilisateurbyID(users);
         this.setLayout(new BorderLayout());
         // Appeler la page Login
 
@@ -57,12 +57,12 @@ public class WallCalendrier extends JPanel
 //        add(buffer,BorderLayout.NORTH);
 			
         add(new SemaineDisplay(this,0,0),BorderLayout.NORTH);
-        add(new Calendrier(i,user,this,0,0),BorderLayout.CENTER);
+        add(new Calendrier(semaine,user,this,0,0),BorderLayout.CENTER);
         
 
     }
-    
-    protected void actualCalendrier(int y)
+    //Le actualCalendrier pour les Salles Libres
+    protected void actualCalendrier(int semaine)
     {
     	DAO dao= new DAO();
         user= dao.getUtilisateurbyID(1);
@@ -76,7 +76,7 @@ public class WallCalendrier extends JPanel
         this.revalidate();
         paint(this.getGraphics());
         add(new SemaineDisplay(this,0,0),BorderLayout.NORTH);
-        add(new Calendrier(y,user,this,0,0),BorderLayout.CENTER);
+        add(new AffichageSalleLibre(semaine),BorderLayout.CENTER);
        
        
        
@@ -85,11 +85,11 @@ public class WallCalendrier extends JPanel
       
     }
     
-    //Le actualCalendrier pour les Salles Libres
-    protected void actualCalendrier(int y,int j)
+   
+    protected void actualCalendrier(int semaine,int users)
     {
     	DAO dao= new DAO();
-        user= dao.getUtilisateurbyID(1);
+        user= dao.getUtilisateurbyID(users);
     	int i;
     	for (i=0;i<this.getComponentCount();i++)
         {
@@ -99,9 +99,8 @@ public class WallCalendrier extends JPanel
        this.update(this.getGraphics());
         this.revalidate();
         paint(this.getGraphics());
-        add(new SemaineDisplay(this,1,0),BorderLayout.NORTH);
-        add(new AffichageSalleLibre(y),BorderLayout.CENTER);
-       
+        add(new SemaineDisplay(this,0,0),BorderLayout.NORTH);
+        add(new Calendrier(semaine,user,this,0,0),BorderLayout.CENTER);
        
        
      this.update(this.getGraphics());
@@ -109,10 +108,10 @@ public class WallCalendrier extends JPanel
       
     }
     //Actual pour les Nom des seances
-    protected void actualCalendrier(int y,int mode , int contenu)
+    protected void actualCalendrier(int semaine,int mode , int contenu,int users)
     {
     	DAO dao= new DAO();
-        user= dao.getUtilisateurbyID(1);
+        user= dao.getUtilisateurbyID(users);
     	int i;
     	for (i=0;i<this.getComponentCount();i++)
         {
@@ -123,7 +122,7 @@ public class WallCalendrier extends JPanel
         this.revalidate();
         paint(this.getGraphics());
         add(new SemaineDisplay(this,mode,contenu),BorderLayout.NORTH);
-        add(new Calendrier(y,user,this,mode,contenu),BorderLayout.CENTER);
+        add(new Calendrier(semaine,user,this,mode,contenu),BorderLayout.CENTER);
        
        
        
@@ -131,4 +130,7 @@ public class WallCalendrier extends JPanel
       this.revalidate();
       
     }
+    public int getID() {
+		return user.getID();
+	}
 }
