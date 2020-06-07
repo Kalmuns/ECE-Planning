@@ -20,7 +20,6 @@ public class AjouterSalle extends JFrame{
 		DAO dao=new DAO();
 		salles=dao.getallsalle();
 		this.idseance=idseanc;
-		
 		for(int i=0;i<salles.size();i++)
 		{
 			enseiBox.addItem(salles.get(i).getnom());
@@ -28,16 +27,16 @@ public class AjouterSalle extends JFrame{
 		this.setSize(100, 100);
 		this.setLayout(new BorderLayout());
 		add(enseiBox,BorderLayout.NORTH);
+		valideButton.addActionListener(new ValidesalleListener());
 		add(valideButton,BorderLayout.SOUTH);
 		this.setLocation(300, 300);
 		this.setTitle("AjouterSalle");
 		this.setVisible(true);
-		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);		
 		this.validate();
 	}
 	
-	private class ValideListener implements ActionListener
+	private class ValidesalleListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{

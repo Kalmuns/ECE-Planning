@@ -8,6 +8,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 
+
+
 public class AjouterEnseignant extends JFrame{
 
 	private JButton valideButton=new JButton("Valide");
@@ -29,6 +31,7 @@ public class AjouterEnseignant extends JFrame{
 		this.setSize(100, 100);
 		this.setLayout(new BorderLayout());
 		add(enseiBox,BorderLayout.NORTH);
+		valideButton.addActionListener(new ValideenseignantListener());
 		add(valideButton,BorderLayout.SOUTH);
 		this.setLocation(300, 300);
 		this.setTitle("AjouterEnseignant");
@@ -38,7 +41,7 @@ public class AjouterEnseignant extends JFrame{
 		this.validate();
 	}
 	
-	private class ValideListener implements ActionListener
+	private class ValideenseignantListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{

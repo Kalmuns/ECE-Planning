@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
+
+
 public class AjouterGroupes extends JFrame{
 
 	private JButton valideButton=new JButton("Valide");
@@ -28,6 +30,7 @@ public class AjouterGroupes extends JFrame{
 		this.setSize(100, 100);
 		this.setLayout(new BorderLayout());
 		add(enseiBox,BorderLayout.NORTH);
+		valideButton.addActionListener(new ValidegrListener());
 		add(valideButton,BorderLayout.SOUTH);
 		this.setLocation(300, 300);
 		this.setTitle("AjouterGroupe");
@@ -37,7 +40,7 @@ public class AjouterGroupes extends JFrame{
 		this.validate();
 	}
 	
-	private class ValideListener implements ActionListener
+	private class ValidegrListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
