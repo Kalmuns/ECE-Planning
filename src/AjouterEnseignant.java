@@ -60,8 +60,7 @@ public class AjouterEnseignant extends JFrame{
 				{
 					InsertBDD insertBDD=new InsertBDD();
 					insertBDD.insertseanceenseignant(idseance, enseignants.get(enseiBox.getSelectedIndex()).getID());
-					dis();
-					new Succes();
+	
 					test=1;
 					actualiser();
 				}
@@ -69,6 +68,9 @@ public class AjouterEnseignant extends JFrame{
 			if(test==0)
 			{
 				new Error();
+			}
+			else {
+				new Succes();
 			}
 			dis();
 		}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 /**
  * Contient info user
- * Appelé dans Wall utilisateur
+ * Appelï¿½ dans Wall utilisateur
  *  
  *
  */
@@ -18,7 +18,6 @@ public class GridUtilisateurSeanceDisplay extends JPanel{
 	{
 		DAO dao=new DAO();
 		groupes=dao.getGroupbyEnseignant(enseignants);
-		System.out.println(" enseignants"+enseignants.size()+" groupes"+groupes.size());
 		if (enseignants!=null&&groupes!=null)
 		{
 			this.setLayout(new GridLayout(groupes.size(), 1));
@@ -27,8 +26,6 @@ public class GridUtilisateurSeanceDisplay extends JPanel{
 			{
 				//System.out.println("Griseance "+i+"  "+ this.getParent());
 				ArrayList<Seance> seance= new ArrayList<Seance>();
-				seance=dao.getSeancebyGroupEnseignant(enseignants, groupes.get(i));
-				System.out.println("size grid seance"+seance.size());
 				this.add(new InfoUser(dao.getSeancebyGroupEnseignant(enseignants, groupes.get(i)),groupes.get(i).getnom(),enseignants));
 			}
 		}

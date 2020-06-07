@@ -59,8 +59,8 @@ public class AjouterGroupes extends JFrame{
 				{
 					InsertBDD insertBDD=new InsertBDD();
 					insertBDD.insertseancegroupes(idseance, groupes.get(enseiBox.getSelectedIndex()).getid());
-					dis();
-					new Succes();
+				
+					
 					test=1;
 					actualiser();
 					
@@ -69,6 +69,9 @@ public class AjouterGroupes extends JFrame{
 			if(test==0)
 			{
 				new Error();
+			}
+			else {
+				new Succes();
 			}
 			dis();
 		}

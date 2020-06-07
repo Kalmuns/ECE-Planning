@@ -57,16 +57,16 @@ public class AjouterSalle extends JFrame{
 				{
 					InsertBDD insertBDD=new InsertBDD();
 					insertBDD.insertseancesalle(idseance, salles.get(enseiBox.getSelectedIndex()).getid());
-					new Succes();
-					dis();
 					test=1;
-					actualiser();
-					
+					actualiser();	
 				}
 			}
 			if(test==0)
 			{
 				new Error();
+			}
+			else {
+				new Succes();
 			}
 			dis();
 		}
