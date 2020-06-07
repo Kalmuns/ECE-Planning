@@ -119,7 +119,7 @@ public class SearchSeanceDisplay extends JPanel
 //        	seances.add(dao.getSeancebyID(1));
 //        	seances.add(dao.getSeancebyID(1));
 //        	seances.add(dao.getSeancebyID(1));
-        	System.out.print("salle trouver :"+seances.size()+ "DATE "+date);
+        	//System.out.print("salle trouver :"+seances.size()+ "DATE "+date);
         	wallSeancegrid.displaygrid(seances);
         }
     }

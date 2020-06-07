@@ -42,7 +42,7 @@ public class Menu extends JPanel  {
         wall=wa;
         creerseanceButton.addActionListener(new CreerSeanceListener());
         DAO dao=new DAO();
-        System.out.println(wall);
+        //System.out.println(wall);
         utilisateur=dao.getUtilisateurbyID(wall.getID());
         //add(accueil);
         add (edt);

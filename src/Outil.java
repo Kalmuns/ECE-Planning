@@ -25,9 +25,7 @@ public class Outil {
 	}
 	/**
 	 * retourne une date de string 
-	 * @param semaine
-	 * @param jour
-	 * @return
+	 
 	 */
 	public String GetDate(int semaine, int jour) {
 		Calendar cal = Calendar.getInstance();
