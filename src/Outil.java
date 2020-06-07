@@ -1,10 +1,15 @@
-
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
+/**
+ * 
+ * Class regroupant les differentes fonction 
+ * 
+ * @author Kalmuns
+ *
+ */
 public class Outil {
 	//public int semaine;
 	public  Outil()
@@ -34,21 +39,21 @@ public class Outil {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(dates);
 		
-	    switch(cal.get(Calendar.DAY_OF_WEEK))
+	    switch(dates.getDate())
 	    {
-	    case 1: return "Lundi";
+	    case 0: return "Lundi";
 	    		
-	    case 2: return "Mardi";
+	    case 1: return "Mardi";
 	    		
-	    case 3: return "Mercredi";
+	    case 2: return "Mercredi";
 	    		
-	    case 4: return "Jeudi";
+	    case 3: return "Jeudi";
 	    		
-	    case 5: return "Vendredi";
+	    case 4: return "Vendredi";
 	    		
-	    case 6: return "Samedi";
+	    case 5: return "Samedi";
 	    		
-	    case 7: return "Dimanche";
+	    case 6: return "Dimanche";
 	    		
 	    default: return "Invalid";
 	    		

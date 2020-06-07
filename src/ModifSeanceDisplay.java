@@ -255,7 +255,7 @@ public class ModifSeanceDisplay extends JPanel
         		Integer hd = (Integer) heureD.getSelectedItem();
         		Integer du =  (Integer)   duree.getSelectedItem();
         		java.util.Date da= (java.util.Date) date.getValue();
-        	    if(hd.intValue()+du.intValue()>=8&&outil.convertirJour(new Date(da.getYear(), da.getMonth(), da.getDate())).equalsIgnoreCase("Dimanche"))
+        	    if(hd.intValue()+du.intValue()>=8||da.getDay()==0)
                 {
                 	new Error();
                 }
