@@ -295,8 +295,8 @@ public class DAO {
 			}
 			query+= ") ";
 			query+= "ORDER BY seance.seance_Date ASC";
-			System.out.println("query getseance by groupe enseignant:");
-			System.out.println(query);
+			//System.out.println("query getseance by groupe enseignant:");
+			//System.out.println(query);
 			DAO dao=new DAO();
 			//System.out.println(query);
 			 try {
@@ -336,7 +336,7 @@ public class DAO {
 				}
 			}
 			query+= ") ";
-			System.out.println("query: "+query);
+			//System.out.println("query: "+query);
 			DAO dao=new DAO();
 			//System.out.println(query);
 			 try {

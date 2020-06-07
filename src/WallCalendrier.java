@@ -82,7 +82,7 @@ public class WallCalendrier extends JPanel
        this.update(this.getGraphics());
         this.revalidate();
         paint(this.getGraphics());
-        add(new SemaineDisplay(this,0,0),BorderLayout.NORTH);
+        add(new SemaineDisplay(this,1,0),BorderLayout.NORTH);
         add(new AffichageSalleLibre(semaine),BorderLayout.CENTER);
        
        
