@@ -5,7 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
+/*
+ *  Affiche les informations d'une seance dans grid display
+ */
 public class RowSeanceGridDisplay extends JPanel {
 	
 	private Wall wall;

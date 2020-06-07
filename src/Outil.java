@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 /**
  * 
- * Class regroupant les differentes fonction 
+ * Class regroupant les differentes fonction  de calcul
  * 
  * @author Kalmuns
  *
@@ -23,6 +23,12 @@ public class Outil {
 	    cal.setTime(dates);
 	    return cal.get(Calendar.WEEK_OF_YEAR);
 	}
+	/**
+	 * retourne une date de string 
+	 * @param semaine
+	 * @param jour
+	 * @return
+	 */
 	public String GetDate(int semaine, int jour) {
 		Calendar cal = Calendar.getInstance();
 		

@@ -2,7 +2,13 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
-
+/**
+ * ajouter a mur
+ * contient SearchseanceDisplay
+ * sur action de la private class ValideListener dans Search seance Displau ajoute gridseanceDisplay
+ * @author Kalmuns
+ *
+ */
 public class WallSeancegrid extends JPanel{
 	
 	Wall wall;

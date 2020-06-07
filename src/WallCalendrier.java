@@ -1,6 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Contient Semaine Display et Calendrier
+ * Contient des constructeer passer en parametre de wall appeler dans semaine display
+ * @author Kalmuns
+ *
+ */
+
 public class WallCalendrier extends JPanel
 {
     private int[] idpersonne;

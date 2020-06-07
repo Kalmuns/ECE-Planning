@@ -2,6 +2,13 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
+/**
+ * panneaux jouter dans mur regroupant recherche utilisateur et par la suite gridutilisateur
+ * 
+ * @author Kalmuns
+ *
+ */
+
 
 public class WallUtilisateur extends JPanel {
 

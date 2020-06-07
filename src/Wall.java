@@ -1,6 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * contient le menu ainsi que tous les futur panneau
+ * la methoe actual remplace le jpanel en borderLayout center en le remplacent par le jpanel en parametre
+ * @author Kalmuns
+ *
+ */
+
 public class Wall extends JPanel
 {
     private int[] idpersonne;

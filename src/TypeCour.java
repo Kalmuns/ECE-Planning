@@ -1,4 +1,8 @@
-
+/**
+ * Classe Cour
+ * @author Kalmuns
+ *
+ */
 public class TypeCour {
 	private int id;
 	private String nom;

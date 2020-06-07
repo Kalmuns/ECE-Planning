@@ -4,11 +4,7 @@ import java.util.ArrayList;
 public class DAO {
 		
 	private Connection conn=null;
-	/**
-	 * 
-	 * 
-	 * 
-	 */
+	
 	public DAO(){
 		String url = "jdbc:mysql://localhost:3306/planning?autoReconnect=true&useSSL=false";
 

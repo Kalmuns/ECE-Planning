@@ -1,4 +1,8 @@
-
+/**
+ * class site
+ * @author Kalmuns
+ *
+ */
 public class Site {
 	private int id;
 	private String nom;

@@ -1,6 +1,12 @@
 import java.sql.Date;
 import java.util.ArrayList;
 
+/**
+ * class seance
+ * @author Kalmuns
+ *
+ */
+
 public class Seance {
 	// A discuter a 3
 	ArrayList<Groupe> groupe = new ArrayList<Groupe>() ;

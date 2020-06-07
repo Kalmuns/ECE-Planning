@@ -1,4 +1,8 @@
-
+/**
+ * Classe Utilisateur 
+ * @author Kalmuns
+ *
+ */
 public class Utilisateur {
 
 		String email,password,nom,prenom;

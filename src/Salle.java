@@ -1,4 +1,8 @@
-
+/**
+ * class Salle
+ * @author Kalmuns
+ *
+ */
 public class Salle {
 	int id,capacite,idsite;
 	String nom;

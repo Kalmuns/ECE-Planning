@@ -3,6 +3,13 @@ import javax.swing.*;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
+/**
+ * affiche une row contenu dans grid utilisaeur
+ * elle dysplay poour un groupe donnes les cours ( 1er dernier et duree) en fonction des professeur selectionne
+ * les professeur en parametre sont ceux retourne par dao.getuserbyname
+ * @author Kalmuns
+ *
+ */
 
 /// ROW DU DISPLAY SEANCE NY ENSEIGNANT
 public class InfoUser extends JPanel

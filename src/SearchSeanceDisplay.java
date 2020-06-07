@@ -15,6 +15,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * display de l'interface de recherche de seanace par date
+ * possede un listener chargé de récuperer les information et envoie les information dans display de wall seance grid
+ * @author Kalmuns
+ *
+ */
+
 public class SearchSeanceDisplay extends JPanel
 {
     private JLabel jour;

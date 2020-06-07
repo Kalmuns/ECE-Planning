@@ -5,7 +5,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
+/**
+ * JFrame purement decorative qui affiche Succes set sur dispose
+ * @author Kalmuns
+ *
+ */
 
 
 public class Succes extends JFrame{

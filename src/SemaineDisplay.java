@@ -3,7 +3,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Affiche les n de semaine et possede num semaine 
+ * 
+ * @author Kalmuns
+ *
+ */
 public class SemaineDisplay extends JPanel
 {
     private WallCalendrier wallCalendrier;
