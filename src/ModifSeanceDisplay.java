@@ -1,4 +1,7 @@
 import javax.swing.*;
+
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,11 +51,13 @@ public class ModifSeanceDisplay extends JPanel
     private Outil outil;
     private DAO dao;
     private Seance seance;
-    public ModifSeanceDisplay(String seanceID)   {
+    private Wall wall;
+    
+    public ModifSeanceDisplay(String seanceID, Wall walls)   {
         dao = new DAO();
         seance=dao.getSeancebyID(Integer.parseInt(seanceID));
         //System.out.println( " teststart "+ seance.getEnseignants().get(1).getnom());
-        
+        wall=walls;
 
 
         salleL = new ArrayList<>();
@@ -235,7 +240,11 @@ public class ModifSeanceDisplay extends JPanel
         add(p);
         this.setVisible(true);
     }
-
+    private void actualiser()
+    {
+    	wall.actual(new WallSeancegrid(wall));
+    }
+    
     private class ValiderListener implements ActionListener
     {
         @SuppressWarnings("deprecation")
@@ -246,7 +255,16 @@ public class ModifSeanceDisplay extends JPanel
         		Integer hd = (Integer) heureD.getSelectedItem();
         		Integer du =  (Integer)   duree.getSelectedItem();
         		java.util.Date da= (java.util.Date) date.getValue();
-        		insertBDD.updateSeance(seance.getidseance(), new Date(da.getYear(), da.getMonth(), da.getDay()), hd.intValue() ,du.intValue(), cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
+        	    if(hd.intValue()+du.intValue()>=8&&outil.convertirJour(new Date(da.getYear(), da.getMonth(), da.getDate())).equalsIgnoreCase("Dimanche"))
+                {
+                	new Error();
+                }
+        	    else
+        	    {
+        	    	insertBDD.updateSeance(seance.getidseance(), new Date(da.getYear(), da.getMonth(), da.getDate()), hd.intValue() ,du.intValue(), cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
+        	    	new Succes();
+        	    	actualiser();
+        	    }
         }
     }
     // SUPPRESSION A BlIND
@@ -263,6 +281,7 @@ public class ModifSeanceDisplay extends JPanel
         	else {
         		deleterBDD.suppSeanceSalle(seance.getsalle().get(salleCB.getSelectedIndex()).getid());
         		new Succes();
+        		actualiser();
 			}
         }
     }
@@ -280,6 +299,7 @@ public class ModifSeanceDisplay extends JPanel
         	else {
         		deleterBDD.suppSeanceEnseignant(seance.getEnseignants().get(enseignantCB.getSelectedIndex()).getID());
         		new Succes();
+        		actualiser();
 			}
         }
     }
@@ -296,6 +316,8 @@ public class ModifSeanceDisplay extends JPanel
         	else
         	{
         		deleterBDD.suppSeanceGroupe(seance.getgroupes().get(groupeCB.getSelectedIndex()).getid());
+        		new Succes();
+        		actualiser();
         	}
          }
     }
@@ -313,7 +335,7 @@ public class ModifSeanceDisplay extends JPanel
         	{
               	availableGroupes.addAll(outil.avalaibleGroupe(new Date(da.getYear(), da.getMonth(), da.getDate()),i));
         	}
-          	new AjouterGroupes(seance.getidseance(),availableGroupes);
+          	new AjouterGroupes(seance.getidseance(),availableGroupes,wall);
         }
     }
     
@@ -332,7 +354,7 @@ public class ModifSeanceDisplay extends JPanel
               	availableEnseignant.addAll(outil.avalaibleEnseignants(new Date(da.getYear(), da.getMonth(), da.getDate()),i));
         	}
 
-        	new AjouterEnseignant(seance.getidseance(),availableEnseignant);
+        	new AjouterEnseignant(seance.getidseance(),availableEnseignant,wall);
         }
     }
     
@@ -349,7 +371,7 @@ public class ModifSeanceDisplay extends JPanel
         	{
               	availableSalles.addAll(outil.avalaibleSalle(new Date(da.getYear(), da.getMonth(), da.getDate()),i));
         	}
-        	new AjouterSalle(seance.getidseance(),availableSalles);
+        	new AjouterSalle(seance.getidseance(),availableSalles,wall);
         }
     }
 }

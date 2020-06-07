@@ -14,10 +14,12 @@ public class AjouterSalle extends JFrame{
 	private JComboBox<String> enseiBox;
 	private ArrayList<Salle> salles=new ArrayList<Salle>();
 	private ArrayList<Salle> available= new ArrayList<Salle>();
+	private Wall wall;
 	
 	
-	public AjouterSalle(int idseanc, ArrayList<Salle> sal)
+	public AjouterSalle(int idseanc, ArrayList<Salle> sal,Wall walls)
 	{
+		wall=walls;
 		enseiBox=new JComboBox<String>();
 		DAO dao=new DAO();
 		salles=dao.getallsalle();
@@ -53,7 +55,7 @@ public class AjouterSalle extends JFrame{
 					new Succes();
 					dis();
 					test=1;
-					
+					actualiser();
 					
 				}
 			}
@@ -69,4 +71,8 @@ public class AjouterSalle extends JFrame{
 	{
 		this.dispose();
 	}
+    private void actualiser()
+    {
+    	wall.actual(new WallSeancegrid(wall));
+    }
 }
