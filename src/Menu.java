@@ -54,9 +54,6 @@ public class Menu extends JPanel  {
         setVisible(true);
         setEnabled(true);
         this.validate();
-        
-
-
     }
 	private class salleLibreListener implements ActionListener
 	{
@@ -68,7 +65,7 @@ public class Menu extends JPanel  {
 
         // TODO Auto-generated constructor stub
     
-private class AccueilListener implements ActionListener
+	private class AccueilListener implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {

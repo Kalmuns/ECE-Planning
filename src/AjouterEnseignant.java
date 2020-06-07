@@ -17,9 +17,11 @@ public class AjouterEnseignant extends JFrame{
 	private JComboBox<String> enseiBox;
 	private ArrayList<Enseignant> enseignants=new ArrayList<Enseignant>();
 	private ArrayList<Enseignant> available =new ArrayList<Enseignant>();
+	private Wall wall;
 	
-	public AjouterEnseignant(int idseanc, ArrayList<Enseignant> ens)
+	public AjouterEnseignant(int idseanc, ArrayList<Enseignant> ens,Wall walls)
 	{
+		wall=walls;
 		enseiBox=new JComboBox<String>();
 		DAO dao=new DAO();
 		enseignants=dao.getallenEnseignants();
@@ -56,13 +58,12 @@ public class AjouterEnseignant extends JFrame{
 					dis();
 					new Succes();
 					test=1;
+					actualiser();
 				}
 			}
 			if(test==0)
 			{
-				
 				new Error();
-				
 			}
 			dis();
 		}
@@ -72,4 +73,8 @@ public class AjouterEnseignant extends JFrame{
 	{
 		this.dispose();
 	}
+    private void actualiser()
+    {
+    	wall.actual(new WallSeancegrid(wall));
+    }
 }

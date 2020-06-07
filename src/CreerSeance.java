@@ -154,9 +154,10 @@ public class CreerSeance extends JPanel{
             String resCoursNom = String.valueOf(coursNom.getSelectedIndex());
             int resTypeCours = coursType.getSelectedIndex(); // recuperer l'ordre des types de cours
        //     System.out.println(resDate);
+           
+          
             
-            
-            if(resHeureD.intValue()+resHeureF.intValue()>=8&&outil.convertirJour(date).equalsIgnoreCase("Dimanche"))
+            if(resHeureD.intValue()+resHeureF.intValue()>=8||date.getDay()==0)
             {
             	new Error();
             	//ibdd.insertSeance(); // voir le InsertSeance (manque la semaine) convertir date en string

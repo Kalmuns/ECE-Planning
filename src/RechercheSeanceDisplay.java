@@ -28,7 +28,6 @@ public class RechercheSeanceDisplay extends JPanel
         {
             String res = rechercheTA.getText().trim();
             //System.out.println(res);
-
         }
     }
 

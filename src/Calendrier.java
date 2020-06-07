@@ -75,34 +75,34 @@ public class Calendrier extends JPanel {
 		
 		String teString = new String();
 				
-		teString=test.GetDate(semaine-1, 1);
+		teString=test.GetDate(semaine, 2);
 		JLabel lundi = new JLabel("Lundi "+teString);
 		lundi.setBackground(Color.lightGray);
 		//lundi.setOpaque(true);
 		this.add(lundi, gbc);
 		// Mardi
 		gbc.gridx = 2;
-		teString=test.GetDate(semaine, 2);
+		teString=test.GetDate(semaine, 3);
 		this.add(new JLabel("Mardi "+teString), gbc);
 		// Mercredi
 		gbc.gridx = 3;
-		teString=test.GetDate(semaine, 3);
+		teString=test.GetDate(semaine, 4);
 		this.add(new JLabel("Mercredi "+teString), gbc);
 		// Jeudi
 		gbc.gridx = 4;
-		teString=test.GetDate(semaine, 4);
+		teString=test.GetDate(semaine, 5);
 		this.add(new JLabel("Jeudi "+teString), gbc);
 		// Vendredi
 		gbc.gridx = 5;
-		teString=test.GetDate(semaine, 5);
+		teString=test.GetDate(semaine, 6);
 		this.add(new JLabel("Vendredi "+teString), gbc);
 		// Samedi
 		gbc.gridx = 6;
-		teString=test.GetDate(semaine, 6);
+		teString=test.GetDate(semaine, 7);
 		this.add(new JLabel("Samedi "+teString), gbc);
 		// Dimanche
 		gbc.gridx = 7;
-		teString=test.GetDate(semaine, 7);
+		teString=test.GetDate(semaine, 1);
 		this.add(new JLabel("Dimanche "+teString), gbc);
 				
 		//Les Horaires

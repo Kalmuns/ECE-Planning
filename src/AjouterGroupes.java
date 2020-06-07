@@ -16,9 +16,11 @@ public class AjouterGroupes extends JFrame{
 	private JComboBox<String> enseiBox;
 	private ArrayList<Groupe> groupes=new ArrayList<Groupe>();
 	private ArrayList<Groupe> available =new ArrayList<Groupe>();
+	private Wall wall ;
 	
-	public AjouterGroupes(int idseanc, ArrayList<Groupe> gr)
+	public AjouterGroupes(int idseanc, ArrayList<Groupe> gr,Wall walls)
 	{
+		wall=walls;
 		enseiBox=new JComboBox<String>();
 		DAO dao=new DAO();
 		groupes=dao.getallgroupe();
@@ -55,7 +57,7 @@ public class AjouterGroupes extends JFrame{
 					dis();
 					new Succes();
 					test=1;
-					
+					actualiser();
 					
 				}
 			}
@@ -71,4 +73,8 @@ public class AjouterGroupes extends JFrame{
 	{
 		this.dispose();
 	}
+    private void actualiser()
+    {
+    	wall.actual(new WallSeancegrid(wall));
+    }
 }

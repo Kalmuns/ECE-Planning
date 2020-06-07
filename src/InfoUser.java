@@ -36,12 +36,8 @@ public class InfoUser extends JPanel
 			this.add(new JLabel("Last Seance :"+seances.get(seances.size()-1).getdate().toString()));
 			this.add(new JLabel("nb seance :"+outil.nbseance(seances)));
     	}
-	
-		
 		this.setVisible(true);
 		this.validate();
-
         //baba=tutu.rechercheDoc(search);
-
     }
 }

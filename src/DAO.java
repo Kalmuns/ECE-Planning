@@ -4,7 +4,11 @@ import java.util.ArrayList;
 public class DAO {
 		
 	private Connection conn=null;
-	
+	/**
+	 * 
+	 * 
+	 * 
+	 */
 	public DAO(){
 		String url = "jdbc:mysql://localhost:3306/planning?autoReconnect=true&useSSL=false";
 
@@ -277,7 +281,7 @@ public class DAO {
 			query+="  RIGHT JOIN seancegroupes ON seance.seance_ID= seanceGroupes_SeanceID"	;
 			query+= " WHERE seanceGroupes_GroupeID = ";
 			query+= groupe.getid();
-			query+= " AND seanceEnseignants_SeanceID IN (";
+			query+= " AND seanceEnseignants_EnseignantsID IN (";
 			int i;
 			i=enseignants.size();
 			for(i=0;i<enseignants.size();i++)
@@ -290,6 +294,8 @@ public class DAO {
 			}
 			query+= ") ";
 			query+= "ORDER BY seance.seance_Date ASC";
+			System.out.println("query getseance by groupe enseignant:");
+			System.out.println(query);
 			DAO dao=new DAO();
 			//System.out.println(query);
 			 try {
@@ -316,8 +322,9 @@ public class DAO {
 			query+="	INNER JOIN  seanceenseignants  ON seanceGroupes_SeanceID= seanceEnseignants_SeanceID  ";
 		
 		
-			query+= " WHERE  seanceEnseignants_SeanceID IN (";
+			query+= " WHERE  seanceEnseignants_EnseignantsID IN (";
 			int i;
+			
 			i=enseignants.size();
 			for(i=0;i<enseignants.size();i++)
 			{
@@ -328,6 +335,7 @@ public class DAO {
 				}
 			}
 			query+= ") ";
+			System.out.println("query: "+query);
 			DAO dao=new DAO();
 			//System.out.println(query);
 			 try {
