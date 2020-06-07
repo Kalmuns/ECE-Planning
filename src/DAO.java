@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.ArrayList;
 /**
- * Récupère les informations de la BDD
+ * Rï¿½cupï¿½re les informations de la BDD
  * 
  *  
  *
@@ -319,7 +319,7 @@ public class DAO {
 		if(enseignants.size()>0)
 		{
 		ArrayList<Groupe> groupes=new ArrayList<>();
-		String query="SELECT DISTINCT * FROM seancegroupes";
+		String query="SELECT DISTINCT seanceGroupes_GroupeID FROM seancegroupes";
 			query+="	INNER JOIN  seanceenseignants  ON seanceGroupes_SeanceID= seanceEnseignants_SeanceID  ";
 		
 		
