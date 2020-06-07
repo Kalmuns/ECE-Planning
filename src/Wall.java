@@ -14,7 +14,9 @@ public class Wall extends JPanel
         add(buffer,BorderLayout.CENTER);
         buffer=new Menu(this);
         add(buffer,BorderLayout.NORTH);
-
+        //JFreeChartTest test = new JFreeChartTest();
+        //add(test,BorderLayout.SOUTH);
+        
 
         this.validate();
         setVisible(true);

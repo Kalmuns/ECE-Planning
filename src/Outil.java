@@ -1,5 +1,6 @@
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -17,7 +18,17 @@ public class Outil {
 	    cal.setTime(dates);
 	    return cal.get(Calendar.WEEK_OF_YEAR);
 	}
-	
+	public String GetDate(int semaine, int jour) {
+		Calendar cal = Calendar.getInstance();
+		
+		cal.setWeekDate(2020, semaine, jour);
+		java.util.Date date = cal.getTime();
+		String day = new SimpleDateFormat("dd").format(date); 
+		String month = new SimpleDateFormat("MM").format(date);
+		String resultatString = new String();
+		resultatString = (day + "/" +month);
+		return resultatString;
+	}
 	public String convertirJour(java.sql.Date dates)
 	{
 		Calendar cal = Calendar.getInstance();

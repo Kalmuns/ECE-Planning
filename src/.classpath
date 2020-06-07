@@ -3,5 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="lib" path="C:/Users/Zat/Desktop/Planning/mysql-connector-java-5.1.49-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Zat/Desktop/Planning/jfreechart-1.5.0.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
