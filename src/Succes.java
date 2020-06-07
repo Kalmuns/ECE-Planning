@@ -19,9 +19,10 @@ public class Succes extends JFrame{
 		this.setLayout(new BorderLayout());
 		okButton= new JButton("OK");
 		okButton.addActionListener(new OkListener());
-		this.add(new JLabel("SUCCES"));
-		this.add(okButton);
+		this.add(new JLabel("SUCCES"),BorderLayout.NORTH);
+		this.add(okButton,BorderLayout.SOUTH);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.setVisible(true);
 		this.validate();
 		// TODO Auto-generated constructor stub
 	}
@@ -29,9 +30,7 @@ public class Succes extends JFrame{
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			
 			dis();
-		
 		}
 	}
 	private void dis()

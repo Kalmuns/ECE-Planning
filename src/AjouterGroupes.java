@@ -50,19 +50,20 @@ public class AjouterGroupes extends JFrame{
 			{
 				if(groupes.get(enseiBox.getSelectedIndex()).getid()==available.get(i).getid())
 				{
-					test=1;
-					new Error();
+					InsertBDD insertBDD=new InsertBDD();
+					insertBDD.insertseancegroupes(idseance, groupes.get(enseiBox.getSelectedIndex()).getid());
 					dis();
+					new Succes();
+					test=1;
+					
+					
 				}
 			}
 			if(test==0)
 			{
-				InsertBDD insertBDD=new InsertBDD();
-				insertBDD.insertseancegroupes(idseance, groupes.get(enseiBox.getSelectedIndex()).getid());
-				dis();
-				new Succes();
+				new Error();
 			}
-			
+			dis();
 		}
 	}
 	

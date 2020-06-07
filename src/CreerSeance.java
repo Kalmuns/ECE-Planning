@@ -156,15 +156,16 @@ public class CreerSeance extends JPanel{
        //     System.out.println(resDate);
             
             
-            if(resHeureD.intValue()+resHeureF.intValue()<8&&outil.convertirJour(date).equalsIgnoreCase("Dimanche"))
+            if(resHeureD.intValue()+resHeureF.intValue()>=8&&outil.convertirJour(date).equalsIgnoreCase("Dimanche"))
             {
-            	insertBDD.insertSeance(date, resHeureD.intValue(), resHeureF.intValue(), 0, cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
-            	new Succes();
+            	new Error();
             	//ibdd.insertSeance(); // voir le InsertSeance (manque la semaine) convertir date en string
             }
             
             else {
-            	new Error();
+            	insertBDD.insertSeance(date, resHeureD.intValue(), resHeureF.intValue(), 0, cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
+            	new Succes();
+            	
 			}
       }
     }

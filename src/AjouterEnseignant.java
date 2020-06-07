@@ -51,18 +51,20 @@ public class AjouterEnseignant extends JFrame{
 			{
 				if(enseignants.get(enseiBox.getSelectedIndex()).getID()==available.get(i).getID())
 				{
-					test=1;
-					new Error();
+					InsertBDD insertBDD=new InsertBDD();
+					insertBDD.insertseanceenseignant(idseance, enseignants.get(enseiBox.getSelectedIndex()).getID());
 					dis();
+					new Succes();
+					test=1;
 				}
 			}
 			if(test==0)
 			{
-			InsertBDD insertBDD=new InsertBDD();
-			insertBDD.insertseanceenseignant(idseance, enseignants.get(enseiBox.getSelectedIndex()).getID());
-			dis();
-			new Succes();
+				
+				new Error();
+				
 			}
+			dis();
 		}
 	}
 	

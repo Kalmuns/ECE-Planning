@@ -19,9 +19,10 @@ public class Error extends JFrame{
 		this.setLayout(new BorderLayout());
 		okButton= new JButton("OK");
 		okButton.addActionListener(new OkListener());
-		this.add(new JLabel("Erreur, Action Invalide"));
-		this.add(okButton);
+		this.add(new JLabel("Erreur, Action Invalide"),BorderLayout.NORTH);
+		this.add(okButton,BorderLayout.SOUTH);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.setVisible(true);
 		this.validate();
 		// TODO Auto-generated constructor stub
 	}

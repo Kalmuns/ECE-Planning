@@ -137,7 +137,15 @@ public class Calendrier extends JPanel {
 			gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
 			
 			this.add(new Cell(seances.get(i),user,wallCalendrier,semaine),gbc);
-			
+			int heuresRestantes= seances.get(i).getduree();
+            int j=1;
+            while (heuresRestantes>1) {
+                gbc.gridy =seances.get(i).getheure_debut()+j;
+                gbc.gridx =test.convertirJourInt(seances.get(i).getdate());
+                this.add(new Cell(seances.get(i),user,wallCalendrier,semaine),gbc);
+                heuresRestantes--;
+                j++;
+            }
 		}
 		for(int i=0;i<7;i++)
 		{

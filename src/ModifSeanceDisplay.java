@@ -246,8 +246,6 @@ public class ModifSeanceDisplay extends JPanel
         		Integer hd = (Integer) heureD.getSelectedItem();
         		Integer du =  (Integer)   duree.getSelectedItem();
         		java.util.Date da= (java.util.Date) date.getValue();
-        		//System.out.println(seance);
-        		//System.out.println("seance "+seance.getidseance()+"cour"+ cours.get(coursNom.getSelectedIndex()).getID()+"typecour "+type_cours.get(coursType.getSelectedIndex()).getID()+" date "+new Date(da.getYear(), da.getMonth(), da.getDay())+hd.intValue() +du.intValue());
         		insertBDD.updateSeance(seance.getidseance(), new Date(da.getYear(), da.getMonth(), da.getDay()), hd.intValue() ,du.intValue(), cours.get(coursNom.getSelectedIndex()).getID(), type_cours.get(coursType.getSelectedIndex()).getID());
         }
     }
@@ -258,7 +256,7 @@ public class ModifSeanceDisplay extends JPanel
 		public void actionPerformed(ActionEvent e)
         {
         	DeleterBDD deleterBDD=new DeleterBDD();
-        	if (salleCB.getComponentCount()<=0)
+        	if (salleCB.getItemCount()<=0)
         	{
         		new Error();
         	}
@@ -275,7 +273,7 @@ public class ModifSeanceDisplay extends JPanel
 		public void actionPerformed(ActionEvent e)
         {
         	DeleterBDD deleterBDD=new DeleterBDD();
-        	if(enseignantCB.getComponentCount()<=0)
+        	if(enseignantCB.getItemCount()<=0)
         	{
         	 new Error();
         	}
@@ -292,7 +290,7 @@ public class ModifSeanceDisplay extends JPanel
 		public void actionPerformed(ActionEvent e)
         {
         	DeleterBDD deleterBDD=new DeleterBDD();
-        	if (groupeCB.getComponentCount()<=0) {
+        	if (groupeCB.getItemCount()<=0) {
 				new Error();
 			}
         	else
@@ -311,9 +309,9 @@ public class ModifSeanceDisplay extends JPanel
     		Integer du =  (Integer)   duree.getSelectedItem();
     		java.util.Date da= (java.util.Date) date.getValue();
         	ArrayList<Groupe> availableGroupes=new ArrayList<Groupe>();
-        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue()-1;i++ )
+        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue();i++ )
         	{
-              	availableGroupes.addAll(outil.avalaibleGroupe(new Date(da.getYear(), da.getMonth(), da.getDay()),i));
+              	availableGroupes.addAll(outil.avalaibleGroupe(new Date(da.getYear(), da.getMonth(), da.getDate()),i));
         	}
           	new AjouterGroupes(seance.getidseance(),availableGroupes);
         }
@@ -328,10 +326,12 @@ public class ModifSeanceDisplay extends JPanel
     		Integer du =  (Integer)   duree.getSelectedItem();
     		java.util.Date da= (java.util.Date) date.getValue();
         	ArrayList<Enseignant> availableEnseignant=new ArrayList<Enseignant>();
-        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue()-1;i++ )
+        	System.out.println("date ajouter enseignant bouton "+ da.getDate());
+        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue();i++ )
         	{
-              	availableEnseignant.addAll(outil.avalaibleEnseignants(new Date(da.getYear(), da.getMonth(), da.getDay()),i));
+              	availableEnseignant.addAll(outil.avalaibleEnseignants(new Date(da.getYear(), da.getMonth(), da.getDate()),i));
         	}
+
         	new AjouterEnseignant(seance.getidseance(),availableEnseignant);
         }
     }
@@ -345,9 +345,9 @@ public class ModifSeanceDisplay extends JPanel
     		Integer du =  (Integer)   duree.getSelectedItem();
     		java.util.Date da= (java.util.Date) date.getValue();
         	ArrayList<Salle> availableSalles=new ArrayList<Salle>();
-        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue()-1;i++ )
+        	for(int i=hd.intValue(); i<du.intValue()+hd.intValue();i++ )
         	{
-              	availableSalles.addAll(outil.avalaibleSalle(new Date(da.getYear(), da.getMonth(), da.getDay()),i));
+              	availableSalles.addAll(outil.avalaibleSalle(new Date(da.getYear(), da.getMonth(), da.getDate()),i));
         	}
         	new AjouterSalle(seance.getidseance(),availableSalles);
         }
