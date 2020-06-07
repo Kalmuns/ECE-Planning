@@ -1,7 +1,12 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * Le menu est un JPanel situé au nord du JPanel sur lequel il est 
+ * Il est présent partout 
+ * Il contient l'ID qui est utilisé de A a Z 
+ * 
+ */
 public class Menu extends JPanel  {
 
 
