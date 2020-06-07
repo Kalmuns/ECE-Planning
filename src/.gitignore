@@ -96,3 +96,6 @@
 /ModifSeanceDisplay$supGroupeListener.class
 /ModifSeanceDisplay$supSalleListener.class
 /Menu$Jfree.class
+/AjouterEnseignant$ValideenseignantListener.class
+/AjouterGroupes$ValidegrListener.class
+/AjouterSalle$ValidesalleListener.class
