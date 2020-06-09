@@ -66,7 +66,7 @@ public class EnseignantDisplay extends JPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			Enseignant prof = todisplay.get(1);
+//			Enseignant prof = todisplay.get(1);
 //			int prof_Nom = prof.getID();
 			//System.out.println("Nom: "+i);
 			wallCalendrier.actualCalendrier(semaine, 3, i,wallCalendrier.getID());
