@@ -83,6 +83,6 @@ public class AjouterGroupes extends JFrame{
 	}
     private void actualiser()
     {
-    	wall.actual(new WallSeancegrid(wall));
+    	wall.actual(new ModifSeanceDisplay(Integer.toString(idseance), wall));
     }
 }

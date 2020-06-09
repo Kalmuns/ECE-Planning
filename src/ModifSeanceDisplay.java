@@ -203,26 +203,26 @@ public class ModifSeanceDisplay extends JPanel
         p1.add(valider);
 
 
-        p2.setLayout(new GridLayout(1,salles.size(),1,10));
-        p2.add(new JLabel("salles: "));
-        for(JLabel s : salleL)
-        {
-            p2.add(s);
-        }
+ //       p2.setLayout(new GridLayout(1,salles.size(),1,10));
+        p2.add(new JLabel(" "));
+//        for(JLabel s : salleL)
+//        {
+//            p2.add(s);
+//        }
 
-        p3.setLayout(new GridLayout(1,enseignants.size(),1,10));
-        p3.add(new JLabel("enseignant: "));
-        for(JLabel e : enseignantL)
-        {
-            p3.add(e);
-        }
+ //       p3.setLayout(new GridLayout(1,enseignants.size(),1,10));
+        p3.add(new JLabel(" "));
+//        for(JLabel e : enseignantL)
+//        {
+//            p3.add(e);
+//        }
 
-        p4.setLayout(new GridLayout(1,groupe.size(),1,10));
-        p4.add(new JLabel("groupe: "));
-        for(JLabel g : groupeL)
-        {
-            p4.add(g);
-        }
+//        p4.setLayout(new GridLayout(1,groupe.size(),1,10));
+        p4.add(new JLabel(" "));
+//        for(JLabel g : groupeL)
+//        {
+//            p4.add(g);
+//        }
 
         JPanel p5 = new JPanel();
         p5.setLayout(new GridLayout(3,4,1,10));
@@ -249,7 +249,7 @@ public class ModifSeanceDisplay extends JPanel
     }
     private void actualiser()
     {
-    	wall.actual(new WallSeancegrid(wall));
+    	wall.actual(new ModifSeanceDisplay(Integer.toString(seance.getidseance()), wall));
     }
     
     private class ValiderListener implements ActionListener
